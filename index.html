@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bigest Mall - More than shopping, it's your biggest world.</title>
+  <meta name="description" content="Bigest Mall — global quality products delivered to your doorstep." />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root{
+      --primary-gold:#D4AF37;
+      --secondary-blue:#0A2540;
+      --dark-bg:#121212;
+      --light-bg:#f4f6f8;
+      --white:#ffffff;
+      --text-color:#333333;
+      --whatsapp-green:#25D366;
+      --max-width:1200px;
+      --gap:16px;
+    }
+
+    /* Base reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--light-bg);
+      color:var(--text-color);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    /* Utility */
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    .visually-hidden{
+      position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);
+      white-space:nowrap;border:0;padding:0;margin:-1px;
+    }
+    a{color:inherit}
+
+    /* Skip link */
+    .skip-link{
+      position:fixed;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:999;
+      transform:translateY(-120%);transition:transform .18s ease;
+    }
+    .skip-link:focus{transform:none;outline:3px solid var(--primary-gold)}
+
+    /* Top Bar */
+    .top-bar{
+      background:var(--dark-bg);color:var(--white);
+      padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+    }
+    .brand-strong{color:var(--primary-gold);font-weight:700}
+
+    /* Header */
+    header.site-header{
+      background:var(--secondary-blue);color:var(--white);
+      position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+    .header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
+    .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
+    .logo i{font-size:1.35rem}
+    .search-form{flex:1;min-width:220px;display:flex;max-width:640px}
+    .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
+    .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
+    .header-actions{display:flex;align-items:center;gap:12px}
+    .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
+    .action-btn:focus{outline:3px solid rgba(212,175,55,0.25)}
+    .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
+
+    /* Floating WhatsApp */
+    .floating-whatsapp{
+      position:fixed;bottom:25px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
+      font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
+    }
+    .floating-whatsapp:hover{transform:scale(1.06)}
+    .floating-whatsapp:focus{box-shadow:0 0 0 4px rgba(37,211,102,0.18);outline:none}
+
+    /* Nav */
+    nav.site-nav{background:var(--dark-bg);padding:8px 5%}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;overflow:auto}
+    .nav-list{display:flex;gap:20px;list-style:none;padding:0;margin:0}
+    .nav-list a{color:var(--white);text-decoration:none;white-space:nowrap}
+    .nav-list a:hover{color:var(--primary-gold)}
+
+    /* Hero */
+    .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:56px 20px;border-bottom:4px solid var(--primary-gold)}
+    .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
+    .hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
+    .btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
+
+    /* Sections */
+    .section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
+
+    /* Categories */
+    .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+    .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer}
+    .category-card i{font-size:1.4rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
+
+    /* Products */
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:36px}
+    .product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between}
+    .product-img{height:160px;background:#eee;display:flex;align-items:center;justify-content:center;color:#888}
+    .product-info{padding:14px}
+    .product-title{font-weight:600;margin:0 0 8px;font-size:1rem}
+    .product-price{color:var(--secondary-blue);font-weight:700;margin-bottom:12px}
+    .btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700}
+    .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
+
+    /* Footer */
+    footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px}
+    .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+    .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
+    .footer-column a{color:#ccc;text-decoration:none}
+    .footer-column a:hover{color:var(--white)}
+    .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
+
+    /* Toast */
+    .toast{position:fixed;right:20px;bottom:20px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
+    .toast.show{opacity:1;transform:none}
+
+    /* Focus visible */
+    :focus{outline-offset:3px}
+    button:focus,a:focus{outline:3px solid rgba(212,175,55,0.25)}
+
+    @media (max-width:720px){
+      .search-form{order:3;width:100%;margin-top:8px}
+      .header-actions{order:2;margin-left:auto}
+      .logo{order:1}
+      .hero{padding:40px 12px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+
+    /* Phone link style */
+    .phone-link{color:inherit;text-decoration:underline;font-weight:700}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall at +966 54 342 8325">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span>Order via WhatsApp</span>
+  </a>
+
+  <!-- Top Bar -->
+  <div class="top-bar" role="region" aria-label="Top bar">
+    <div>Welcome to <span class="brand-strong">BIGEST MALL</span> | Worldwide Shipping Available</div>
+    <div>
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      Helpline:
+      <a href="tel:+966543428325" class="phone-link" aria-label="Call Bigest Mall helpline at +966 54 342 8325">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="logo" href="#" aria-label="Bigest Mall home">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <span>BIGEST MALL</span>
+      </a>
+
+      <form class="search-form" role="search" aria-label="Site search" onsubmit="return false;">
+        <label for="site-search" class="visually-hidden">Search products, brands and categories</label>
+        <input id="site-search" type="search" placeholder="Search for products, brands and categories..." />
+        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+      </form>
+
+      <div class="header-actions" role="group" aria-label="Header actions">
+        <a class="action-btn" href="#" role="button" aria-label="Account">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+          <span class="visually-hidden">Account</span>
+        </a>
+
+        <button class="action-btn" id="cart-button" aria-label="Cart, 0 items" aria-controls="cart-count">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="visually-hidden">Cart</span>
+          <span id="cart-count" class="cart-badge" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner container">
+      <ul class="nav-list" role="menubar" aria-label="Main menu">
+        <li role="none"><a role="menuitem" href="#"><i class="fa-solid fa-bars" aria-hidden="true"></i> All Categories</a></li>
+        <li role="none"><a role="menuitem" href="#">Electronics</a></li>
+        <li role="none"><a role="menuitem" href="#">Fashion</a></li>
+        <li role="none"><a role="menuitem" href="#">Home &amp; Kitchen</a></li>
+        <li role="none"><a role="menuitem" href="#">Beauty &amp; Care</a></li>
+        <li role="none"><a role="menuitem" href="#">Global Shipping</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main id="main" tabindex="-1">
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="container">
+        <h1>BIGEST MALL</h1>
+        <p>"More than shopping, it's your biggest world."</p>
+        <button class="btn-shop" type="button" id="explore-btn">Explore Now</button>
+      </div>
+    </section>
+
+    <div class="container" aria-live="polite">
+      <h2 class="section-title">Top Categories</h2>
+      <div class="categories-grid" role="list">
+        <div class="category-card" role="listitem" tabindex="0" aria-label="Mobiles category">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <h3>Mobiles</h3>
+        </div>
+        <div class="category-card" role="listitem" tabindex="0" aria-label="Laptops category">
+          <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+          <h3>Laptops</h3>
+        </div>
+        <div class="category-card" role="listitem" tabindex="0" aria-label="Fashion category">
+          <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+          <h3>Fashion</h3>
+        </div>
+        <div class="category-card" role="listitem" tabindex="0" aria-label="Home category">
+          <i class="fa-solid fa-couch" aria-hidden="true"></i>
+          <h3>Home</h3>
+        </div>
+        <div class="category-card" role="listitem" tabindex="0" aria-label="Global Products category">
+          <i class="fa-solid fa-plane" aria-hidden="true"></i>
+          <h3>Global Products</h3>
+        </div>
+      </div>
+
+      <h2 class="section-title">Featured Products</h2>
+      <div class="products-grid" id="products-grid" aria-label="Featured products">
+        <article class="product-card" data-name="Wireless Headphones" data-price="99.99" aria-labelledby="p1-title">
+          <div class="product-img" aria-hidden="true">
+            <i class="fa-solid fa-headphones fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="product-info">
+            <h3 id="p1-title" class="product-title">Wireless Headphones</h3>
+            <div class="product-price">$99.99</div>
+            <button class="btn-add-cart" type="button" data-name="Wireless Headphones" data-price="99.99">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Smart Watch Ultra" data-price="199.99" aria-labelledby="p2-title">
+          <div class="product-img" aria-hidden="true">
+            <i class="fa-solid fa-stopwatch fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="product-info">
+            <h3 id="p2-title" class="product-title">Smart Watch Ultra</h3>
+            <div class="product-price">$199.99</div>
+            <button class="btn-add-cart" type="button" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="4K DSLR Camera" data-price="549.99" aria-labelledby="p3-title">
+          <div class="product-img" aria-hidden="true">
+            <i class="fa-solid fa-camera fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="product-info">
+            <h3 id="p3-title" class="product-title">4K DSLR Camera</h3>
+            <div class="product-price">$549.99</div>
+            <button class="btn-add-cart" type="button" data-name="4K DSLR Camera" data-price="549.99">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-name="Running Shoes" data-price="75.00" aria-labelledby="p4-title">
+          <div class="product-img" aria-hidden="true">
+            <i class="fa-solid fa-shoe-prints fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="product-info">
+            <h3 id="p4-title" class="product-title">Running Shoes</h3>
+            <div class="product-price">$75.00</div>
+            <button class="btn-add-cart" type="button" data-name="Running Shoes" data-price="75.00">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <h3>BIGEST MALL</h3>
+        <p style="color:#aaa;font-size:14px">More than shopping, it's your biggest world. We provide global quality products right at your doorstep.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="color:#ccc">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            Phone: <a href="tel:+966543428325" class="phone-link" aria-label="Call Bigest Mall helpline at +966 54 342 8325">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+          </li>
+          <li style="color:#ccc">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            WhatsApp: <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+          </li>
+          <li style="color:#ccc">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Email: <a href="mailto:support@bigestmall.com">support@bigestmall.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Customer Policy</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Shipping &amp; Delivery</a></li>
+          <li><a href="#">Return Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+  <script>
+    (function(){
+      "use strict";
+
+      // Elements
+      const CART_KEY = "bigestmall_cart_count";
+      const cartCountEl = document.getElementById("cart-count");
+      const productsGrid = document.getElementById("products-grid");
+      const toastEl = document.getElementById("toast");
+      const cartButton = document.getElementById("cart-button");
+
+      // Initialize cart count from localStorage
+      let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
+      updateCartUI();
+
+      // Event delegation for Add to Cart buttons
+      productsGrid.addEventListener("click", (ev) => {
+        const btn = ev.target.closest(".btn-add-cart");
+        if (!btn) return;
+        const name = btn.dataset.name || "Item";
+        const price = btn.dataset.price || "";
+        addToCart(name, price);
+      });
+
+      // Keyboard support for category cards (Enter/Space)
+      document.querySelectorAll(".category-card").forEach(card => {
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      // Add to cart logic
+      function addToCart(name, price) {
+        count++;
+        localStorage.setItem(CART_KEY, String(count));
+        updateCartUI();
+        showToast(`Added "${name}"${price ? " — $" + price : ""} to cart`);
+      }
+
+      function updateCartUI() {
+        cartCountEl.textContent = String(count);
+        cartButton.setAttribute("aria-label", `Cart, ${count} item${count !== 1 ? "s" : ""}`);
+      }
+
+      // Toast implementation
+      let toastTimer = null;
+      function showToast(message, timeout = 2200) {
+        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+        toastEl.textContent = message;
+        toastEl.hidden = false;
+        toastEl.classList.add("show");
+        toastTimer = setTimeout(hideToast, timeout);
+      }
+      function hideToast() {
+        toastEl.classList.remove("show");
+        toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
+      }
+
+      // Explore button sample action
+      document.getElementById("explore-btn").addEventListener("click", () => {
+        showToast("Explore feature coming soon — check categories below!");
+      });
+
+      // Optional: long-press on cart to clear (demo)
+      let cartPressTimer;
+      cartButton.addEventListener("mousedown", () => {
+        cartPressTimer = setTimeout(() => {
+          if (confirm("Clear cart?")) {
+            count = 0;
+            localStorage.setItem(CART_KEY, String(count));
+            updateCartUI();
+            showToast("Cart cleared");
+          }
+        }, 1000);
+      });
+      ["mouseup","mouseleave","touchend","touchcancel"].forEach(evt => {
+        cartButton.addEventListener(evt, () => clearTimeout(cartPressTimer));
+      });
+
+    })();
+  </script>
+</body>
+</html>
