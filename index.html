@@ -240,15 +240,50 @@
 
       <h2 class="section-title">Featured Products</h2>
       <div class="products-grid" id="products-grid" aria-label="Featured products">
-        <article class="product-card" data-name="Wireless Headphones" data-price="99.99" aria-labelledby="p1-title">
-          <div class="product-img" aria-hidden="true">
-            <i class="fa-solid fa-headphones fa-3x" aria-hidden="true"></i>
-          </div>
-          <div class="product-info">
-            <h3 id="p1-title" class="product-title">Wireless Headphones</h3>
-            <div class="product-price">$99.99</div>
-            <button class="btn-add-cart" type="button" data-name="Wireless Headphones" data-price="99.99">Add to Cart</button>
-          </div>
+        <article <!-- সিঙ্গেল প্রোডাক্ট গ্যালারি -->
+<div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    
+    <!-- মূল বড় ছবি -->
+    <div class="main-image-box" style="width: 100%; height: 280px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;">
+        <img id="main-product-img" src="IMG_2869.jpeg" alt="প্রোডাক্টের নাম" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+    <!-- ছোট ছোট গ্যালারি ছবি (ক্লিক করলে বড় হবে) -->
+    <div class="thumbnail-list" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
+        <img src="IMG_2869.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+        <img src="IMG_2879.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+        <img src="BF2239A8-DBBB-4EB9-9C0B-14478CBF67.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+    </div>
+    
+    <!-- প্রোডাক্টের বিবরণ -->
+    <div class="product-info" style="margin-top: 15px;">
+        <h3 style="margin: 0 0 8px 0; color: #333;">আপনার পণ্যের আসল নাম</h3>
+        <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">উৎস/সোর্স: Imported / Bangladesh</p>
+      <!-- ২৬০: নাম -->
+<h3 style="margin: 0 0 8px 0; color: #333;">Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads</h3>
+
+Fam Maxi Without Wings Sanitary Pads take on every day with the confidence that you're fully protected. With a body-hug fit, It pull fluid deep into the core and away from the edges for noticeably clean and dry protection.
+<p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Personal Care / Hygiene</p>
+
+<!-- ২৬২: রিয়ালে দাম -->
+<p class="product-price" style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 8px 0;">25 SAR <del style="font-size: 14px; color: #999;">30 SAR</del></p>
+
+<!-- ২৬৫: আপনার পণ্যের বিবরণ -->
+<p style="font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 15px;">
+    Fam Maxi Without Wings Sanitary Pads take on every day with the confidence that you're fully protected. With a body-hug fit, it pulls fluid deep into the core and away from the edges for noticeably clean and dry protection.
+</p>
+
+        
+        <p style="font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 15px;">
+            এখানে পণ্যের সাইজ, রঙ, মেটেরিয়াল বা ডিটেইলস লিখুন।
+        </p>
+        
+        <button class="btn-add-cart" type="button" style="width: 100%; padding: 12px; background: #007bff; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+            অর্ডার করুন
+        </button>
+    </div>
+</div>
+
         </article>
 
         <article class="product-card" data-name="Smart Watch Ultra" data-price="199.99" aria-labelledby="p2-title">
