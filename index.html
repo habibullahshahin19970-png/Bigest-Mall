@@ -18,6 +18,7 @@
       --whatsapp-green:#25D366;
       --max-width:1200px;
       --gap:16px;
+      --active-blue: #1a73e8;
     }
 
     /* Base reset */
@@ -31,6 +32,7 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.4;
+      padding-bottom: 75px; /* Bottom Nav এর জন্য জায়গা রাখা হয়েছে */
     }
 
     /* Utility */
@@ -47,6 +49,57 @@
       transform:translateY(-120%);transition:transform .18s ease;
     }
     .skip-link:focus{transform:none;outline:3px solid var(--primary-gold)}
+
+    /* Bottom Navigation Bar Style (From Image) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid #e0e0e0;
+      z-index: 1100;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #5f6368;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 20%;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item i {
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .nav-item.active {
+      color: var(--active-blue);
+      font-weight: 700;
+    }
+
+    /* Dashboard View Switching Logic */
+    .app-view {
+      display: none;
+    }
+    .app-view.active-view {
+      display: block;
+    }
 
     /* Top Bar */
     .top-bar{
@@ -73,21 +126,14 @@
 
     /* Floating WhatsApp */
     .floating-whatsapp{
-      position:fixed;bottom:25px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
+      position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
       font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
     }
     .floating-whatsapp:hover{transform:scale(1.06)}
     .floating-whatsapp:focus{box-shadow:0 0 0 4px rgba(37,211,102,0.18);outline:none}
 
-    /* Nav */
-    nav.site-nav{background:var(--dark-bg);padding:8px 5%}
-    .nav-inner{max-width:var(--max-width);margin:0 auto;overflow:auto}
-    .nav-list{display:flex;gap:20px;list-style:none;padding:0;margin:0}
-    .nav-list a{color:var(--white);text-decoration:none;white-space:nowrap}
-    .nav-list a:hover{color:var(--primary-gold)}
-
     /* Hero */
-    .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:56px 20px;border-bottom:4px solid var(--primary-gold)}
+    .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
     .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
     .hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
     .btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
@@ -111,7 +157,7 @@
     .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
 
     /* Footer */
-    footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px}
+    footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
     .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
     .footer-column a{color:#ccc;text-decoration:none}
@@ -119,7 +165,7 @@
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
 
     /* Toast */
-    .toast{position:fixed;right:20px;bottom:20px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
+    .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
     .toast.show{opacity:1;transform:none}
 
     /* Focus visible */
@@ -161,15 +207,15 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Biggest Mall Header Logo (Protected from Translation) -->
-  <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 20px;">
+  <!-- Biggest Mall Header Logo -->
+  <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 0px;">
       <img src="0716600E-C20E-40AA-A036-45D14654E34B.png" alt="Biggest Mall Logo" style="max-height: 80px; width: auto; object-fit: contain;">
   </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall at +966 54 342 8325">
+  <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     <span>Order via WhatsApp</span>
   </a>
@@ -180,14 +226,14 @@
     <div>
       <i class="fa-solid fa-phone" aria-hidden="true"></i>
       Helpline:
-      <a href="tel:+966543428325" class="phone-link" aria-label="Call Bigest Mall helpline at +966 54 342 8325">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+      <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
     </div>
   </div>
 
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="logo" href="#" aria-label="Bigest Mall home">
+      <a class="logo" href="#" onclick="switchDashboard('home-view')">
         <i class="fa-solid fa-globe" aria-hidden="true"></i>
         <span>BIGEST MALL</span>
       </a>
@@ -199,185 +245,192 @@
       </form>
 
       <div class="header-actions" role="group" aria-label="Header actions">
-        <a class="action-btn" href="#" role="button" aria-label="Account">
+        <button class="action-btn" onclick="switchDashboard('account-view')" aria-label="Account">
           <i class="fa-regular fa-user" aria-hidden="true"></i>
-          <span class="visually-hidden">Account</span>
-        </a>
+        </button>
 
-        <button class="action-btn" id="cart-button" aria-label="Cart, 0 items" aria-controls="cart-count">
+        <button class="action-btn" id="cart-button" onclick="switchDashboard('cart-view')" aria-label="Cart">
           <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          <span class="visually-hidden">Cart</span>
           <span id="cart-count" class="cart-badge" aria-live="polite">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Nav -->
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner container">
-      <ul class="nav-list" role="menubar" aria-label="Main menu">
-        <li role="none"><a role="menuitem" href="#"><i class="fa-solid fa-bars" aria-hidden="true"></i> All Categories</a></li>
-        <li role="none"><a role="menuitem" href="#">Electronics</a></li>
-        <li role="none"><a role="menuitem" href="#">Fashion</a></li>
-        <li role="none"><a role="menuitem" href="#">Home &amp; Kitchen</a></li>
-        <li role="none"><a role="menuitem" href="#">Beauty &amp; Care</a></li>
-        <li role="none"><a role="menuitem" href="#">Global Shipping</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Main -->
   <main id="main" tabindex="-1">
-    <section class="hero" role="region" aria-label="Hero">
-      <div class="container">
-        <h1>BIGEST MALL</h1>
-        <p>"More than shopping, it's your biggest world."</p>
-        <button class="btn-shop" type="button" id="explore-btn">Explore Now</button>
-      </div>
-    </section>
+    
+    <!-- ================= 1. HOME DASHBOARD ================= -->
+    <div id="home-view" class="app-view active-view">
+      <section class="hero" role="region" aria-label="Hero">
+        <div class="container">
+          <h1>BIGEST MALL</h1>
+          <p>"More than shopping, it's your biggest world."</p>
+          <button class="btn-shop" type="button" id="explore-btn">Explore Now</button>
+        </div>
+      </section>
 
-    <div class="container" aria-live="polite">
-      <h2 class="section-title">Top Categories</h2>
-      <div class="categories-grid" role="list">
-        <div class="category-card" role="listitem" tabindex="0" aria-label="Mobiles category">
-          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-          <h3>Mobiles</h3>
+      <div class="container" aria-live="polite">
+        <h2 class="section-title">Top Categories</h2>
+        <div class="categories-grid" role="list">
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+            <h3>Mobiles</h3>
+          </div>
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <h3>Laptops</h3>
+          </div>
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+            <h3>Fashion</h3>
+          </div>
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-couch" aria-hidden="true"></i>
+            <h3>Home</h3>
+          </div>
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-plane" aria-hidden="true"></i>
+            <h3>Global Products</h3>
+          </div>
         </div>
-        <div class="category-card" role="listitem" tabindex="0" aria-label="Laptops category">
-          <i class="fa-solid fa-laptop" aria-hidden="true"></i>
-          <h3>Laptops</h3>
-        </div>
-        <div class="category-card" role="listitem" tabindex="0" aria-label="Fashion category">
-          <i class="fa-solid fa-shirt" aria-hidden="true"></i>
-          <h3>Fashion</h3>
-        </div>
-        <div class="category-card" role="listitem" tabindex="0" aria-label="Home category">
-          <i class="fa-solid fa-couch" aria-hidden="true"></i>
-          <h3>Home</h3>
-        </div>
-        <div class="category-card" role="listitem" tabindex="0" aria-label="Global Products category">
-          <i class="fa-solid fa-plane" aria-hidden="true"></i>
-          <h3>Global Products</h3>
-        </div>
-      </div>
 
-      <h2 class="section-title">Featured Products</h2>
-      <div class="products-grid" id="products-grid" aria-label="Featured products">
-        
-        <!-- সিঙ্গেল প্রোডাক্ট গ্যালারি -->
-        <div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            
-            <!-- মূল বড় ছবি -->
-            <div class="main-image-box" style="width: 100%; height: 280px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;">
-                <img id="main-product-img" src="IMG_2869.jpeg" alt="প্রোডাক্টের নাম" style="width: 100%; height: 100%; object-fit: cover;">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid" id="products-grid">
+          
+          <!-- প্রোডাক্ট গ্যালারি ও অর্ডার ফরম -->
+          <div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+              <div class="main-image-box" style="width: 100%; height: 280px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;">
+                  <img id="main-product-img" src="IMG_2869.jpeg" alt="প্রোডাক্টের নাম" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              
+              <div class="thumbnail-list" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
+                  <img src="IMG_2869.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+                  <img src="IMG_2879.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+                  <img src="BF2239A8-DBBB-4EB9-9C0B-14478CBF67.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+              </div>
+              
+              <div class="product-info" style="margin-top: 15px;">
+                  <h3 style="margin: 0 0 8px 0; color: #333;">Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads</h3>
+                  <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Personal Care / Hygiene</p>
+                  <p class="product-price" style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 8px 0;">25 SAR <del style="font-size: 14px; color: #999;">30 SAR</del></p>
+
+                  <div style="margin: 12px 0; padding: 10px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
+                      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                          <span style="font-size: 13px; color: #333;">or 4 interest-free payments of <b>6.25 SAR</b> with</span>
+                          <span style="background: #39e5a1; color: #000; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tabby</span>
+                      </div>
+                      <div style="display: flex; align-items: center; justify-content: space-between;">
+                          <span style="font-size: 13px; color: #333;">or split in 4 payments of <b>6.25 SAR</b> with</span>
+                          <span style="background: #ffdb80; color: #3d2b00; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tamara</span>
+                      </div>
+                  </div>
+
+                  <!-- Payment & Order Form -->
+                  <div style="margin-top: 15px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa;">
+                      <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">অর্ডার করুন (Order Now)</h4>
+                      <input type="text" placeholder="আপনার নাম (Full Name)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
+                      <input type="tel" placeholder="ফোন নম্বর (Mobile Number)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
+                      <input type="text" placeholder="ডেলিভারি ঠিকানা (City & Address)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
+                      <button type="button" onclick="addToCart('Fam Maxi Pads', '25.00')" style="width: 100%; padding: 12px; background: #28a745; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                          Confirm Order (অর্ডার কনফার্ম করুন)
+                      </button>
+                  </div>
+              </div>
+          </div>
+
+          <article class="product-card">
+            <div class="product-img"><i class="fa-solid fa-stopwatch fa-3x"></i></div>
+            <div class="product-info">
+              <h3 class="product-title">Smart Watch Ultra</h3>
+              <div class="product-price">199.99 SAR</div>
+              <button class="btn-add-cart" type="button" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
             </div>
-            
-            <!-- ছোট ছোট গ্যালারি ছবি -->
-            <div class="thumbnail-list" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
-                <img src="IMG_2869.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
-                <img src="IMG_2879.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
-                <img src="BF2239A8-DBBB-4EB9-9C0B-14478CBF67.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
+          </article>
+
+          <article class="product-card">
+            <div class="product-img"><i class="fa-solid fa-camera fa-3x"></i></div>
+            <div class="product-info">
+              <h3 class="product-title">4K DSLR Camera</h3>
+              <div class="product-price">549.99 SAR</div>
+              <button class="btn-add-cart" type="button" data-name="4K DSLR Camera" data-price="549.99">Add to Cart</button>
             </div>
-            
-            <!-- প্রোডাক্টের বিবরণ -->
-            <div class="product-info" style="margin-top: 15px;">
-                <h3 style="margin: 0 0 8px 0; color: #333;">Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads</h3>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Personal Care / Hygiene</p>
+          </article>
 
-                <p class="product-price" style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 8px 0;">25 SAR <del style="font-size: 14px; color: #999;">30 SAR</del></p>
-
-                <!-- Tabby & Tamara Payment Badges -->
-                <div style="margin: 12px 0; padding: 10px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-                        <span style="font-size: 13px; color: #333;">or 4 interest-free payments of <b>6.25 SAR</b> with</span>
-                        <span style="background: #39e5a1; color: #000; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tabby</span>
-                    </div>
-                    <div style="display: flex; align-items: center; justify-content: space-between;">
-                        <span style="font-size: 13px; color: #333;">or split in 4 payments of <b>6.25 SAR</b> with</span>
-                        <span style="background: #ffdb80; color: #3d2b00; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tamara</span>
-                    </div>
-                </div>
-
-                <p style="font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 15px;">
-                    Fam Maxi Without Wings Sanitary Pads take on every day with the confidence that you're fully protected. With a body-hug fit, it pulls fluid deep into the core and away from the edges for noticeably clean and dry protection.
-                </p>
-                
-                <p style="font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 15px;">
-                    • High absorbent comfortable and soft in touch anti-allergic<br>
-                    • Softness of the cotton feel surface and secure fit<br>
-                    • Triple protection against leakage<br>
-                    • Dermatologically tested for safe usage
-                </p>
-                
-                <!-- Payment & Order Form -->
-                <div style="margin-top: 15px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa;">
-                    <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">অর্ডার করুন (Order Now)</h4>
-
-                    <label style="font-size: 13px; color: #555; display: block; margin-bottom: 4px;">আপনার নাম (Full Name):</label>
-                    <input type="text" placeholder="e.g. Abdullah Rahman" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
-
-                    <label style="font-size: 13px; color: #555; display: block; margin-bottom: 4px;">ফোন নম্বর (Mobile Number):</label>
-                    <input type="tel" placeholder="e.g. 05XXXXXXXX" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
-
-                    <label style="font-size: 13px; color: #555; display: block; margin-bottom: 4px;">ডেলিভারি ঠিকানা (City & Address):</label>
-                    <input type="text" placeholder="e.g. Riyadh, Al-Malaz district" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
-
-                    <label style="font-size: 13px; color: #555; font-weight: bold; display: block; margin-bottom: 8px;">পেমেন্ট পদ্ধতি (Payment Method):</label>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px;">
-                        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
-                            <input type="radio" name="payment_method" value="cod" checked>
-                            💵 Cash on Delivery (ক্যাশ অন ডেলিভারি)
-                        </label>
-
-                        <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
-                            <input type="radio" name="payment_method" value="card">
-                            💳 Bank Card / mada / Visa / Mastercard
-                        </label>
-                    </div>
-
-                    <button type="button" style="width: 100%; padding: 12px; background: #28a745; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
-                        Confirm Order (অর্ডার কনফার্ম করুন)
-                    </button>
-                </div>
-            </div>
         </div>
-
-        <article class="product-card" data-name="Smart Watch Ultra" data-price="199.99" aria-labelledby="p2-title">
-          <div class="product-img" aria-hidden="true">
-            <i class="fa-solid fa-stopwatch fa-3x" aria-hidden="true"></i>
-          </div>
-          <div class="product-info">
-            <h3 id="p2-title" class="product-title">Smart Watch Ultra</h3>
-            <div class="product-price">$199.99</div>
-            <button class="btn-add-cart" type="button" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="product-card" data-name="4K DSLR Camera" data-price="549.99" aria-labelledby="p3-title">
-          <div class="product-img" aria-hidden="true">
-            <i class="fa-solid fa-camera fa-3x" aria-hidden="true"></i>
-          </div>
-          <div class="product-info">
-            <h3 id="p3-title" class="product-title">4K DSLR Camera</h3>
-            <div class="product-price">$549.99</div>
-            <button class="btn-add-cart" type="button" data-name="4K DSLR Camera" data-price="549.99">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="product-card" data-name="Running Shoes" data-price="75.00" aria-labelledby="p4-title">
-          <div class="product-img" aria-hidden="true">
-            <i class="fa-solid fa-shoe-prints fa-3x" aria-hidden="true"></i>
-          </div>
-          <div class="product-info">
-            <h3 id="p4-title" class="product-title">Running Shoes</h3>
-            <div class="product-price">$75.00</div>
-            <button class="btn-add-cart" type="button" data-name="Running Shoes" data-price="75.00">Add to Cart</button>
-          </div>
-        </article>
       </div>
     </div>
+
+    <!-- ================= 2. CATEGORIES DASHBOARD ================= -->
+    <div id="categories-view" class="app-view">
+      <div class="container" style="padding-top: 20px;">
+        <h2 class="section-title">All Categories</h2>
+        <div class="categories-grid">
+          <div class="category-card"><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobiles</h3></div>
+          <div class="category-card"><i class="fa-solid fa-laptop"></i><h3>Laptops</h3></div>
+          <div class="category-card"><i class="fa-solid fa-shirt"></i><h3>Fashion</h3></div>
+          <div class="category-card"><i class="fa-solid fa-couch"></i><h3>Home & Living</h3></div>
+          <div class="category-card"><i class="fa-solid fa-pump-soap"></i><h3>Beauty & Care</h3></div>
+          <div class="category-card"><i class="fa-solid fa-plane"></i><h3>Global Products</h3></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 3. DEALS DASHBOARD ================= -->
+    <div id="deals-view" class="app-view">
+      <div class="container" style="padding-top: 20px;">
+        <h2 class="section-title">🔥 Exclusive Hot Deals</h2>
+        <div class="products-grid">
+          <div class="product-card" style="padding: 20px; text-align: center;">
+            <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
+            <h3>Flash Sale - Smart Watch</h3>
+            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">149.99 SAR <del style="color: #888; font-size: 14px;">199.99 SAR</del></p>
+            <button class="btn-add-cart" data-name="Smart Watch (Deal)" data-price="149.99">Grab Deal</button>
+          </div>
+          <div class="product-card" style="padding: 20px; text-align: center;">
+            <i class="fa-solid fa-tag" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
+            <h3>Camera Bundle Offer</h3>
+            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">499.99 SAR <del style="color: #888; font-size: 14px;">549.99 SAR</del></p>
+            <button class="btn-add-cart" data-name="Camera Bundle" data-price="499.99">Grab Deal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 4. ACCOUNT DASHBOARD ================= -->
+    <div id="account-view" class="app-view">
+      <div class="container" style="padding-top: 20px;">
+        <h2 class="section-title">My Account</h2>
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <i class="fa-solid fa-circle-user" style="font-size: 50px; color: var(--secondary-blue);"></i>
+            <div>
+              <h3 style="margin: 0;">Welcome, Guest</h3>
+              <p style="margin: 0; color: #666; font-size: 14px;">Manage your orders & details</p>
+            </div>
+          </div>
+          <ul style="list-style: none; padding: 0; line-height: 2.5; border-top: 1px solid #eee; padding-top: 10px;">
+            <li><i class="fa-solid fa-box" style="margin-right: 10px; color: var(--primary-gold);"></i> My Orders</li>
+            <li><i class="fa-solid fa-heart" style="margin-right: 10px; color: var(--primary-gold);"></i> Wishlist</li>
+            <li><i class="fa-solid fa-location-dot" style="margin-right: 10px; color: var(--primary-gold);"></i> Delivery Address</li>
+            <li><i class="fa-solid fa-headset" style="margin-right: 10px; color: var(--primary-gold);"></i> Customer Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 5. CART DASHBOARD ================= -->
+    <div id="cart-view" class="app-view">
+      <div class="container" style="padding-top: 20px;">
+        <h2 class="section-title">Shopping Cart</h2>
+        <div style="background: #fff; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-cart-shopping" style="font-size: 40px; color: #ccc; margin-bottom: 10px;"></i>
+          <h3>Your Selected Items</h3>
+          <p style="font-size: 18px;">Total Items: <b id="cart-view-count">0</b></p>
+          <button onclick="clearCart()" style="padding: 10px 20px; background: #d32f2f; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Footer -->
@@ -393,7 +446,7 @@
         <ul style="list-style:none;padding:0;margin:0">
           <li style="color:#ccc">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            Phone: <a href="tel:+966543428325" class="phone-link" aria-label="Call Bigest Mall helpline at +966 54 342 8325">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+            Phone: <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
           </li>
           <li style="color:#ccc">
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
@@ -420,23 +473,64 @@
     <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
   </footer>
 
+  <!-- ================= BOTTOM NAVIGATION BAR (Exact UI from Image) ================= -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="switchDashboard('home-view', this)">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </button>
+    <button class="nav-item" onclick="switchDashboard('categories-view', this)">
+      <i class="fa-solid fa-shapes"></i>
+      <span>Categories</span>
+    </button>
+    <button class="nav-item" onclick="switchDashboard('deals-view', this)">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>Deals</span>
+    </button>
+    <button class="nav-item" onclick="switchDashboard('account-view', this)">
+      <i class="fa-regular fa-user"></i>
+      <span>Account</span>
+    </button>
+    <button class="nav-item" onclick="switchDashboard('cart-view', this)">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>Cart</span>
+    </button>
+  </nav>
+
   <!-- Toast -->
   <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 
+  <!-- JavaScript Dynamic Logic -->
   <script>
     (function(){
       "use strict";
 
       const CART_KEY = "bigestmall_cart_count";
       const cartCountEl = document.getElementById("cart-count");
-      const productsGrid = document.getElementById("products-grid");
       const toastEl = document.getElementById("toast");
-      const cartButton = document.getElementById("cart-button");
 
       let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
       updateCartUI();
 
-      productsGrid.addEventListener("click", (ev) => {
+      // Dashboard Switching Dynamic Function
+      window.switchDashboard = function(viewId, btnElement) {
+        document.querySelectorAll('.app-view').forEach(view => {
+          view.classList.remove('active-view');
+        });
+        const targetView = document.getElementById(viewId);
+        if(targetView) targetView.classList.add('active-view');
+
+        if(btnElement) {
+          document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          btnElement.classList.add('active');
+        }
+        window.scrollTo(0,0);
+      };
+
+      // Add To Cart Global Event Handling
+      document.addEventListener("click", (ev) => {
         const btn = ev.target.closest(".btn-add-cart");
         if (!btn) return;
         const name = btn.dataset.name || "Item";
@@ -444,25 +538,24 @@
         addToCart(name, price);
       });
 
-      document.querySelectorAll(".category-card").forEach(card => {
-        card.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            card.click();
-          }
-        });
-      });
-
-      function addToCart(name, price) {
+      window.addToCart = function(name, price) {
         count++;
         localStorage.setItem(CART_KEY, String(count));
         updateCartUI();
-        showToast(`Added "${name}"${price ? " — $" + price : ""} to cart`);
-      }
+        showToast(`Added "${name}"${price ? " — " + price + " SAR" : ""} to cart`);
+      };
+
+      window.clearCart = function() {
+        count = 0;
+        localStorage.setItem(CART_KEY, "0");
+        updateCartUI();
+        showToast("Cart cleared");
+      };
 
       function updateCartUI() {
-        cartCountEl.textContent = String(count);
-        cartButton.setAttribute("aria-label", `Cart, ${count} item${count !== 1 ? "s" : ""}`);
+        if(cartCountEl) cartCountEl.textContent = String(count);
+        const cartViewCount = document.getElementById("cart-view-count");
+        if(cartViewCount) cartViewCount.textContent = String(count);
       }
 
       let toastTimer = null;
@@ -478,24 +571,12 @@
         toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
       }
 
-      document.getElementById("explore-btn").addEventListener("click", () => {
-        showToast("Explore feature coming soon — check categories below!");
-      });
-
-      let cartPressTimer;
-      cartButton.addEventListener("mousedown", () => {
-        cartPressTimer = setTimeout(() => {
-          if (confirm("Clear cart?")) {
-            count = 0;
-            localStorage.setItem(CART_KEY, String(count));
-            updateCartUI();
-            showToast("Cart cleared");
-          }
-        }, 1000);
-      });
-      ["mouseup","mouseleave","touchend","touchcancel"].forEach(evt => {
-        cartButton.addEventListener(evt, () => clearTimeout(cartPressTimer));
-      });
+      const exploreBtn = document.getElementById("explore-btn");
+      if(exploreBtn) {
+        exploreBtn.addEventListener("click", () => {
+          switchDashboard('categories-view');
+        });
+      }
 
     })();
   </script>
