@@ -1,639 +1,206 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bigest Mall - More than shopping, it's your biggest world.</title>
-  <meta name="description" content="Bigest Mall — global quality products delivered to your doorstep." />
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone 17 Pro Max - Bigest Mall</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{
-      --primary-gold:#D4AF37;
-      --secondary-blue:#0A2540;
-      --dark-bg:#121212;
-      --light-bg:#f4f6f8;
-      --white:#ffffff;
-      --text-color:#333333;
-      --whatsapp-green:#25D366;
-      --max-width:1200px;
-      --gap:16px;
-      --active-blue: #1a73e8;
+    :root {
+      --primary-blue: #3866df;
+      --navy-blue: #142b6f;
+      --light-gray: #f4f5f8;
+      --border-color: #e0e0e0;
+      --text-dark: #222222;
+      --text-muted: #666666;
     }
 
-    /* Base reset */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background:var(--light-bg);
-      color:var(--text-color);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.4;
-      padding-bottom: 75px; /* Bottom Nav এর জন্য জায়গা রাখা হয়েছে */
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f9f9fb; color: var(--text-dark); padding-bottom: 90px; }
 
-    /* Utility */
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .visually-hidden{
-      position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);
-      white-space:nowrap;border:0;padding:0;margin:-1px;
-    }
-    a{color:inherit}
+    .container { max-width: 600px; margin: 0 auto; background: #fff; min-height: 100vh; }
 
-    /* Skip link */
-    .skip-link{
-      position:fixed;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:999;
-      transform:translateY(-120%);transition:transform .18s ease;
-    }
-    .skip-link:focus{transform:none;outline:3px solid var(--primary-gold)}
+    /* Header Nav */
+    .pdp-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; position: sticky; top: 0; background: #fff; z-index: 100; border-bottom: 1px solid var(--border-color); }
+    .icon-btn { background: #f0f2f5; border: none; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; }
+    .search-box { flex: 1; margin: 0 10px; position: relative; }
+    .search-box input { width: 100%; padding: 8px 12px 8px 35px; border-radius: 20px; border: 1px solid var(--border-color); background: #f8f9fa; font-size: 14px; }
+    .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
 
-    /* Bottom Navigation Bar Style */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 65px;
-      background: #ffffff;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      border-top: 1px solid #e0e0e0;
-      z-index: 1100;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-    }
+    /* Gallery */
+    .product-gallery { text-align: center; padding: 20px; position: relative; }
+    .product-gallery img { max-width: 100%; height: 280px; object-fit: contain; }
 
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #5f6368;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 20%;
-      padding: 6px 0;
-      transition: color 0.2s ease;
-    }
+    /* Product Basic Info */
+    .pdp-info { padding: 16px; }
+    .brand-link { color: var(--primary-blue); font-weight: 600; text-decoration: none; font-size: 14px; }
+    .product-title { font-size: 16px; font-weight: 600; margin: 8px 0; line-height: 1.4; }
+    .rating-tag { display: inline-flex; align-items: center; gap: 4px; background: #e8f5e9; color: #2e7d32; font-weight: bold; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+    .price-tag { font-size: 24px; font-weight: 800; margin: 12px 0 6px 0; color: #000; }
 
-    .nav-item i {
-      font-size: 20px;
-      margin-bottom: 3px;
-    }
+    /* Options (Color / Memory) */
+    .section-box { padding: 16px; border-top: 8px solid var(--light-gray); }
+    .section-title { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    
+    .options-grid { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+    .option-card { border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 90px; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .option-card.active { border: 2px solid var(--primary-blue); background: #f0f4ff; }
+    .option-card img { width: 40px; height: 40px; object-fit: contain; display: block; margin: 0 auto 4px; }
 
-    .nav-item.active {
-      color: var(--active-blue);
-      font-weight: 700;
-    }
+    /* Payment Offers */
+    .payment-offer { background: #f8f9fa; border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+    .payment-badge { background: #1a1a2e; color: #fff; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
 
-    /* Dashboard View Switching Logic */
-    .app-view {
-      display: none;
-    }
-    .app-view.active-view {
-      display: block;
-    }
+    /* Details Accordion / Specs */
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .spec-table td { padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+    .spec-label { color: var(--text-muted); width: 45%; }
+    .spec-val { font-weight: 600; color: var(--text-dark); }
 
-    /* Top Bar */
-    .top-bar{
-      background:var(--dark-bg);color:var(--white);
-      padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
-    }
-    .brand-strong{color:var(--primary-gold);font-weight:700}
+    .bullet-list { list-style-type: disc; padding-left: 20px; font-size: 13px; line-height: 1.8; color: #444; }
 
-    /* Header */
-    header.site-header{
-      background:var(--secondary-blue);color:var(--white);
-      position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
-    }
-    .header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
-    .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
-    .logo i{font-size:1.35rem}
-    .search-form{flex:1;min-width:220px;display:flex;max-width:640px}
-    .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
-    .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
-    .header-actions{display:flex;align-items:center;gap:12px}
-    .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
-    .action-btn:focus{outline:3px solid rgba(212,175,55,0.25)}
-    .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
+    /* Bottom Fixed CTA */
+    .bottom-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--border-color); padding: 10px 16px; display: flex; align-items: center; gap: 10px; max-width: 600px; margin: 0 auto; z-index: 1000; }
+    .qty-selector { border: 1px solid var(--border-color); border-radius: 8px; padding: 6px; text-align: center; min-width: 50px; }
+    .qty-selector label { font-size: 10px; color: var(--text-muted); display: block; }
+    .qty-selector select { border: none; font-weight: bold; background: transparent; outline: none; }
 
-    /* Floating WhatsApp */
-    .floating-whatsapp{
-      position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
-      font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
-    }
-    .floating-whatsapp:hover{transform:scale(1.06)}
-    .floating-whatsapp:focus{box-shadow:0 0 0 4px rgba(37,211,102,0.18);outline:none}
-
-    /* Hero */
-    .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
-    .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
-    .hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
-    .btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
-
-    /* Sections */
-    .section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
-
-    /* Categories */
-    .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
-    .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
-    .category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
-    .category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
-    .category-card h3{font-size:0.95rem;margin:0;color:var(--text-color);}
-
-    /* Products */
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:36px}
-    .product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;padding:15px;}
-    .product-img{height:180px;background:#eee;display:flex;align-items:center;justify-content:center;color:#888;border-radius:8px;}
-    .product-info{padding-top:14px}
-    .product-title{font-weight:600;margin:0 0 8px;font-size:1rem}
-    .product-price{color:var(--secondary-blue);font-weight:700;margin-bottom:12px}
-    .btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700}
-    .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
-
-    /* Footer */
-    footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
-    .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-    .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
-    .footer-column a{color:#ccc;text-decoration:none}
-    .footer-column a:hover{color:var(--white)}
-    .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
-
-    /* Toast */
-    .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
-    .toast.show{opacity:1;transform:none}
-
-    /* Focus visible */
-    :focus{outline-offset:3px}
-    button:focus,a:focus{outline:3px solid rgba(212,175,55,0.25)}
-
-    @media (max-width:720px){
-      .search-form{order:3;width:100%;margin-top:8px}
-      .header-actions{order:2;margin-left:auto}
-      .logo{order:1}
-      .hero{padding:40px 12px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none!important;animation:none!important}
-    }
-
-    /* Phone link style */
-    .phone-link{color:inherit;text-decoration:underline;font-weight:700}
+    .btn-buy-now { flex: 1; background: var(--navy-blue); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .btn-add-cart { flex: 1; background: var(--primary-blue); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar with Language Selector -->
-  <div style="background-color: #111111; padding: 6px 15px; text-align: right; border-bottom: 1px solid #333333; display: flex; justify-content: flex-end; align-items: center; font-family: sans-serif;">
-      <span style="color: #d4af37; font-size: 13px; font-weight: bold; margin-right: 8px;">🌐 Language / اللغة / ভাষা:</span>
-      <div id="google_translate_element"></div>
-  </div>
-
-  <!-- Google Translate Script -->
-  <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'bn',
-      includedLanguages: 'bn,en,ar',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  <!-- Biggest Mall Header Logo -->
-  <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 0px;">
-      <img src="0716600E-C20E-40AA-A036-45D14654E34B.png" alt="Biggest Mall Logo" style="max-height: 80px; width: auto; object-fit: contain;">
-  </div>
-
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall">
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    <span>Order via WhatsApp</span>
-  </a>
-
-  <!-- Top Bar -->
-  <div class="top-bar" role="region" aria-label="Top bar">
-    <div>Welcome to <span class="brand-strong">BIGEST MALL</span> | Worldwide Shipping Available</div>
-    <div>
-      <i class="fa-solid fa-phone" aria-hidden="true"></i>
-      Helpline:
-      <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a class="logo" href="#" onclick="switchDashboard('home-view')">
-        <i class="fa-solid fa-globe" aria-hidden="true"></i>
-        <span>BIGEST MALL</span>
-      </a>
-
-      <form class="search-form" role="search" aria-label="Site search" onsubmit="return false;">
-        <label for="site-search" class="visually-hidden">Search products, brands and categories</label>
-        <input id="site-search" type="search" placeholder="Search for products, brands and categories..." />
-        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
-      </form>
-
-      <div class="header-actions" role="group" aria-label="Header actions">
-        <button class="action-btn" onclick="switchDashboard('account-view')" aria-label="Account">
-          <i class="fa-regular fa-user" aria-hidden="true"></i>
-        </button>
-
-        <button class="action-btn" id="cart-button" onclick="switchDashboard('cart-view')" aria-label="Cart">
-          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          <span id="cart-count" class="cart-badge" aria-live="polite">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
+  <div class="container">
     
-    <!-- ================= 1. HOME DASHBOARD ================= -->
-    <div id="home-view" class="app-view active-view">
-      <section class="hero" role="region" aria-label="Hero">
-        <div class="container">
-          <h1>BIGEST MALL</h1>
-          <p>"More than shopping, it's your biggest world."</p>
-          <button class="btn-shop" type="button" id="explore-btn">Explore Now</button>
+    <!-- Header -->
+    <div class="pdp-header">
+      <button class="icon-btn" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search">
+      </div>
+      <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-share-nodes"></i></button>
+    </div>
+
+    <!-- Gallery Image -->
+    <div class="product-gallery">
+      <img id="main-product-img" src="https://m.media-amazon.com/images/I/61f93f1q0TL._AC_SL1500_.jpg" alt="iPhone 17 Pro Max">
+    </div>
+
+    <!-- Product Basic Info -->
+    <div class="pdp-info">
+      <a href="#" class="brand-link">Apple</a>
+      <h1 class="product-title">iPhone 17 Pro Max 256 GB (eSIM only) Cosmic Orange 5G With FaceTime - International Version</h1>
+      <div class="rating-tag"><i class="fa-solid fa-star"></i> 4.5 (29K ratings)</div>
+      <div class="price-tag">SAR 5,299</div>
+    </div>
+
+    <!-- Options: Color -->
+    <div class="section-box">
+      <div class="section-title">Color</div>
+      <div class="options-grid">
+        <div class="option-card active">
+          <img src="https://m.media-amazon.com/images/I/61f93f1q0TL._AC_SL1500_.jpg" alt="Orange">
+          Cosmic Orange
         </div>
-      </section>
-
-      <div class="container" aria-live="polite">
-        <h2 class="section-title">Top Categories</h2>
-        <div class="categories-grid" role="list">
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-            <h3>Mobiles & Accessories</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
-            <h3>Laptops & Computers</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-shirt" aria-hidden="true"></i>
-            <h3>Fashion & Clothing</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-house-laptop" aria-hidden="true"></i>
-            <h3>Home & Kitchen</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-pump-soap" aria-hidden="true"></i>
-            <h3>Beauty & Personal Care</h3>
-          </div>
+        <div class="option-card">
+          <img src="https://m.media-amazon.com/images/I/61f93f1q0TL._AC_SL1500_.jpg" alt="Blue">
+          Deep Blue
         </div>
-
-        <h2 class="section-title">Featured Products</h2>
-        <div class="products-grid" id="products-grid">
-
-          <article class="product-card">
-            <div class="product-img"><i class="fa-solid fa-stopwatch fa-3x"></i></div>
-            <div class="product-info">
-              <h3 class="product-title">Smart Watch Ultra</h3>
-              <div class="product-price">199.99 SAR</div>
-              <button class="btn-add-cart" type="button" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-img"><i class="fa-solid fa-camera fa-3x"></i></div>
-            <div class="product-info">
-              <h3 class="product-title">4K DSLR Camera</h3>
-              <div class="product-price">549.99 SAR</div>
-              <button class="btn-add-cart" type="button" data-name="4K DSLR Camera" data-price="549.99">Add to Cart</button>
-            </div>
-          </article>
-
+        <div class="option-card">
+          <img src="https://m.media-amazon.com/images/I/61f93f1q0TL._AC_SL1500_.jpg" alt="Silver">
+          Silver
         </div>
       </div>
     </div>
 
-    <!-- ================= 2. CATEGORIES DASHBOARD ================= -->
-    <div id="categories-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">All Categories (সকল ক্যাটাগরি)</h2>
-        
-        <div class="categories-grid">
-          
-          <div class="category-card" onclick="showToast('Mobiles Selected')">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <h3>Mobiles & Accessories</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Laptops Selected')">
-            <i class="fa-solid fa-laptop"></i>
-            <h3>Laptops & Computers</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Fashion Selected')">
-            <i class="fa-solid fa-shirt"></i>
-            <h3>Fashion & Clothing</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Home Selected')">
-            <i class="fa-solid fa-house-laptop"></i>
-            <h3>Home & Kitchen</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Beauty Selected')">
-            <i class="fa-solid fa-pump-soap"></i>
-            <h3>Beauty & Personal Care</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Watches Selected')">
-            <i class="fa-solid fa-stopwatch"></i>
-            <h3>Watches & Electronics</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Global Selected')">
-            <i class="fa-solid fa-plane-departure"></i>
-            <h3>Global Direct Products</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Baby Selected')">
-            <i class="fa-solid fa-baby-carriage"></i>
-            <h3>Baby & Toys</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Sports Selected')">
-            <i class="fa-solid fa-football"></i>
-            <h3>Sports & Fitness</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Deals Selected')">
-            <i class="fa-solid fa-tags"></i>
-            <h3>Special Offers / Deals</h3>
-          </div>
-
-        </div>
-
-        <!-- Beauty & Personal Care Section (প্রোডাক্টটি এখানে দেওয়া হয়েছে) -->
-        <h2 class="section-title" style="margin-top: 40px;">Beauty & Personal Care Products</h2>
-        <div class="products-grid">
-          
-          <div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-              <div class="main-image-box" style="width: 100%; height: 280px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;">
-                  <img id="main-product-img" src="IMG_2869.jpeg" alt="প্রোডাক্টের নাম" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              
-              <div class="thumbnail-list" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
-                  <img src="IMG_2869.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
-                  <img src="IMG_2879.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
-                  <img src="BF2239A8-DBBB-4EB9-9C0B-14478CBF67.jpeg" onclick="document.getElementById('main-product-img').src=this.src" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #ddd;">
-              </div>
-              
-              <div class="product-info" style="margin-top: 15px;">
-                  <h3 style="margin: 0 0 8px 0; color: #333;">Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads</h3>
-                  <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Beauty & Personal Care / Hygiene</p>
-                  <p class="product-price" style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 8px 0;">25 SAR <del style="font-size: 14px; color: #999;">30 SAR</del></p>
-
-                  <div style="margin: 12px 0; padding: 10px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
-                      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-                          <span style="font-size: 13px; color: #333;">or 4 interest-free payments of <b>6.25 SAR</b> with</span>
-                          <span style="background: #39e5a1; color: #000; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tabby</span>
-                      </div>
-                      <div style="display: flex; align-items: center; justify-content: space-between;">
-                          <span style="font-size: 13px; color: #333;">or split in 4 payments of <b>6.25 SAR</b> with</span>
-                          <span style="background: #ffdb80; color: #3d2b00; font-weight: bold; font-size: 12px; padding: 2px 8px; border-radius: 4px; font-family: sans-serif;">tamara</span>
-                      </div>
-                  </div>
-
-                  <!-- Payment & Order Form -->
-                  <div style="margin-top: 15px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa;">
-                      <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">অর্ডার করুন (Order Now)</h4>
-                      <input type="text" placeholder="আপনার নাম (Full Name)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <input type="tel" placeholder="ফোন নম্বর (Mobile Number)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <input type="text" placeholder="ডেলিভারি ঠিকানা (City & Address)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <button type="button" onclick="addToCart('Fam Maxi Pads', '25.00')" style="width: 100%; padding: 12px; background: #28a745; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
-                          Confirm Order (অর্ডার কনফার্ম করুন)
-                      </button>
-                  </div>
-              </div>
-          </div>
-
-        </div>
-
+    <!-- Options: Internal Memory -->
+    <div class="section-box">
+      <div class="section-title">Internal Memory</div>
+      <div class="options-grid">
+        <div class="option-card">128 GB</div>
+        <div class="option-card active">256 GB</div>
+        <div class="option-card">512 GB</div>
+        <div class="option-card">1 TB</div>
       </div>
     </div>
 
-    <!-- ================= 3. DEALS DASHBOARD ================= -->
-    <div id="deals-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">🔥 Exclusive Hot Deals</h2>
-        <div class="products-grid">
-          <div class="product-card" style="padding: 20px; text-align: center;">
-            <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
-            <h3>Flash Sale - Smart Watch</h3>
-            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">149.99 SAR <del style="color: #888; font-size: 14px;">199.99 SAR</del></p>
-            <button class="btn-add-cart" data-name="Smart Watch (Deal)" data-price="149.99">Grab Deal</button>
-          </div>
-          <div class="product-card" style="padding: 20px; text-align: center;">
-            <i class="fa-solid fa-tag" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
-            <h3>Camera Bundle Offer</h3>
-            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">499.99 SAR <del style="color: #888; font-size: 14px;">549.99 SAR</del></p>
-            <button class="btn-add-cart" data-name="Camera Bundle" data-price="499.99">Grab Deal</button>
-          </div>
+    <!-- Payment Installment Offer -->
+    <div class="section-box">
+      <div class="section-title">Payment Offers</div>
+      <div class="payment-offer">
+        <div>
+          <span class="payment-badge">Tabby / Tamara</span>
+          <span style="font-size: 13px; margin-left: 8px;">Split in 4 interest-free payments of <b>1,324.75 SAR</b></span>
         </div>
+        <i class="fa-solid fa-angle-right" style="color:#aaa;"></i>
       </div>
     </div>
 
-    <!-- ================= 4. ACCOUNT DASHBOARD ================= -->
-    <div id="account-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">My Account</h2>
-        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <i class="fa-solid fa-circle-user" style="font-size: 50px; color: var(--secondary-blue);"></i>
-            <div>
-              <h3 style="margin: 0;">Welcome, Guest</h3>
-              <p style="margin: 0; color: #666; font-size: 14px;">Manage your orders & details</p>
-            </div>
-          </div>
-          <ul style="list-style: none; padding: 0; line-height: 2.5; border-top: 1px solid #eee; padding-top: 10px;">
-            <li><i class="fa-solid fa-box" style="margin-right: 10px; color: var(--primary-gold);"></i> My Orders</li>
-            <li><i class="fa-solid fa-heart" style="margin-right: 10px; color: var(--primary-gold);"></i> Wishlist</li>
-            <li><i class="fa-solid fa-location-dot" style="margin-right: 10px; color: var(--primary-gold);"></i> Delivery Address</li>
-            <li><i class="fa-solid fa-headset" style="margin-right: 10px; color: var(--primary-gold);"></i> Customer Support</li>
-          </ul>
-        </div>
-      </div>
+    <!-- Highlights -->
+    <div class="section-box">
+      <div class="section-title">Highlights</div>
+      <ul class="bullet-list">
+        <li>Super Retina XDR display with ProMotion technology Always-On display Dynamic Island</li>
+        <li>Aluminum Unibody Action button Camera Control for faster access to photo and video tools</li>
+        <li>A19 Pro chip 6-core GPU with Neural Accelerators Hardware-accelerated ray tracing</li>
+        <li>Up to 39 hours of video playback</li>
+        <li>48MP Pro Fusion camera system (48MP Main | 48MP Ultra-Wide | 48MP Telephoto)</li>
+      </ul>
     </div>
 
-    <!-- ================= 5. CART DASHBOARD ================= -->
-    <div id="cart-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">Shopping Cart</h2>
-        <div style="background: #fff; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <i class="fa-solid fa-cart-shopping" style="font-size: 40px; color: #ccc; margin-bottom: 10px;"></i>
-          <h3>Your Selected Items</h3>
-          <p style="font-size: 18px;">Total Items: <b id="cart-view-count">0</b></p>
-          <button onclick="clearCart()" style="padding: 10px 20px; background: #d32f2f; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Clear Cart</button>
-        </div>
-      </div>
+    <!-- Specifications Table -->
+    <div class="section-box">
+      <div class="section-title">Specifications</div>
+      <table class="spec-table">
+        <tr>
+          <td class="spec-label">Item Condition</td>
+          <td class="spec-val">New</td>
+        </tr>
+        <tr>
+          <td class="spec-label">Processor Name</td>
+          <td class="spec-val">Apple A19 Pro</td>
+        </tr>
+        <tr>
+          <td class="spec-label">RAM Size</td>
+          <td class="spec-val">12 GB</td>
+        </tr>
+        <tr>
+          <td class="spec-label">Battery Size</td>
+          <td class="spec-val">5088 mAh</td>
+        </tr>
+        <tr>
+          <td class="spec-label">Primary Camera (MP)</td>
+          <td class="spec-val">48 + 48 + 48 MP</td>
+        </tr>
+        <tr>
+          <td class="spec-label">Network Type</td>
+          <td class="spec-val">5G</td>
+        </tr>
+        <tr>
+          <td class="spec-label">SIM Count</td>
+          <td class="spec-val">Dual SIM (eSIM)</td>
+        </tr>
+      </table>
     </div>
 
-  </main>
+  </div>
 
-  <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-column">
-        <h3>BIGEST MALL</h3>
-        <p style="color:#aaa;font-size:14px">More than shopping, it's your biggest world. We provide global quality products right at your doorstep.</p>
-      </div>
-
-      <div class="footer-column">
-        <h3>Contact Us</h3>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="color:#ccc">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            Phone: <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
-          </li>
-          <li style="color:#ccc">
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-            WhatsApp: <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">+966&nbsp;54&nbsp;342&nbsp;8325</a>
-          </li>
-          <li style="color:#ccc">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            Email: <a href="mailto:habibullah.shahin19970@gmail.com">habibullah.shahin19970@gmail.com</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3>Customer Policy</h3>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Shipping &amp; Delivery</a></li>
-          <li><a href="#">Return Policy</a></li>
-        </ul>
-      </div>
+  <!-- Bottom Sticky Action Bar -->
+  <div class="bottom-cta-bar">
+    <div class="qty-selector">
+      <label>QTY</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
     </div>
+    <button class="btn-buy-now">Buy Now</button>
+    <button class="btn-add-cart">Add to cart</button>
+  </div>
 
-    <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
-  </footer>
-
-  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
-  <nav class="bottom-nav">
-    <button class="nav-item active" onclick="switchDashboard('home-view', this)">
-      <i class="fa-solid fa-house"></i>
-      <span>Home</span>
-    </button>
-    <button class="nav-item" onclick="switchDashboard('categories-view', this)">
-      <i class="fa-solid fa-shapes"></i>
-      <span>Categories</span>
-    </button>
-    <button class="nav-item" onclick="switchDashboard('deals-view', this)">
-      <i class="fa-solid fa-bag-shopping"></i>
-      <span>Deals</span>
-    </button>
-    <button class="nav-item" onclick="switchDashboard('account-view', this)">
-      <i class="fa-regular fa-user"></i>
-      <span>Account</span>
-    </button>
-    <button class="nav-item" onclick="switchDashboard('cart-view', this)">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span>Cart</span>
-    </button>
-  </nav>
-
-  <!-- Toast -->
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
-
-  <!-- JavaScript Dynamic Logic -->
-  <script>
-    (function(){
-      "use strict";
-
-      const CART_KEY = "bigestmall_cart_count";
-      const cartCountEl = document.getElementById("cart-count");
-      const toastEl = document.getElementById("toast");
-
-      let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
-      updateCartUI();
-
-      // Dashboard Switching Dynamic Function
-      window.switchDashboard = function(viewId, btnElement) {
-        document.querySelectorAll('.app-view').forEach(view => {
-          view.classList.remove('active-view');
-        });
-        const targetView = document.getElementById(viewId);
-        if(targetView) targetView.classList.add('active-view');
-
-        if(btnElement) {
-          document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
-            item.classList.remove('active');
-          });
-          btnElement.classList.add('active');
-        }
-        window.scrollTo(0,0);
-      };
-
-      // Add To Cart Global Event Handling
-      document.addEventListener("click", (ev) => {
-        const btn = ev.target.closest(".btn-add-cart");
-        if (!btn) return;
-        const name = btn.dataset.name || "Item";
-        const price = btn.dataset.price || "";
-        addToCart(name, price);
-      });
-
-      window.addToCart = function(name, price) {
-        count++;
-        localStorage.setItem(CART_KEY, String(count));
-        updateCartUI();
-        showToast(`Added "${name}"${price ? " — " + price + " SAR" : ""} to cart`);
-      };
-
-      window.clearCart = function() {
-        count = 0;
-        localStorage.setItem(CART_KEY, "0");
-        updateCartUI();
-        showToast("Cart cleared");
-      };
-
-      function updateCartUI() {
-        if(cartCountEl) cartCountEl.textContent = String(count);
-        const cartViewCount = document.getElementById("cart-view-count");
-        if(cartViewCount) cartViewCount.textContent = String(count);
-      }
-
-      let toastTimer = null;
-      window.showToast = function(message, timeout = 2200) {
-        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
-        toastEl.textContent = message;
-        toastEl.hidden = false;
-        toastEl.classList.add("show");
-        toastTimer = setTimeout(hideToast, timeout);
-      };
-
-      function hideToast() {
-        toastEl.classList.remove("show");
-        toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
-      }
-
-      const exploreBtn = document.getElementById("explore-btn");
-      if(exploreBtn) {
-        exploreBtn.addEventListener("click", () => {
-          switchDashboard('categories-view');
-        });
-      }
-
-    })();
-  </script>
 </body>
 </html>
