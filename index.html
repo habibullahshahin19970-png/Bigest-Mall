@@ -143,8 +143,10 @@
 
     /* Categories */
     .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
-    .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer}
-    .category-card i{font-size:1.4rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
+    .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
+    .category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
+    .category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
+    .category-card h3{font-size:0.95rem;margin:0;color:var(--text-color);}
 
     /* Products */
     .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:36px}
@@ -274,23 +276,23 @@
         <div class="categories-grid" role="list">
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
             <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-            <h3>Mobiles</h3>
+            <h3>Mobiles & Accessories</h3>
           </div>
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
             <i class="fa-solid fa-laptop" aria-hidden="true"></i>
-            <h3>Laptops</h3>
+            <h3>Laptops & Computers</h3>
           </div>
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
             <i class="fa-solid fa-shirt" aria-hidden="true"></i>
-            <h3>Fashion</h3>
+            <h3>Fashion & Clothing</h3>
           </div>
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-couch" aria-hidden="true"></i>
-            <h3>Home</h3>
+            <i class="fa-solid fa-house-laptop" aria-hidden="true"></i>
+            <h3>Home & Kitchen</h3>
           </div>
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-plane" aria-hidden="true"></i>
-            <h3>Global Products</h3>
+            <i class="fa-solid fa-plane-departure" aria-hidden="true"></i>
+            <h3>Global Direct</h3>
           </div>
         </div>
 
@@ -363,14 +365,60 @@
     <!-- ================= 2. CATEGORIES DASHBOARD ================= -->
     <div id="categories-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">All Categories</h2>
+        <h2 class="section-title">All Categories (সকল ক্যাটাগরি)</h2>
+        
         <div class="categories-grid">
-          <div class="category-card"><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobiles</h3></div>
-          <div class="category-card"><i class="fa-solid fa-laptop"></i><h3>Laptops</h3></div>
-          <div class="category-card"><i class="fa-solid fa-shirt"></i><h3>Fashion</h3></div>
-          <div class="category-card"><i class="fa-solid fa-couch"></i><h3>Home & Living</h3></div>
-          <div class="category-card"><i class="fa-solid fa-pump-soap"></i><h3>Beauty & Care</h3></div>
-          <div class="category-card"><i class="fa-solid fa-plane"></i><h3>Global Products</h3></div>
+          
+          <div class="category-card" onclick="showToast('Mobiles Selected')">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h3>Mobiles & Accessories</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Laptops Selected')">
+            <i class="fa-solid fa-laptop"></i>
+            <h3>Laptops & Computers</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Fashion Selected')">
+            <i class="fa-solid fa-shirt"></i>
+            <h3>Fashion & Clothing</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Home Selected')">
+            <i class="fa-solid fa-house-laptop"></i>
+            <h3>Home & Kitchen</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Beauty Selected')">
+            <i class="fa-solid fa-pump-soap"></i>
+            <h3>Beauty & Personal Care</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Watches Selected')">
+            <i class="fa-solid fa-stopwatch"></i>
+            <h3>Watches & Electronics</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Global Selected')">
+            <i class="fa-solid fa-plane-departure"></i>
+            <h3>Global Direct Products</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Baby Selected')">
+            <i class="fa-solid fa-baby-carriage"></i>
+            <h3>Baby & Toys</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Sports Selected')">
+            <i class="fa-solid fa-football"></i>
+            <h3>Sports & Fitness</h3>
+          </div>
+
+          <div class="category-card" onclick="showToast('Deals Selected')">
+            <i class="fa-solid fa-tags"></i>
+            <h3>Special Offers / Deals</h3>
+          </div>
+
         </div>
       </div>
     </div>
@@ -559,13 +607,14 @@
       }
 
       let toastTimer = null;
-      function showToast(message, timeout = 2200) {
+      window.showToast = function(message, timeout = 2200) {
         if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
         toastEl.textContent = message;
         toastEl.hidden = false;
         toastEl.classList.add("show");
         toastTimer = setTimeout(hideToast, timeout);
-      }
+      };
+
       function hideToast() {
         toastEl.classList.remove("show");
         toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
