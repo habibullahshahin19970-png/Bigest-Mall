@@ -17,7 +17,7 @@ We take the security of **Bigest-Mall** seriously. If you believe you have found
 
 Instead, please report it responsibly using one of the following methods:
 
-1. **Email:** Send details to `security@yourdomain.com` *(আপনার ইমেইল দিন)*
+1. **Email:** Send details to `habibullah.shahin19970@gmail.com.com` *(আপনার ইমেইল দিন)*
 2. **GitHub Private Advisory:** Use the "Report a vulnerability" button under the **Security** tab of this repository.
 
 ### What to include in your report:
