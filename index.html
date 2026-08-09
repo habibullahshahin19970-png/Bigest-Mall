@@ -204,7 +204,7 @@
     .policy-modal-content {
       background: #fff;
       color: #333;
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
       max-height: 80vh;
       border-radius: 12px;
@@ -239,6 +239,7 @@
     .toast.show{opacity:1;transform:none}
 
     .phone-link{color:inherit;text-decoration:underline;font-weight:700}
+    .policy-en-item { color: #555; font-size: 13px; font-style: italic; margin-top: -4px; }
   </style>
 </head>
 <body>
@@ -608,39 +609,74 @@
         window.scrollTo(0,0);
       };
 
-      // Handle Policy Modals Data and Behavior
+      // Handle Policy Modals Data and Behavior (Bilingual: Bengali & English)
       const policies = {
         privacy: {
-          title: "Privacy Policy (গোপনীয়তা নীতি)",
+          title: "Privacy Policy / গোপনীয়তা নীতি",
           content: `
-            <p><strong>১. তথ্য সংগ্রহ (Information Collection):</strong> Bigest Mall-এ অর্ডার করার সময় কাস্টমারদের নাম, মোবাইল নম্বর, ইমেইল এড্রেস, ডেলিভারি ঠিকানা এবং আকামা নম্বর সংগ্রহ করা হয়।</p>
-            <p><strong>২. ব্যবহারের উদ্দেশ্য (How We Use Data):</strong> আপনার দেওয়া তথ্যগুলো শুধুমাত্র আপনার অর্ডার প্রসেস করা, শিপিং নিশ্চিত করা এবং কাস্টমার সেবা দেওয়ার জন্য ব্যবহৃত হয়।</p>
-            <p><strong>৩. তথ্য সুরক্ষা (Data Security):</strong> কাস্টমারের কোনো ব্যক্তিগত তথ্য অন্য কোনো থার্ড পার্টি বা বিজ্ঞাপনদাতার কাছে শেয়ার বা বিক্রি করা হয় না।</p>
+            <p><strong>১. তথ্য সংগ্রহ / Information Collection:</strong><br>
+            Bigest Mall-এ অর্ডার করার সময় কাস্টমারদের নাম, মোবাইল নম্বর, ইমেইল এড্রেস, ডেলিভারি ঠিকানা এবং আকামা নম্বর সংগ্রহ করা হয়।<br>
+            <span class="policy-en-item">When ordering at Bigest Mall, we collect customer names, mobile numbers, email addresses, delivery addresses, and Iqama numbers.</span></p>
+
+            <p><strong>২. ব্যবহারের উদ্দেশ্য / How We Use Data:</strong><br>
+            আপনার দেওয়া তথ্যগুলো শুধুমাত্র আপনার অর্ডার প্রসেস করা, শিপিং নিশ্চিত করা এবং কাস্টমার সেবা দেওয়ার জন্য ব্যবহৃত হয়।<br>
+            <span class="policy-en-item">Your information is used strictly to process orders, manage deliveries, and provide customer support.</span></p>
+
+            <p><strong>৩. তথ্য সুরক্ষা / Data Security:</strong><br>
+            কাস্টমারের কোনো ব্যক্তিগত তথ্য অন্য কোনো থার্ড পার্টি বা বিজ্ঞাপনদাতার কাছে শেয়ার বা বিক্রি করা হয় না।<br>
+            <span class="policy-en-item">Customer personal data is never sold or shared with any third-party advertisers.</span></p>
           `
         },
         terms: {
-          title: "Terms & Conditions (শর্তাবলী)",
+          title: "Terms & Conditions / শর্তাবলী",
           content: `
-            <p><strong>১. অর্ডার কনফার্মেশন:</strong> ওয়েবসাইটে অর্ডার করার পর আমরা ফোনের মাধ্যমে কাস্টমারের সাথে যোগাযোগ করে অর্ডার কনফার্ম করার অধিকার রাখি।</p>
-            <p><strong>২. মূল্য নির্ধারণ:</strong> পণ্যের মূল্য সৌদির রিয়ালে (SAR) প্রদর্শন করা হয়। কোনো টেকনিক্যাল ভুলের কারণে ভুল দাম উঠলে অর্ডার সংশোধনের অধিকার আমাদের থাকবে।</p>
-            <p><strong>৩. সঠিক তথ্য প্রদান:</strong> কাস্টমারকে সঠিক নাম, ঠিকানা ও আকামা নম্বর প্রদান করতে হবে। ভুয়া অর্ডার করা সম্পূর্ণ নিষিদ্ধ।</p>
+            <p><strong>১. অর্ডার কনফার্মেশন / Order Acceptance:</strong><br>
+            ওয়েবসাইটে অর্ডার করার পর আমরা ফোনের মাধ্যমে কাস্টমারের সাথে যোগাযোগ করে অর্ডার কনফার্ম করার অধিকার রাখি।<br>
+            <span class="policy-en-item">We reserve the right to contact customers via phone to verify and confirm orders after submission.</span></p>
+
+            <p><strong>২. মূল্য নির্ধারণ / Pricing & Payments:</strong><br>
+            পণ্যের মূল্য সৌদির রিয়ালে (SAR) প্রদর্শন করা হয়। কোনো টেকনিক্যাল ভুলের কারণে ভুল দাম উঠলে অর্ডার সংশোধনের অধিকার আমাদের থাকবে।<br>
+            <span class="policy-en-item">All prices are listed in Saudi Riyals (SAR). In case of pricing glitches, Bigest Mall reserves the right to amend orders.</span></p>
+
+            <p><strong>৩. সঠিক তথ্য প্রদান / User Responsibility:</strong><br>
+            কাস্টমারকে সঠিক নাম, ঠিকানা ও আকামা নম্বর প্রদান করতে হবে। ভুয়া অর্ডার করা সম্পূর্ণ নিষিদ্ধ।<br>
+            <span class="policy-en-item">Customers must provide valid names, addresses, and Iqama numbers. Fraudulent or fake orders are strictly prohibited.</span></p>
           `
         },
         shipping: {
-          title: "Shipping & Delivery Policy (শিপিং ও ডেলিভারি)",
+          title: "Shipping & Delivery Policy / শিপিং ও ডেলিভারি",
           content: `
-            <p><strong>১. ডেলিভারি এলাকা:</strong> আমরা সৌদি আরবের সমস্ত অঞ্চল ও প্রধান শহরগুলোতে দ্রুত ডেলিভারি প্রদান করে থাকি।</p>
-            <p><strong>২. ডেলিভারির সময়সীমা:</strong> অর্ডার কনফার্ম হওয়ার পর ২ থেকে ৪ কার্যদিবসের (Business Days) মধ্যে আপনার ঠিকানায় পণ্য পৌঁছে দেওয়া হয়।</p>
-            <p><strong>৩. ট্র্যাকিং:</strong> পণ্য ডেলিভারির জন্য বের হলে আপনাকে মেসেজ বা কলের মাধ্যমে আপডেট জানানো হবে।</p>
+            <p><strong>১. ডেলিভারি এলাকা / Coverage Area:</strong><br>
+            আমরা সৌদি আরবের সমস্ত অঞ্চল ও প্রধান শহরগুলোতে দ্রুত ডেলিভারি প্রদান করে থাকি।<br>
+            <span class="policy-en-item">We provide express delivery across all major cities and regions in Saudi Arabia.</span></p>
+
+            <p><strong>২. ডেলিভারির সময়সীমা / Delivery Timeframe:</strong><br>
+            অর্ডার কনফার্ম হওয়ার পর ২ থেকে ৪ কার্যদিবসের (Business Days) মধ্যে আপনার ঠিকানায় পণ্য পৌঁছে দেওয়া হয়।<br>
+            <span class="policy-en-item">Products are delivered to your provided address within 2 to 4 business days upon order confirmation.</span></p>
+
+            <p><strong>৩. ট্র্যাকিং / Order Tracking:</strong><br>
+            পণ্য ডেলিভারির জন্য বের হলে আপনাকে মেসেজ বা কলের মাধ্যমে আপডেট জানানো হবে।<br>
+            <span class="policy-en-item">You will receive delivery updates and notifications via direct phone call or message.</span></p>
           `
         },
         return: {
-          title: "Return & Refund Policy (ফেরত ও রিফান্ড নীতি)",
+          title: "Return & Refund Policy / ফেরত ও রিফান্ড নীতি",
           content: `
-            <p><strong>১. রিফান্ড / রিটার্নের সময়সীমা:</strong> পণ্য বুঝে পাওয়ার ৭ দিনের মধ্যে যেকোনো ত্রুটি বা সমস্যার জন্য আমাদের জানাতে হবে।</p>
-            <p><strong>২. ফেরতের শর্তাবলী:</strong> পণ্যটি অব্যবহৃত এবং এর মূল প্যাকেজিং ও ট্যাগসহ থাকতে হবে।</p>
-            <p><strong>৩. হাইজিন প্রডাক্টের নিয়ম:</strong> পার্সোনাল কেয়ার বা মেডিসিন জাতীয় পণ্য স্বাস্থ্য সুরক্ষার খাতিরে একবার বক্স খোলা হলে ফেরতযোগ্য নয় (যদি না ভুল পণ্য পাঠানো হয়ে থাকে)।</p>
-            <p><strong>৪. যোগাযোগ:</strong> রিটার্নের জন্য আমাদের কাস্টমার সাপোর্ট নম্বর +966 54 342 8325-এ কথা বলুন।</p>
+            <p><strong>১. রিফান্ড / রিটার্নের সময়সীমা (Return Window):</strong><br>
+            পণ্য বুঝে পাওয়ার ৭ দিনের মধ্যে যেকোনো ত্রুটি বা সমস্যার জন্য আমাদের জানাতে হবে।<br>
+            <span class="policy-en-item">Return or exchange requests must be submitted within 7 days of receiving the package.</span></p>
+
+            <p><strong>২. ফেরতের শর্তাবলী / Conditions:</strong><br>
+            পণ্যটি অব্যবহৃত এবং এর মূল প্যাকেজিং ও ট্যাগসহ থাকতে হবে।<br>
+            <span class="policy-en-item">Items must be unused, unwashed, and returned in their original packaging with tags intact.</span></p>
+
+            <p><strong>৩. হাইজিন প্রডাক্টের নিয়ম / Hygiene Products:</strong><br>
+            পার্সোনাল কেয়ার বা মেডিসিন জাতীয় পণ্য স্বাস্থ্য সুরক্ষার খাতিরে একবার বক্স খোলা হলে ফেরতযোগ্য নয় (যদি না ভুল পণ্য পাঠানো হয়ে থাকে)।<br>
+            <span class="policy-en-item">For health and safety reasons, personal care and medical products are non-returnable once opened unless shipped incorrectly.</span></p>
+
+            <p><strong>৪. যোগাযোগ / Contact Support:</strong><br>
+            রিটার্নের জন্য আমাদের কাস্টমার সাপোর্ট নম্বর +966 54 342 8325-এ কথা বলুন।<br>
+            <span class="policy-en-item">For return inquiries, please contact our helpline at +966 54 342 8325.</span></p>
           `
         }
       };
@@ -677,7 +713,7 @@
         const iqama = document.getElementById('cust-iqama').value;
 
         if(!name || !phone || !address || !iqama || !email) {
-          alert('দয়া করে সকল তথ্য (নাম, ফোন, ইমেইল, ঠিকানা ও আকামা নম্বর) পূরণ করুন।');
+          alert('দয়া করে সকল তথ্য (নাম, ফোন, ইমেইল, ঠিকানা ও আকামা নম্বর) পূরণ করুন। / Please fill out all required details.');
           return;
         }
 
