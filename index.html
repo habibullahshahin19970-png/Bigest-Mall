@@ -140,7 +140,7 @@
 
     .section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
 
-    .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+    .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
     .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
     .category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
     .category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
@@ -437,7 +437,7 @@
       </a>
 
       <form class="search-form" onsubmit="return false;">
-        <input type="search" placeholder="Search for products, brands and categories..." />
+        <input type="search" placeholder="Search medicines, personal care, equipment..." />
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
 
@@ -467,30 +467,20 @@
       </section>
 
       <div class="container">
-        <h2 class="section-title">Top Categories</h2>
+        <h2 class="section-title">Catalog</h2>
         <div class="categories-grid">
           
           <div class="category-card" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-pills"></i>
-            <h3>Medicines</h3>
-          </div>
-
-          <div class="category-card" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-pump-soap"></i>
-            <h3>Beauty &amp; Personal Care</h3>
-          </div>
-
-          <div class="category-card" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-kit-medical"></i>
-            <h3>Medical Accessories</h3>
+            <i class="fa-solid fa-suitcase-medical"></i>
+            <h3>Health &amp; Personal Care</h3>
           </div>
 
         </div>
 
-        <h2 class="section-title">Featured Products & Catalog</h2>
+        <h2 class="section-title">All Products &amp; Essentials</h2>
         <div class="products-grid">
 
-          <!-- 1. MM KIT PRODUCT CARD (MEDICINE) -->
+          <!-- 1. MM KIT PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('mmkit')">
               <img id="home-main-img-1" src="image_3.png" alt="MM Kit Ziska Pharma">
@@ -502,7 +492,7 @@
 
             <div class="product-info">
               <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol) - Ziska Pharma</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Category: Medicines (Origin: Bangladesh)</p>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Catalog: Health &amp; Personal Care</p>
               <div class="product-price">475.00 SAR</div>
 
               <button class="btn-add-cart" type="button" data-name="MM Kit (Ziska Pharma)" data-price="475.00">Add to Cart</button>
@@ -518,7 +508,7 @@
             </div>
           </article>
 
-          <!-- 2. SANITARY NAPKIN PRODUCT CARD (BEAUTY & PERSONAL CARE) -->
+          <!-- 2. SANITARY NAPKIN PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="home-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
@@ -529,8 +519,8 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin (Personal Care)</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Category: Beauty &amp; Personal Care</p>
+              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Catalog: Health &amp; Personal Care</p>
               <div class="product-price">475.00 SAR</div>
 
               <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="475.00">Add to Cart</button>
@@ -550,32 +540,24 @@
       </div>
     </div>
 
-    <!-- CATEGORIES DASHBOARD -->
+    <!-- CATALOG / CATEGORIES DASHBOARD -->
     <div id="categories-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">All Categories &amp; Products</h2>
+        <h2 class="section-title">Catalog</h2>
         
         <div class="categories-grid">
-          <div class="category-card" onclick="showToast('Medicines Category')">
-            <i class="fa-solid fa-pills"></i>
-            <h3>Medicines</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Beauty & Personal Care Category')">
-            <i class="fa-solid fa-pump-soap"></i>
-            <h3>Beauty &amp; Personal Care</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Medical Accessories Category')">
-            <i class="fa-solid fa-kit-medical"></i>
-            <h3>Medical Accessories</h3>
+          <div class="category-card" onclick="showToast('Health & Personal Care Catalog Active')">
+            <i class="fa-solid fa-suitcase-medical"></i>
+            <h3>Health &amp; Personal Care</h3>
           </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 40px;">Products Catalog</h2>
+        <p style="font-size: 13px; color: #666; margin-top: 15px;">এই একটিমাত্র ক্যাটালগের মধ্যে ওষুধ, মেডিকেল ডিভাইস, স্যানিটারি ন্যাপকিন, স্কিন কেয়ার এবং সকল ফার্মাসিউটিক্যাল পণ্য অন্তর্ভুক্ত রয়েছে।</p>
+
+        <h2 class="section-title" style="margin-top: 30px;">Products in Health &amp; Personal Care</h2>
         <div class="products-grid">
           
-          <!-- MM KIT IN CATEGORIES -->
+          <!-- MM KIT IN CATALOG -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('mmkit')">
               <img id="cat-main-img-1" src="image_3.png" alt="MM Kit">
@@ -586,7 +568,7 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol) - Medicines</h3>
+              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol)</h3>
               <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Ziska Pharmaceuticals (Origin: Bangladesh)</p>
               <div class="product-price">475.00 SAR</div>
 
@@ -603,7 +585,7 @@
             </div>
           </article>
 
-          <!-- SANITARY NAPKIN IN CATEGORIES -->
+          <!-- SANITARY NAPKIN IN CATALOG -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="cat-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
@@ -614,8 +596,8 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin - Beauty &amp; Personal Care</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">High Quality Personal Care Product</p>
+              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Health &amp; Personal Care Essential</p>
               <div class="product-price">475.00 SAR</div>
 
               <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="475.00">Add to Cart</button>
@@ -870,7 +852,7 @@
   <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
     <button class="nav-item active" onclick="switchDashboard('home-view', this)"><i class="fa-solid fa-house"></i><span>Home</span></button>
-    <button class="nav-item" onclick="switchDashboard('categories-view', this)"><i class="fa-solid fa-shapes"></i><span>Categories</span></button>
+    <button class="nav-item" onclick="switchDashboard('categories-view', this)"><i class="fa-solid fa-suitcase-medical"></i><span>Catalog</span></button>
     <button class="nav-item" onclick="switchDashboard('deals-view', this)"><i class="fa-solid fa-bag-shopping"></i><span>Deals</span></button>
     <button class="nav-item" onclick="switchDashboard('account-view', this)"><i class="fa-regular fa-user"></i><span>Account</span></button>
     <button class="nav-item" onclick="switchDashboard('cart-view', this)"><i class="fa-solid fa-cart-shopping"></i><span>Cart</span></button>
@@ -929,14 +911,14 @@
               <img src="image_3.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="MM Kit">
               <div>
                 <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">MM Kit (Mifepristone &amp; Misoprostol)</h2>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Category: Medicines (Ziska Pharma)</p>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Catalog: Health &amp; Personal Care (Ziska Pharma)</p>
                 <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Origin: Bangladesh (100% Original)</p>
                 <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
               </div>
             </div>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
-              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">মেডিসিনের বিবরণ (Detailed Specifications):</h4>
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Detailed Specifications):</h4>
               <ul style="padding-left: 20px; margin: 0 0 15px 0;">
                 <li><strong>প্যাক সাইজ:</strong> ১ বক্সে মোট ৫টি ট্যাবলেট।</li>
                 <li><strong>১ নম্বর ট্যাবলেট:</strong> Mifton (Mifepristone USP 200 mg) — ১ পিস।</li>
@@ -958,7 +940,7 @@
               <img src="IMG_2869.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Sanitary Napkin">
               <div>
                 <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">Premium Sanitary Napkin</h2>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Category: Beauty &amp; Personal Care</p>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Catalog: Health &amp; Personal Care</p>
                 <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
               </div>
             </div>
@@ -966,7 +948,7 @@
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
               <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Details):</h4>
               <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li><strong>ক্যাটাগরি:</strong> বিউটি অ্যান্ড পার্সোনাল কেয়ার (Beauty &amp; Personal Care)</li>
+                <li><strong>ক্যাটাগরি:</strong> হেলথ অ্যান্ড পার্সোনাল কেয়ার (Health &amp; Personal Care)</li>
                 <li><strong>হাই-কোয়ালিটি:</strong> অত্যন্ত আরামদায়ক ও নিরাপদ ম্যাটেরিয়ালে তৈরি।</li>
                 <li><strong>গোপনীয়তা:</strong> সুরক্ষিত ও গোপনীয় প্যাকেজিংয়ে ডেলিভারি।</li>
               </ul>
