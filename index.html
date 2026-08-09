@@ -32,7 +32,7 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.4;
-      padding-bottom: 75px; /* Bottom Nav এর জন্য জায়গা রাখা হয়েছে */
+      padding-bottom: 75px;
     }
 
     /* Utility */
@@ -274,46 +274,45 @@
       <div class="container" aria-live="polite">
         <h2 class="section-title">Top Categories</h2>
         <div class="categories-grid" role="list">
+          
+          <!-- Medicine Category -->
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-            <h3>Mobiles & Accessories</h3>
+            <i class="fa-solid fa-pills" aria-hidden="true"></i>
+            <h3>Medicines</h3>
           </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
-            <h3>Laptops & Computers</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-shirt" aria-hidden="true"></i>
-            <h3>Fashion & Clothing</h3>
-          </div>
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-house-laptop" aria-hidden="true"></i>
-            <h3>Home & Kitchen</h3>
-          </div>
+
+          <!-- Personal Care Category -->
           <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
             <i class="fa-solid fa-pump-soap" aria-hidden="true"></i>
-            <h3>Beauty & Personal Care</h3>
+            <h3>Personal Care</h3>
           </div>
+
+          <!-- Medical Accessories Category -->
+          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-kit-medical" aria-hidden="true"></i>
+            <h3>Medical Accessories</h3>
+          </div>
+
         </div>
 
         <h2 class="section-title">Featured Products</h2>
         <div class="products-grid" id="products-grid">
 
           <article class="product-card">
-            <div class="product-img"><i class="fa-solid fa-stopwatch fa-3x"></i></div>
+            <div class="product-img"><i class="fa-solid fa-heart-pulse fa-3x"></i></div>
             <div class="product-info">
-              <h3 class="product-title">Smart Watch Ultra</h3>
-              <div class="product-price">199.99 SAR</div>
-              <button class="btn-add-cart" type="button" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
+              <h3 class="product-title">Digital Blood Pressure Monitor</h3>
+              <div class="product-price">120.00 SAR</div>
+              <button class="btn-add-cart" type="button" data-name="Digital Blood Pressure Monitor" data-price="120.00">Add to Cart</button>
             </div>
           </article>
 
           <article class="product-card">
-            <div class="product-img"><i class="fa-solid fa-camera fa-3x"></i></div>
+            <div class="product-img"><i class="fa-solid fa-suitcase-medical fa-3x"></i></div>
             <div class="product-info">
-              <h3 class="product-title">4K DSLR Camera</h3>
-              <div class="product-price">549.99 SAR</div>
-              <button class="btn-add-cart" type="button" data-name="4K DSLR Camera" data-price="549.99">Add to Cart</button>
+              <h3 class="product-title">First Aid Medical Kit</h3>
+              <div class="product-price">85.00 SAR</div>
+              <button class="btn-add-cart" type="button" data-name="First Aid Kit" data-price="85.00">Add to Cart</button>
             </div>
           </article>
 
@@ -328,60 +327,25 @@
         
         <div class="categories-grid">
           
-          <div class="category-card" onclick="showToast('Mobiles Selected')">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <h3>Mobiles & Accessories</h3>
+          <div class="category-card" onclick="showToast('Medicines Selected')">
+            <i class="fa-solid fa-pills"></i>
+            <h3>Medicines</h3>
           </div>
 
-          <div class="category-card" onclick="showToast('Laptops Selected')">
-            <i class="fa-solid fa-laptop"></i>
-            <h3>Laptops & Computers</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Fashion Selected')">
-            <i class="fa-solid fa-shirt"></i>
-            <h3>Fashion & Clothing</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Home Selected')">
-            <i class="fa-solid fa-house-laptop"></i>
-            <h3>Home & Kitchen</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Beauty Selected')">
+          <div class="category-card" onclick="showToast('Personal Care Selected')">
             <i class="fa-solid fa-pump-soap"></i>
-            <h3>Beauty & Personal Care</h3>
+            <h3>Personal Care</h3>
           </div>
 
-          <div class="category-card" onclick="showToast('Watches Selected')">
-            <i class="fa-solid fa-stopwatch"></i>
-            <h3>Watches & Electronics</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Global Selected')">
-            <i class="fa-solid fa-plane-departure"></i>
-            <h3>Global Direct Products</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Baby Selected')">
-            <i class="fa-solid fa-baby-carriage"></i>
-            <h3>Baby & Toys</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Sports Selected')">
-            <i class="fa-solid fa-football"></i>
-            <h3>Sports & Fitness</h3>
-          </div>
-
-          <div class="category-card" onclick="showToast('Deals Selected')">
-            <i class="fa-solid fa-tags"></i>
-            <h3>Special Offers / Deals</h3>
+          <div class="category-card" onclick="showToast('Medical Accessories Selected')">
+            <i class="fa-solid fa-kit-medical"></i>
+            <h3>Medical Accessories</h3>
           </div>
 
         </div>
 
-        <!-- Beauty & Personal Care Section (প্রোডাক্টটি এখানে দেওয়া হয়েছে) -->
-        <h2 class="section-title" style="margin-top: 40px;">Beauty & Personal Care Products</h2>
+        <!-- Personal Care Section -->
+        <h2 class="section-title" style="margin-top: 40px;">Personal Care Products</h2>
         <div class="products-grid">
           
           <div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -397,7 +361,7 @@
               
               <div class="product-info" style="margin-top: 15px;">
                   <h3 style="margin: 0 0 8px 0; color: #333;">Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads</h3>
-                  <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Beauty & Personal Care / Hygiene</p>
+                  <p style="margin: 0 0 5px 0; font-size: 13px; color: #777;">Category: Personal Care / Hygiene</p>
                   <p class="product-price" style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 8px 0;">25 SAR <del style="font-size: 14px; color: #999;">30 SAR</del></p>
 
                   <div style="margin: 12px 0; padding: 10px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
@@ -436,15 +400,9 @@
         <div class="products-grid">
           <div class="product-card" style="padding: 20px; text-align: center;">
             <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
-            <h3>Flash Sale - Smart Watch</h3>
-            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">149.99 SAR <del style="color: #888; font-size: 14px;">199.99 SAR</del></p>
-            <button class="btn-add-cart" data-name="Smart Watch (Deal)" data-price="149.99">Grab Deal</button>
-          </div>
-          <div class="product-card" style="padding: 20px; text-align: center;">
-            <i class="fa-solid fa-tag" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
-            <h3>Camera Bundle Offer</h3>
-            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">499.99 SAR <del style="color: #888; font-size: 14px;">549.99 SAR</del></p>
-            <button class="btn-add-cart" data-name="Camera Bundle" data-price="499.99">Grab Deal</button>
+            <h3>Flash Sale - Blood Pressure Monitor</h3>
+            <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">99.99 SAR <del style="color: #888; font-size: 14px;">120.00 SAR</del></p>
+            <button class="btn-add-cart" data-name="BP Monitor (Deal)" data-price="99.99">Grab Deal</button>
           </div>
         </div>
       </div>
