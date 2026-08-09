@@ -37,131 +37,66 @@
     .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
     a{color:inherit}
 
-    /* Bottom Nav Bar */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 65px;
-      background: #ffffff;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      border-top: 1px solid #e0e0e0;
-      z-index: 1100;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #5f6368;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 20%;
-      padding: 6px 0;
-      transition: color 0.2s ease;
-    }
-
-    .nav-item i { font-size: 20px; margin-bottom: 3px; }
-    .nav-item.active { color: var(--active-blue); font-weight: 700; }
-
-    .app-view { display: none; }
-    .app-view.active-view { display: block; }
-
+    /* Top Bar & Language Selector */
     .top-bar{
       background:var(--dark-bg);color:var(--white);
       padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
     }
     .brand-strong{color:var(--primary-gold);font-weight:700}
+    .top-bar-right { display: flex; align-items: center; gap: 15px; }
+    .lang-select {
+      background: #222; color: #fff; border: 1px solid var(--primary-gold);
+      padding: 3px 8px; border-radius: 4px; font-size: 12px; outline: none; cursor: pointer;
+    }
 
+    /* Header & Logo */
     header.site-header{
       background:var(--secondary-blue);color:var(--white);
       position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
     }
     .header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
-    .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
-    .search-form{flex:1;min-width:220px;display:flex;max-width:640px}
+    .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.2rem; cursor: pointer;}
+    .logo-img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-gold); }
+    
+    .search-form{flex:1;min-width:220px;display:flex;max-width:500px}
     .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
     .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
+    
     .header-actions{display:flex;align-items:center;gap:12px}
     .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
     .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
 
-    .floating-whatsapp{
-      position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
-      font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
-    }
+    /* App Views */
+    .app-view { display: none; }
+    .app-view.active-view { display: block; }
 
+    /* Hero Banner */
     .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
     .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
 
     .section-title{font-size:1.2rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue);font-weight:bold;}
 
-    /* CATALOG & PRODUCTS STYLING */
+    /* MEDICAL CATALOG STYLING (৩টি মেডিকেল আইটেম ক্যাটালগ) */
     .categories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
       margin-bottom: 25px;
     }
     .category-card {
       background: #fff;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eee;
     }
-    .category-card:hover { transform: translateY(-3px); }
-    .category-card i { font-size: 28px; color: var(--secondary-blue); margin-bottom: 8px; }
-    .category-card span { display: block; font-size: 13px; font-weight: 600; color: #444; }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
-    }
-    .product-card {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .product-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      background: #eee;
-    }
-    .product-info {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .product-title { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: #222; }
-    .product-price { color: var(--secondary-blue); font-weight: bold; font-size: 15px; margin-bottom: 10px; }
-    .btn-add-cart {
-      margin-top: auto;
-      background: var(--primary-gold);
-      color: var(--dark-bg);
-      border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .category-card:hover { transform: translateY(-4px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+    .category-card i { font-size: 36px; color: var(--secondary-blue); margin-bottom: 12px; }
+    .category-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--secondary-blue); }
+    .category-card p { margin: 0; font-size: 13px; color: #666; }
 
     /* ACCOUNT SYSTEM STYLING */
     .account-box {
@@ -188,32 +123,68 @@
     .btn-send-otp { background: var(--secondary-blue); color: #fff; border: none; padding: 0 15px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap; }
     .btn-submit-auth { width: 100%; padding: 12px; background: var(--primary-gold); color: var(--dark-bg); border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 10px; }
 
+    /* Footer & Navigation */
     footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
     .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
     .footer-column a{color:#ccc;text-decoration:none;cursor:pointer}
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
 
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; height: 65px;
+      background: #ffffff; display: flex; justify-content: space-around; align-items: center;
+      border-top: 1px solid #e0e0e0; z-index: 1100; box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+    }
+    .nav-item {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #5f6368; text-decoration: none; font-size: 12px; font-weight: 500;
+      background: none; border: none; cursor: pointer; width: 20%; padding: 6px 0;
+    }
+    .nav-item i { font-size: 20px; margin-bottom: 3px; }
+    .nav-item.active { color: var(--active-blue); font-weight: 700; }
+
+    /* Modal Policy Popup Design */
+    .policy-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; padding: 15px;
+    }
+    .policy-modal-content {
+      background: #fff; color: #333; max-width: 650px; width: 100%; max-height: 80vh;
+      border-radius: 12px; overflow-y: auto; padding: 25px; position: relative;
+    }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; font-weight: bold; cursor: pointer; }
+    .policy-title { color: var(--secondary-blue); border-bottom: 2px solid var(--primary-gold); padding-bottom: 8px; margin-top: 0; }
+    
     .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;opacity:0;transform:translateY(8px);transition:all .22s;z-index:1200;font-weight:600}
     .toast.show{opacity:1;transform:none}
   </style>
 </head>
 <body>
 
-  <!-- Top Bar -->
+  <!-- Top Bar with Language Option -->
   <div class="top-bar">
     <div>Welcome to <span class="brand-strong">BIGEST MALL</span></div>
-    <div>Helpline: <a href="tel:+966543428325" style="color:inherit;font-weight:bold;">+966 54 342 8325</a></div>
+    <div class="top-bar-right">
+      <span>Helpline: <a href="tel:+966543428325" style="color:inherit;font-weight:bold;">+966 54 342 8325</a></span>
+      <!-- Language Switcher -->
+      <select class="lang-select" onchange="changeLanguage(this.value)">
+        <option value="bn">বাংলা (BN)</option>
+        <option value="en">English (EN)</option>
+        <option value="ar">العربية (AR)</option>
+      </select>
+    </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header with Brand Logo -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="#" onclick="switchDashboard('home-view')">
-        <i class="fa-solid fa-globe"></i> <span>BIGEST MALL</span>
+      <a class="logo" onclick="switchDashboard('home-view')">
+        <!-- Site Logo -->
+        <img src="https://via.placeholder.com/40/D4AF37/0A2540?text=BM" alt="Bigest Mall Logo" class="logo-img">
+        <span>BIGEST MALL</span>
       </a>
       <form class="search-form" onsubmit="event.preventDefault();">
-        <input type="search" placeholder="Search products..." />
+        <input type="search" placeholder="মেডিকেল সামগ্রী সার্চ করুন..." />
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
       <div class="header-actions">
@@ -225,7 +196,7 @@
 
   <main id="main">
     
-    <!-- HOME DASHBOARD (WITH CATALOG & PRODUCTS) -->
+    <!-- HOME DASHBOARD (WITH MEDICAL CATALOG) -->
     <div id="home-view" class="app-view active-view">
       <section class="hero">
         <div class="container">
@@ -235,76 +206,36 @@
       </section>
 
       <div class="container">
-        <!-- Categories Catalog Section -->
-        <h2 class="section-title">Product Categories (ক্যাটালগ)</h2>
+        <!-- 3 Medical Categories Section -->
+        <h2 class="section-title">মেডিকেল ক্যাটালগ (Medical Categories)</h2>
         <div class="categories-grid">
-          <div class="category-card">
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <span>Electronics</span>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-shirt"></i>
-            <span>Fashion</span>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-house"></i>
-            <span>Home Decor</span>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-spray-can-sparkles"></i>
-            <span>Perfumes</span>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-clock"></i>
-            <span>Watches</span>
-          </div>
-        </div>
-
-        <!-- Featured Products Catalog Section -->
-        <h2 class="section-title">Featured Products (পণ্যসমূহ)</h2>
-        <div class="products-grid">
           
-          <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product" class="product-img">
-            <div class="product-info">
-              <h3 class="product-title">Smart Watch Series 8</h3>
-              <div class="product-price">150 SAR</div>
-              <button class="btn-add-cart" onclick="addToCart()">Add to Cart</button>
-            </div>
+          <!-- Category 1 -->
+          <div class="category-card" onclick="showToast('Medical Equipment ক্যাটাগরি লোড হচ্ছে...')">
+            <i class="fa-solid fa-stethoscopes"></i>
+            <h3>Medical Equipment</h3>
+            <p>মেডিকেল ও ডায়াগনস্টিক যন্ত্রপাতি</p>
           </div>
 
-          <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product" class="product-img">
-            <div class="product-info">
-              <h3 class="product-title">Wireless Bluetooth Earbuds</h3>
-              <div class="product-price">85 SAR</div>
-              <button class="btn-add-cart" onclick="addToCart()">Add to Cart</button>
-            </div>
+          <!-- Category 2 -->
+          <div class="category-card" onclick="showToast('Surgical Supplies ক্যাটাগরি লোড হচ্ছে...')">
+            <i class="fa-solid fa-user-nurse"></i>
+            <h3>Surgical Supplies</h3>
+            <p>সার্জিক্যাল সামগ্রী ও অ্যাকসেসরিজ</p>
           </div>
 
-          <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product" class="product-img">
-            <div class="product-info">
-              <h3 class="product-title">Luxury Arabic Perfume</h3>
-              <div class="product-price">210 SAR</div>
-              <button class="btn-add-cart" onclick="addToCart()">Add to Cart</button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product" class="product-img">
-            <div class="product-info">
-              <h3 class="product-title">Premium Leather Wallet</h3>
-              <div class="product-price">65 SAR</div>
-              <button class="btn-add-cart" onclick="addToCart()">Add to Cart</button>
-            </div>
+          <!-- Category 3 -->
+          <div class="category-card" onclick="showToast('Healthcare Products ক্যাটাগরি লোড হচ্ছে...')">
+            <i class="fa-solid fa-kit-medical"></i>
+            <h3>Healthcare Products</h3>
+            <p>স্বাস্থ্য সুরক্ষা ও পার্সোনাল কেয়ার</p>
           </div>
 
         </div>
       </div>
     </div>
 
-    <!-- ACCOUNT DASHBOARD WITH SEPARATE LOGIN & SIGNUP -->
+    <!-- ACCOUNT DASHBOARD WITH LOGIN & SIGNUP SEPARATION -->
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 10px;">
         <div class="account-box">
@@ -342,7 +273,7 @@
               <div class="form-group">
                 <label>মোবাইল নম্বর অথবা ইমেইল (Mobile / Email)</label>
                 <div class="otp-group">
-                  <input type="text" placeholder="05XXXXXXXX / email" required>
+                  <input type="text" id="signup-contact" placeholder="05XXXXXXXX / email" required>
                   <button type="button" class="btn-send-otp" onclick="showToast('ভেরিফিকেশন কোড পাঠানো হয়েছে!')">Send Code</button>
                 </div>
               </div>
@@ -394,7 +325,7 @@
     <div id="cart-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         <h2 class="section-title">Shopping Cart</h2>
-        <p style="text-align:center; color:#777; margin-top:30px;">Your cart is currently empty.</p>
+        <p style="text-align:center; color:#777; margin-top:30px;">আপনার কার্ট বর্তমানে খালি আছে।</p>
       </div>
     </div>
 
@@ -404,16 +335,24 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-column">
-        <h3>Bigest Mall</h3>
-        <p style="font-size:13px; color:#ccc;">More than shopping, it's your biggest world.</p>
-      </div>
-      <div class="footer-column">
-        <h3>Contact</h3>
-        <p style="font-size:13px; color:#ccc;">Phone: +966 54 342 8325</p>
+        <h3>Customer Policy</h3>
+        <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+          <li><a onclick="openPolicyModal('privacy')">Privacy Policy</a></li>
+          <li><a onclick="openPolicyModal('terms')">Terms &amp; Conditions</a></li>
+        </ul>
       </div>
     </div>
     <div class="copyright">© 2026 Bigest Mall. All rights reserved.</div>
   </footer>
+
+  <!-- DYNAMIC POLICY MODAL POPUP -->
+  <div id="policyModal" class="policy-modal" onclick="closePolicyModalOnOutside(event)">
+    <div class="policy-modal-content">
+      <span class="close-modal" onclick="closePolicyModal()">&times;</span>
+      <h2 id="modalTitle" class="policy-title">Policy Details</h2>
+      <div id="modalBody" style="line-height:1.6; font-size:14px; margin-top:15px;"></div>
+    </div>
+  </div>
 
   <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
@@ -437,8 +376,6 @@
     (function(){
       "use strict";
 
-      let cartCount = 0;
-
       window.switchDashboard = function(viewId, btnElement) {
         document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active-view'));
         const targetView = document.getElementById(viewId);
@@ -451,6 +388,7 @@
         window.scrollTo(0,0);
       };
 
+      // AUTH TAB SWITCHER (Login / Signup)
       window.switchAuthTab = function(tabType) {
         const loginBox = document.getElementById('login-form-box');
         const signupBox = document.getElementById('signup-form-box');
@@ -470,10 +408,9 @@
         }
       };
 
-      window.addToCart = function() {
-        cartCount++;
-        document.getElementById('cart-count').textContent = cartCount;
-        showToast('পণ্যটি কার্টে যোগ করা হয়েছে!');
+      // LANGUAGE CHANGE FUNCTION
+      window.changeLanguage = function(lang) {
+        showToast('ভাষা পরিবর্তন করা হয়েছে: ' + lang.toUpperCase());
       };
 
       const toastEl = document.getElementById("toast");
