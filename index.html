@@ -23,7 +23,11 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
+    
+    /* STRICTLY FORCE HIDE GOOGLE TRANSLATE BANNER & BAR */
+    body {
+      top: 0px !important;
+      position: static !important;
       margin:0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background:var(--light-bg);
@@ -34,15 +38,15 @@
       padding-bottom: 75px;
     }
 
-    /* Google Translate Elements Custom Styles for Hidden Widget */
-    #google_translate_element {
+    #google_translate_element,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .skiptranslate,
+    iframe.skiptranslate {
       display: none !important;
-    }
-    .goog-te-banner-frame.skiptranslate {
-      display: none !important;
-    }
-    body {
-      top: 0px !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      width: 0 !important;
     }
 
     .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
@@ -562,7 +566,7 @@
                       </div>
                   </div>
 
-                  <!-- ORDER FORM CONNECTED TO YOUR FORMSPREE ENDPOINT -->
+                  <!-- ORDER FORM AUTOMATICALLY AUTOFILLED FROM USER ACCOUNT DATA -->
                   <div class="order-form-container">
                       <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">অর্ডার কনফার্ম করুন (Order Now)</h4>
                       
@@ -611,10 +615,10 @@
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         
-        <!-- Welcome Guest Section -->
-        <div class="acc-header-card">
-          <h3>Welcome Guest</h3>
-          <div class="acc-auth-btns">
+        <!-- Welcome Section (Changes dynamically on login) -->
+        <div class="acc-header-card" id="acc-header-box">
+          <h3 id="user-greeting">Welcome Guest</h3>
+          <div class="acc-auth-btns" id="auth-buttons-group">
             <button class="btn-acc-action btn-acc-login" onclick="openAuthModal('login')">Login</button>
             <button class="btn-acc-action btn-acc-signup" onclick="openAuthModal('signup')">Create an Account</button>
           </div>
@@ -689,7 +693,7 @@
             <i class="fa-solid fa-chevron-right"></i>
           </div>
 
-          <div class="acc-menu-item" onclick="showToast('Signed Out Successfully')" style="color: #d32f2f;">
+          <div class="acc-menu-item" onclick="handleSignOut()" style="color: #d32f2f;">
             <div class="acc-menu-left">
               <i class="fa-solid fa-right-from-bracket" style="color: #d32f2f;"></i>
               <span>Sign out</span>
@@ -790,7 +794,7 @@
         <form onsubmit="handleLoginSubmit(event)">
           <div class="auth-input-group">
             <label>Email or Mobile Number</label>
-            <input type="text" placeholder="e.g. user@gmail.com or 05XXXXXXXX" required>
+            <input type="text" id="login-id" placeholder="e.g. user@gmail.com or 05XXXXXXXX" required>
           </div>
           <div class="auth-input-group">
             <label>Password</label>
@@ -824,20 +828,20 @@
           </div>
         </div>
 
-        <!-- STEP 2: FULL DETAILS FORM (ACTIVATES AFTER OTP VERIFY) -->
+        <!-- STEP 2: FULL DETAILS FORM -->
         <div id="signup-step-2" style="display: none; margin-top: 10px;">
           <form onsubmit="handleSignupSubmit(event)">
             <div class="auth-input-group">
               <label>Full Name (সম্পূর্ণ নাম)</label>
-              <input type="text" placeholder="Your full name" required>
+              <input type="text" id="su-fullname" placeholder="Your full name" required>
             </div>
             <div class="auth-input-group">
               <label>Email Address (ইমেইল এড্রেস)</label>
-              <input type="email" placeholder="example@email.com" required>
+              <input type="email" id="su-email" placeholder="example@email.com" required>
             </div>
             <div class="auth-input-group">
               <label>Iqama Number (আকামা নম্বর)</label>
-              <input type="text" placeholder="10-digit Iqama Number" required>
+              <input type="text" id="su-iqama" placeholder="10-digit Iqama Number" required>
             </div>
             <div class="auth-input-group">
               <label>Date of Birth (জন্ম তারিখ)</label>
@@ -903,11 +907,13 @@
       "use strict";
 
       const CART_KEY = "bigestmall_cart_count";
+      const USER_KEY = "bigestmall_user_data";
       const cartCountEl = document.getElementById("cart-count");
       const toastEl = document.getElementById("toast");
 
       let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
       updateCartUI();
+      checkLoggedInUser();
 
       window.switchDashboard = function(viewId, btnElement) {
         document.querySelectorAll('.app-view').forEach(view => {
@@ -925,6 +931,26 @@
         window.scrollTo(0,0);
       };
 
+      // CHECK LOGGED IN USER & AUTO-FILL ORDER FORM
+      function checkLoggedInUser() {
+        const userDataStr = localStorage.getItem(USER_KEY);
+        if (userDataStr) {
+          const user = JSON.parse(userDataStr);
+          
+          // Update Account Header
+          const greetingEl = document.getElementById("user-greeting");
+          const authBtns = document.getElementById("auth-buttons-group");
+          if(greetingEl) greetingEl.textContent = "Welcome, " + user.name;
+          if(authBtns) authBtns.style.display = "none";
+
+          // Auto Fill Form Input Fields if elements exist
+          if(document.getElementById('cust-name')) document.getElementById('cust-name').value = user.name || '';
+          if(document.getElementById('cust-phone')) document.getElementById('cust-phone').value = user.phone || '';
+          if(document.getElementById('cust-email')) document.getElementById('cust-email').value = user.email || '';
+          if(document.getElementById('cust-iqama')) document.getElementById('cust-iqama').value = user.iqama || '';
+        }
+      }
+
       // LIVE LOCATION (GPS) FUNCTION FOR ADDRESS
       window.getUserLiveLocation = function() {
         showToast("Fetching live location...");
@@ -933,7 +959,6 @@
             function(position) {
               const lat = position.coords.latitude.toFixed(5);
               const lng = position.coords.longitude.toFixed(5);
-              const locationText = `GPS: Lat ${lat}, Long ${lng}`;
               
               // Fill input field in checkout order form automatically
               const addressInput = document.getElementById('cust-address');
@@ -949,7 +974,7 @@
             },
             function(error) {
               showToast("Location access denied or unavailable.");
-              alert("Location Permisssion Error: আপনার মোবাইলের GPS বা Location অন করুন।");
+              alert("Location Permission Error: আপনার মোবাইলের GPS বা Location অন করুন।");
             }
           );
         } else {
@@ -1036,14 +1061,42 @@
 
       window.handleLoginSubmit = function(e) {
         e.preventDefault();
+        const loginId = document.getElementById("login-id").value;
+        const tempUser = { name: loginId, phone: loginId, email: loginId, iqama: "" };
+        localStorage.setItem(USER_KEY, JSON.stringify(tempUser));
+        checkLoggedInUser();
         showToast("Login Successful!");
         closeAuthModal();
       };
 
       window.handleSignupSubmit = function(e) {
         e.preventDefault();
-        showToast("Account Created Successfully!");
+        const userObj = {
+          name: document.getElementById("su-fullname").value,
+          phone: document.getElementById("signup-mobile-num").value,
+          email: document.getElementById("su-email").value,
+          iqama: document.getElementById("su-iqama").value
+        };
+        localStorage.setItem(USER_KEY, JSON.stringify(userObj));
+        checkLoggedInUser();
+        showToast("Account Created & Logged In!");
         closeAuthModal();
+      };
+
+      window.handleSignOut = function() {
+        localStorage.removeItem(USER_KEY);
+        const greetingEl = document.getElementById("user-greeting");
+        const authBtns = document.getElementById("auth-buttons-group");
+        if(greetingEl) greetingEl.textContent = "Welcome Guest";
+        if(authBtns) authBtns.style.display = "flex";
+        
+        // Reset Inputs
+        if(document.getElementById('cust-name')) document.getElementById('cust-name').value = '';
+        if(document.getElementById('cust-phone')) document.getElementById('cust-phone').value = '';
+        if(document.getElementById('cust-email')) document.getElementById('cust-email').value = '';
+        if(document.getElementById('cust-iqama')) document.getElementById('cust-iqama').value = '';
+        
+        showToast("Signed Out Successfully");
       };
 
       // Customer Policies Modal Data
