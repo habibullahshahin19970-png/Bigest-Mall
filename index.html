@@ -21,7 +21,6 @@
       --active-blue: #1a73e8;
     }
 
-    /* Base reset */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -35,7 +34,6 @@
       padding-bottom: 75px;
     }
 
-    /* Utility */
     .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
     .visually-hidden{
       position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);
@@ -43,14 +41,12 @@
     }
     a{color:inherit}
 
-    /* Skip link */
     .skip-link{
       position:fixed;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:999;
       transform:translateY(-120%);transition:transform .18s ease;
     }
     .skip-link:focus{transform:none;outline:3px solid var(--primary-gold)}
 
-    /* Bottom Navigation Bar Style */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -93,22 +89,15 @@
       font-weight: 700;
     }
 
-    /* Dashboard View Switching Logic */
-    .app-view {
-      display: none;
-    }
-    .app-view.active-view {
-      display: block;
-    }
+    .app-view { display: none; }
+    .app-view.active-view { display: block; }
 
-    /* Top Bar */
     .top-bar{
       background:var(--dark-bg);color:var(--white);
       padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
     }
     .brand-strong{color:var(--primary-gold);font-weight:700}
 
-    /* Header */
     header.site-header{
       background:var(--secondary-blue);color:var(--white);
       position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
@@ -121,34 +110,27 @@
     .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
     .header-actions{display:flex;align-items:center;gap:12px}
     .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
-    .action-btn:focus{outline:3px solid rgba(212,175,55,0.25)}
     .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
 
-    /* Floating WhatsApp */
     .floating-whatsapp{
       position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
       font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
     }
     .floating-whatsapp:hover{transform:scale(1.06)}
-    .floating-whatsapp:focus{box-shadow:0 0 0 4px rgba(37,211,102,0.18);outline:none}
 
-    /* Hero */
     .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
     .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
     .hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
     .btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
 
-    /* Sections */
     .section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
 
-    /* Categories */
     .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
     .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
     .category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
     .category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
     .category-card h3{font-size:0.95rem;margin:0;color:var(--text-color);}
 
-    /* Products */
     .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:36px}
     .product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;padding:15px;}
     .product-img{height:180px;background:#eee;display:flex;align-items:center;justify-content:center;color:#888;border-radius:8px;}
@@ -158,46 +140,66 @@
     .btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700}
     .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
 
-    /* Footer */
+    /* Order Form Style */
+    .order-form-container {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .order-form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .btn-order-email {
+      width: 100%;
+      padding: 12px;
+      background: #0A2540;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    .btn-order-wa {
+      width: 100%;
+      padding: 12px;
+      background: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
     .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
     .footer-column a{color:#ccc;text-decoration:none}
-    .footer-column a:hover{color:var(--white)}
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
 
-    /* Toast */
     .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
     .toast.show{opacity:1;transform:none}
 
-    /* Focus visible */
-    :focus{outline-offset:3px}
-    button:focus,a:focus{outline:3px solid rgba(212,175,55,0.25)}
-
-    @media (max-width:720px){
-      .search-form{order:3;width:100%;margin-top:8px}
-      .header-actions{order:2;margin-left:auto}
-      .logo{order:1}
-      .hero{padding:40px 12px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none!important;animation:none!important}
-    }
-
-    /* Phone link style */
     .phone-link{color:inherit;text-decoration:underline;font-weight:700}
   </style>
 </head>
 <body>
 
-  <!-- Top Bar with Language Selector -->
+  <!-- Language Selector -->
   <div style="background-color: #111111; padding: 6px 15px; text-align: right; border-bottom: 1px solid #333333; display: flex; justify-content: flex-end; align-items: center; font-family: sans-serif;">
       <span style="color: #d4af37; font-size: 13px; font-weight: bold; margin-right: 8px;">🌐 Language / اللغة / ভাষা:</span>
       <div id="google_translate_element"></div>
   </div>
 
-  <!-- Google Translate Script -->
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -209,61 +211,59 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Biggest Mall Header Logo -->
+  <!-- Header Logo -->
   <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 0px;">
       <img src="0716600E-C20E-40AA-A036-45D14654E34B.png" alt="Biggest Mall Logo" style="max-height: 80px; width: auto; object-fit: contain;">
   </div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Floating WhatsApp -->
+  <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     <span>Order via WhatsApp</span>
   </a>
 
   <!-- Top Bar -->
-  <div class="top-bar" role="region" aria-label="Top bar">
+  <div class="top-bar">
     <div>Welcome to <span class="brand-strong">BIGEST MALL</span> | Worldwide Shipping Available</div>
     <div>
-      <i class="fa-solid fa-phone" aria-hidden="true"></i>
-      Helpline:
+      <i class="fa-solid fa-phone"></i> Helpline:
       <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
     </div>
   </div>
 
   <!-- Header -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="#" onclick="switchDashboard('home-view')">
-        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <i class="fa-solid fa-globe"></i>
         <span>BIGEST MALL</span>
       </a>
 
-      <form class="search-form" role="search" aria-label="Site search" onsubmit="return false;">
-        <label for="site-search" class="visually-hidden">Search products, brands and categories</label>
-        <input id="site-search" type="search" placeholder="Search for products, brands and categories..." />
-        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+      <form class="search-form" onsubmit="return false;">
+        <input type="search" placeholder="Search for products, brands and categories..." />
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
 
-      <div class="header-actions" role="group" aria-label="Header actions">
-        <button class="action-btn" onclick="switchDashboard('account-view')" aria-label="Account">
-          <i class="fa-regular fa-user" aria-hidden="true"></i>
+      <div class="header-actions">
+        <button class="action-btn" onclick="switchDashboard('account-view')">
+          <i class="fa-regular fa-user"></i>
         </button>
 
-        <button class="action-btn" id="cart-button" onclick="switchDashboard('cart-view')" aria-label="Cart">
-          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          <span id="cart-count" class="cart-badge" aria-live="polite">0</span>
+        <button class="action-btn" onclick="switchDashboard('cart-view')">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cart-count" class="cart-badge">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main id="main">
     
-    <!-- ================= 1. HOME DASHBOARD ================= -->
+    <!-- HOME DASHBOARD -->
     <div id="home-view" class="app-view active-view">
-      <section class="hero" role="region" aria-label="Hero">
+      <section class="hero">
         <div class="container">
           <h1>BIGEST MALL</h1>
           <p>"More than shopping, it's your biggest world."</p>
@@ -271,32 +271,29 @@
         </div>
       </section>
 
-      <div class="container" aria-live="polite">
+      <div class="container">
         <h2 class="section-title">Top Categories</h2>
-        <div class="categories-grid" role="list">
+        <div class="categories-grid">
           
-          <!-- Medicine Category -->
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-pills" aria-hidden="true"></i>
+          <div class="category-card" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-pills"></i>
             <h3>Medicines</h3>
           </div>
 
-          <!-- Personal Care Category -->
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-pump-soap" aria-hidden="true"></i>
+          <div class="category-card" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-pump-soap"></i>
             <h3>Personal Care</h3>
           </div>
 
-          <!-- Medical Accessories Category -->
-          <div class="category-card" role="listitem" tabindex="0" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-kit-medical" aria-hidden="true"></i>
+          <div class="category-card" onclick="switchDashboard('categories-view')">
+            <i class="fa-solid fa-kit-medical"></i>
             <h3>Medical Accessories</h3>
           </div>
 
         </div>
 
         <h2 class="section-title">Featured Products</h2>
-        <div class="products-grid" id="products-grid">
+        <div class="products-grid">
 
           <article class="product-card">
             <div class="product-img"><i class="fa-solid fa-heart-pulse fa-3x"></i></div>
@@ -320,13 +317,12 @@
       </div>
     </div>
 
-    <!-- ================= 2. CATEGORIES DASHBOARD ================= -->
+    <!-- CATEGORIES DASHBOARD -->
     <div id="categories-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">All Categories (সকল ক্যাটাগরি)</h2>
+        <h2 class="section-title">All Categories</h2>
         
         <div class="categories-grid">
-          
           <div class="category-card" onclick="showToast('Medicines Selected')">
             <i class="fa-solid fa-pills"></i>
             <h3>Medicines</h3>
@@ -341,16 +337,15 @@
             <i class="fa-solid fa-kit-medical"></i>
             <h3>Medical Accessories</h3>
           </div>
-
         </div>
 
-        <!-- Personal Care Section -->
+        <!-- Personal Care Product Showcase with Form -->
         <h2 class="section-title" style="margin-top: 40px;">Personal Care Products</h2>
         <div class="products-grid">
           
-          <div class="product-card" style="max-width: 400px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          <div class="product-card" style="max-width: 450px; margin: 0 auto; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
               <div class="main-image-box" style="width: 100%; height: 280px; overflow: hidden; border-radius: 8px; margin-bottom: 10px;">
-                  <img id="main-product-img" src="IMG_2869.jpeg" alt="প্রোডাক্টের নাম" style="width: 100%; height: 100%; object-fit: cover;">
+                  <img id="main-product-img" src="IMG_2869.jpeg" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               
               <div class="thumbnail-list" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px;">
@@ -375,25 +370,37 @@
                       </div>
                   </div>
 
-                  <!-- Payment & Order Form -->
-                  <div style="margin-top: 15px; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa;">
-                      <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">অর্ডার করুন (Order Now)</h4>
-                      <input type="text" placeholder="আপনার নাম (Full Name)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <input type="tel" placeholder="ফোন নম্বর (Mobile Number)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <input type="text" placeholder="ডেলিভারি ঠিকানা (City & Address)" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px;">
-                      <button type="button" onclick="addToCart('Fam Maxi Pads', '25.00')" style="width: 100%; padding: 12px; background: #28a745; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
-                          Confirm Order (অর্ডার কনফার্ম করুন)
-                      </button>
+                  <!-- ORDER FORM CONNECTED TO YOUR FORMSPREE ENDPOINT -->
+                  <div class="order-form-container">
+                      <h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">অর্ডার কনফার্ম করুন (Order Now)</h4>
+                      
+                      <form id="fam-pad-order-form" action="https://formspree.io/f/xvkpkaow" method="POST" onsubmit="handleEmailOrder(event, 'Fam Maxi Without Wings Super Sanitary Pads (25 SAR)')">
+                          <input type="hidden" name="Product_Name" value="Fam Maxi Without Wings Super Sanitary Pads (Purple) - 30 Pads">
+                          <input type="hidden" name="Product_Price" value="25 SAR">
+                          
+                          <input type="text" id="cust-name" name="Customer_Name" placeholder="আপনার পুরো নাম (Full Name)" required>
+                          <input type="tel" id="cust-phone" name="Mobile_Number" placeholder="মোবাইল নম্বর (Mobile Number)" required>
+                          <input type="email" id="cust-email" name="Customer_Email" placeholder="ইমেইল এড্রেস (Email ID)" required>
+                          <input type="text" id="cust-address" name="Delivery_Address" placeholder="ডেলিভারি ঠিকানা (City & Full Address)" required>
+                          <input type="text" id="cust-iqama" name="Iqama_Number" placeholder="আকামা নম্বর (Iqama Number)" required>
+
+                          <button type="submit" class="btn-order-email">
+                              <i class="fa-solid fa-envelope"></i> Confirm Order via Email
+                          </button>
+                          
+                          <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Fam Maxi Without Wings Super Sanitary Pads', '25 SAR')">
+                              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                          </button>
+                      </form>
                   </div>
               </div>
           </div>
 
         </div>
-
       </div>
     </div>
 
-    <!-- ================= 3. DEALS DASHBOARD ================= -->
+    <!-- DEALS DASHBOARD -->
     <div id="deals-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         <h2 class="section-title">🔥 Exclusive Hot Deals</h2>
@@ -408,7 +415,7 @@
       </div>
     </div>
 
-    <!-- ================= 4. ACCOUNT DASHBOARD ================= -->
+    <!-- ACCOUNT DASHBOARD -->
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         <h2 class="section-title">My Account</h2>
@@ -430,7 +437,7 @@
       </div>
     </div>
 
-    <!-- ================= 5. CART DASHBOARD ================= -->
+    <!-- CART DASHBOARD -->
     <div id="cart-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         <h2 class="section-title">Shopping Cart</h2>
@@ -446,7 +453,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-column">
         <h3>BIGEST MALL</h3>
@@ -457,15 +464,15 @@
         <h3>Contact Us</h3>
         <ul style="list-style:none;padding:0;margin:0">
           <li style="color:#ccc">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <i class="fa-solid fa-phone"></i>
             Phone: <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
           </li>
           <li style="color:#ccc">
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <i class="fa-brands fa-whatsapp"></i>
             WhatsApp: <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">+966&nbsp;54&nbsp;342&nbsp;8325</a>
           </li>
           <li style="color:#ccc">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <i class="fa-solid fa-envelope"></i>
             Email: <a href="mailto:habibullah.shahin19970@gmail.com">habibullah.shahin19970@gmail.com</a>
           </li>
         </ul>
@@ -485,7 +492,7 @@
     <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
   </footer>
 
-  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
     <button class="nav-item active" onclick="switchDashboard('home-view', this)">
       <i class="fa-solid fa-house"></i>
@@ -509,7 +516,7 @@
     </button>
   </nav>
 
-  <!-- Toast -->
+  <!-- Toast Notification -->
   <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 
   <!-- JavaScript Dynamic Logic -->
@@ -524,7 +531,6 @@
       let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
       updateCartUI();
 
-      // Dashboard Switching Dynamic Function
       window.switchDashboard = function(viewId, btnElement) {
         document.querySelectorAll('.app-view').forEach(view => {
           view.classList.remove('active-view');
@@ -541,7 +547,38 @@
         window.scrollTo(0,0);
       };
 
-      // Add To Cart Global Event Handling
+      // Handle WhatsApp Order Direct Link Generation
+      window.sendWhatsAppOrder = function(productName, price) {
+        const name = document.getElementById('cust-name').value;
+        const phone = document.getElementById('cust-phone').value;
+        const email = document.getElementById('cust-email').value;
+        const address = document.getElementById('cust-address').value;
+        const iqama = document.getElementById('cust-iqama').value;
+
+        if(!name || !phone || !address || !iqama || !email) {
+          alert('দয়া করে সকল তথ্য (নাম, ফোন, ইমেইল, ঠিকানা ও আকামা নম্বর) পূরণ করুন।');
+          return;
+        }
+
+        const message = `🛍️ *NEW ORDER - BIGEST MALL*%0A%0A` +
+                        `📦 *Product:* ${productName}%0A` +
+                        `💰 *Price:* ${price}%0A%0A` +
+                        `👤 *Customer Details:*%0A` +
+                        `• Name: ${name}%0A` +
+                        `• Phone: ${phone}%0A` +
+                        `• Email: ${email}%0A` +
+                        `• Address: ${address}%0A` +
+                        `• Iqama No: ${iqama}`;
+
+        const waURL = `https://wa.me/966543428325?text=${message}`;
+        window.open(waURL, '_blank');
+      };
+
+      // Handle Email Submit Alert
+      window.handleEmailOrder = function(event, productName) {
+        showToast("Order submitting to email...");
+      };
+
       document.addEventListener("click", (ev) => {
         const btn = ev.target.closest(".btn-add-cart");
         if (!btn) return;
