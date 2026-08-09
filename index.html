@@ -180,30 +180,85 @@
       cursor: pointer;
     }
 
-    /* ACCOUNT & AUTHENTICATION STYLING */
-    .account-box {
-      max-width: 500px;
-      margin: 10px auto;
-      background: #fff;
+    /* CUSTOM ACCOUNT MENU STYLING */
+    .acc-header-card {
+      background: #ffffff;
+      padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .acc-header-card h3 {
+      margin: 0 0 12px 0;
+      color: var(--secondary-blue);
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .acc-auth-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn-acc-action {
+      flex: 1;
+      max-width: 180px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid var(--secondary-blue);
+      transition: all 0.2s ease;
+    }
+    .btn-acc-login {
+      background: var(--secondary-blue);
+      color: #ffffff;
+    }
+    .btn-acc-signup {
+      background: #ffffff;
+      color: var(--secondary-blue);
+    }
+    .acc-menu-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       overflow: hidden;
     }
-    .auth-tabs { display: flex; border-bottom: 2px solid #eee; }
-    .auth-tab-btn {
-      flex: 1; padding: 14px; background: #f8f9fa; border: none;
-      font-size: 14px; font-weight: bold; color: #666; cursor: pointer; transition: all 0.3s;
+    .acc-menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      text-decoration: none;
+      color: #333333;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+      cursor: pointer;
     }
-    .auth-tab-btn.active {
-      background: #fff; color: var(--secondary-blue); border-bottom: 3px solid var(--primary-gold);
+    .acc-menu-item:last-child {
+      border-bottom: none;
     }
-    .auth-form-container { padding: 20px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; margin-bottom: 5px; font-size: 13px; font-weight: 600; color: #444; }
-    .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
-    .otp-group { display: flex; gap: 8px; }
-    .btn-send-otp { background: var(--secondary-blue); color: #fff; border: none; padding: 0 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap; }
-    .btn-submit-auth { width: 100%; padding: 12px; background: var(--primary-gold); color: var(--dark-bg); border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; margin-top: 8px; }
+    .acc-menu-item:hover {
+      background: #f9f9f9;
+    }
+    .acc-menu-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .acc-menu-left i {
+      width: 20px;
+      font-size: 18px;
+      color: var(--secondary-blue);
+      text-align: center;
+    }
+    .acc-menu-item .fa-chevron-right {
+      font-size: 13px;
+      color: #aaaaaa;
+    }
 
     footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
@@ -268,17 +323,10 @@
 </head>
 <body>
 
-  <!-- Language Selector Header -->
-  <div style="background-color: #111111; padding: 6px 15px; border-bottom: 1px solid #333333; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif;">
-      <span style="color: #d4af37; font-size: 13px; font-weight: bold;">🌐 Language / اللغة / ভাষা:</span>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <select onchange="showToast('Language changed to: ' + this.value.toUpperCase())" style="background: #222; color: #fff; border: 1px solid #d4af37; padding: 3px 8px; border-radius: 4px; font-size: 12px;">
-          <option value="bn">বাংলা (BN)</option>
-          <option value="en">English (EN)</option>
-          <option value="ar">العربية (AR)</option>
-        </select>
-        <div id="google_translate_element"></div>
-      </div>
+  <!-- Language Selector -->
+  <div style="background-color: #111111; padding: 6px 15px; text-align: right; border-bottom: 1px solid #333333; display: flex; justify-content: flex-end; align-items: center; font-family: sans-serif;">
+      <span style="color: #d4af37; font-size: 13px; font-weight: bold; margin-right: 8px;">🌐 Language / اللغة / ভাষা:</span>
+      <div id="google_translate_element"></div>
   </div>
 
   <script type="text/javascript">
@@ -292,7 +340,7 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Header Brand Logo Header -->
+  <!-- Header Logo -->
   <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 0px;">
       <img src="0716600E-C20E-40AA-A036-45D14654E34B.png" alt="Biggest Mall Logo" style="max-height: 80px; width: auto; object-fit: contain;">
   </div>
@@ -496,97 +544,94 @@
       </div>
     </div>
 
-    <!-- ACCOUNT DASHBOARD WITH INTEGRATED LOGIN & SIGNUP TAB -->
+    <!-- ACCOUNT DASHBOARD (UPDATED MENU LIST) -->
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title">My Account / অ্যাকাউন্ট</h2>
         
-        <div class="account-box">
-          <!-- Auth Navigation Tabs -->
-          <div class="auth-tabs">
-            <button id="tab-login-btn" class="auth-tab-btn active" onclick="switchAuthTab('login')">
-              <i class="fa-solid fa-right-to-bracket"></i> Login / লগইন
-            </button>
-            <button id="tab-signup-btn" class="auth-tab-btn" onclick="switchAuthTab('signup')">
-              <i class="fa-solid fa-user-plus"></i> Sign Up / রেজিস্ট্রেশন
-            </button>
-          </div>
-
-          <!-- FORM 1: LOGIN -->
-          <div id="login-form-box" class="auth-form-container">
-            <h3 style="margin-top: 0; color: var(--secondary-blue);">Welcome Back!</h3>
-            <form onsubmit="event.preventDefault(); showToast('লগইন সফল হয়েছে!');">
-              <div class="form-group">
-                <label>মোবাইল নম্বর অথবা ইমেইল (Mobile / Email)</label>
-                <input type="text" placeholder="e.g. 05XXXXXXXX / name@email.com" required>
-              </div>
-              <div class="form-group">
-                <label>পাসওয়ার্ড (Password)</label>
-                <input type="password" placeholder="••••••••" required>
-              </div>
-              <button type="submit" class="btn-submit-auth">Login (লগইন করুন)</button>
-            </form>
-          </div>
-
-          <!-- FORM 2: SIGN UP -->
-          <div id="signup-form-box" class="auth-form-container" style="display: none;">
-            <h3 style="margin-top: 0; color: var(--secondary-blue);">Create New Account</h3>
-            <form onsubmit="event.preventDefault(); showToast('রেজিস্ট্রেশন সফল হয়েছে!');">
-              <div class="form-group">
-                <label>মোবাইল নম্বর অথবা ইমেইল (Mobile / Email)</label>
-                <div class="otp-group">
-                  <input type="text" placeholder="05XXXXXXXX / email" required>
-                  <button type="button" class="btn-send-otp" onclick="showToast('ভেরিফিকেশন কোড পাঠানো হয়েছে!')">Send Code</button>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>ভেরিফিকেশন কোড (OTP Code)</label>
-                <input type="text" placeholder="Enter OTP code" required>
-              </div>
-              <div class="form-group">
-                <label>পুরো নাম (Full Name)</label>
-                <input type="text" placeholder="Enter your full name" required>
-              </div>
-              <div class="form-group">
-                <label>জন্ম তারিখ (Date of Birth)</label>
-                <input type="date" required>
-              </div>
-              <div class="form-group">
-                <label>লিঙ্গ (Gender)</label>
-                <select required>
-                  <option value="">নির্বাচন করুন</option>
-                  <option value="Male">পুরুষ (Male)</option>
-                  <option value="Female">মহিলা (Female)</option>
-                  <option value="Other">অন্যান্য (Other)</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>আকামা নম্বর (Iqama Number)</label>
-                <input type="text" placeholder="Enter 10-digit Iqama Number" required>
-              </div>
-              <div class="form-group">
-                <label>পাসওয়ার্ড (Password)</label>
-                <input type="password" placeholder="••••••••" required>
-              </div>
-              <button type="submit" class="btn-submit-auth">Sign Up (রেজিস্ট্রেশন সম্পূর্ণ করুন)</button>
-            </form>
+        <!-- Welcome Guest Section -->
+        <div class="acc-header-card">
+          <h3>Welcome Guest</h3>
+          <div class="acc-auth-btns">
+            <button class="btn-acc-action btn-acc-login" onclick="showToast('Login Pressed')">Login</button>
+            <button class="btn-acc-action btn-acc-signup" onclick="showToast('Create Account Pressed')">Create an Account</button>
           </div>
         </div>
 
-        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-top: 20px;">
-          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <i class="fa-solid fa-circle-user" style="font-size: 50px; color: var(--secondary-blue);"></i>
-            <div>
-              <h3 style="margin: 0;">Welcome, Guest</h3>
-              <p style="margin: 0; color: #666; font-size: 14px;">Manage your orders & details</p>
+        <!-- Account Options List -->
+        <div class="acc-menu-card">
+          
+          <div class="acc-menu-item" onclick="showToast('Bigest Mall Credits')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-wallet"></i>
+              <span>Bigest Mall Credits</span>
             </div>
+            <i class="fa-solid fa-chevron-right"></i>
           </div>
-          <ul style="list-style: none; padding: 0; line-height: 2.5; border-top: 1px solid #eee; padding-top: 10px;">
-            <li><i class="fa-solid fa-box" style="margin-right: 10px; color: var(--primary-gold);"></i> My Orders</li>
-            <li><i class="fa-solid fa-heart" style="margin-right: 10px; color: var(--primary-gold);"></i> Wishlist</li>
-            <li><i class="fa-solid fa-location-dot" style="margin-right: 10px; color: var(--primary-gold);"></i> Delivery Address</li>
-            <li><i class="fa-solid fa-headset" style="margin-right: 10px; color: var(--primary-gold);"></i> Customer Support</li>
-          </ul>
+
+          <div class="acc-menu-item" onclick="showToast('Addresses')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Addresses</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Returns')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Returns</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Warranty Claims')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Warranty claims</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Language Selection')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-language"></i>
+              <span>Language <small style="color: #777; font-weight: normal;">(English / العربية / বাংলা)</small></span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Country Selection')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-globe"></i>
+              <span>Country <small style="color: #777; font-weight: normal;">(Saudi Arabia)</small></span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Notifications')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-bell"></i>
+              <span>Notifications</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Account Security')">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-lock"></i>
+              <span>Account security</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <div class="acc-menu-item" onclick="showToast('Signed Out')" style="color: #d32f2f;">
+            <div class="acc-menu-left">
+              <i class="fa-solid fa-right-from-bracket" style="color: #d32f2f;"></i>
+              <span>Sign out</span>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
         </div>
 
       </div>
@@ -712,26 +757,6 @@
           btnElement.classList.add('active');
         }
         window.scrollTo(0,0);
-      };
-
-      // Auth Tab Switcher Logic
-      window.switchAuthTab = function(tabType) {
-        const loginBox = document.getElementById('login-form-box');
-        const signupBox = document.getElementById('signup-form-box');
-        const loginBtn = document.getElementById('tab-login-btn');
-        const signupBtn = document.getElementById('tab-signup-btn');
-
-        if(tabType === 'login') {
-          loginBox.style.display = 'block';
-          signupBox.style.display = 'none';
-          loginBtn.classList.add('active');
-          signupBtn.classList.remove('active');
-        } else {
-          loginBox.style.display = 'none';
-          signupBox.style.display = 'block';
-          signupBtn.classList.add('active');
-          loginBtn.classList.remove('active');
-        }
       };
 
       // Handle Policy Modals Data and Behavior
