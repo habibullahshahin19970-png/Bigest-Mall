@@ -260,6 +260,42 @@
       color: #aaaaaa;
     }
 
+    /* AUTH MODAL FORM STYLING */
+    .auth-input-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+    .auth-input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .auth-input-group input, .auth-input-group select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+    .auth-input-group input:focus, .auth-input-group select:focus {
+      border-color: var(--secondary-blue);
+    }
+    .btn-auth-submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--secondary-blue);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
     footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
     .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
@@ -267,7 +303,7 @@
     .footer-column a:hover{color:var(--primary-gold);text-decoration:underline}
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
 
-    /* Modal Policy Popup Design */
+    /* Modal Popup Design (Shared) */
     .policy-modal {
       display: none;
       position: fixed;
@@ -284,9 +320,9 @@
     .policy-modal-content {
       background: #fff;
       color: #333;
-      max-width: 600px;
+      max-width: 500px;
       width: 100%;
-      max-height: 80vh;
+      max-height: 85vh;
       border-radius: 12px;
       overflow-y: auto;
       padding: 25px;
@@ -544,7 +580,7 @@
       </div>
     </div>
 
-    <!-- ACCOUNT DASHBOARD (UPDATED MENU LIST) -->
+    <!-- ACCOUNT DASHBOARD -->
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         
@@ -552,8 +588,8 @@
         <div class="acc-header-card">
           <h3>Welcome Guest</h3>
           <div class="acc-auth-btns">
-            <button class="btn-acc-action btn-acc-login" onclick="showToast('Login Pressed')">Login</button>
-            <button class="btn-acc-action btn-acc-signup" onclick="showToast('Create Account Pressed')">Create an Account</button>
+            <button class="btn-acc-action btn-acc-login" onclick="openAuthModal('login')">Login</button>
+            <button class="btn-acc-action btn-acc-signup" onclick="openAuthModal('signup')">Create an Account</button>
           </div>
         </div>
 
@@ -693,6 +729,88 @@
     <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
   </footer>
 
+  <!-- LOGIN & CREATE ACCOUNT MODAL POPUP -->
+  <div id="authModal" class="policy-modal" onclick="closeAuthModalOnOutside(event)">
+    <div class="policy-modal-content">
+      <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+      
+      <!-- LOGIN FORM -->
+      <div id="login-form-box" style="display: none;">
+        <h2 class="policy-title"><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+        <form onsubmit="handleLoginSubmit(event)">
+          <div class="auth-input-group">
+            <label>Email or Mobile Number</label>
+            <input type="text" placeholder="e.g. user@gmail.com or 05XXXXXXXX" required>
+          </div>
+          <div class="auth-input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" required>
+          </div>
+          <div style="text-align: right; margin-bottom: 15px;">
+            <a href="#" onclick="showToast('Password reset link sent to your registered contact!')" style="color: var(--secondary-blue); font-size: 13px; font-weight: 600; text-decoration: underline;">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-auth-submit">Login</button>
+        </form>
+      </div>
+
+      <!-- CREATE ACCOUNT FORM -->
+      <div id="signup-form-box" style="display: none;">
+        <h2 class="policy-title"><i class="fa-solid fa-user-plus"></i> Create an Account</h2>
+        
+        <!-- STEP 1: MOBILE NUMBER & OTP -->
+        <div id="signup-step-1">
+          <div class="auth-input-group">
+            <label>Mobile Number (মোবাইল নম্বর)</label>
+            <input type="tel" id="signup-mobile-num" placeholder="e.g. 05XXXXXXXX" required>
+          </div>
+          <button type="button" class="btn-auth-submit" onclick="sendSignupOTP()">Send OTP</button>
+
+          <div id="otp-section" style="display: none; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+            <div class="auth-input-group">
+              <label>Enter OTP Code (ওটিপি কোড)</label>
+              <input type="text" id="signup-otp-code" placeholder="6-digit OTP code">
+            </div>
+            <button type="button" class="btn-auth-submit" style="background: #28a745;" onclick="verifySignupOTP()">Verify OTP</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: FULL DETAILS FORM (ACTIVATES AFTER OTP VERIFY) -->
+        <div id="signup-step-2" style="display: none; margin-top: 10px;">
+          <form onsubmit="handleSignupSubmit(event)">
+            <div class="auth-input-group">
+              <label>Full Name (সম্পূর্ণ নাম)</label>
+              <input type="text" placeholder="Your full name" required>
+            </div>
+            <div class="auth-input-group">
+              <label>Email Address (ইমেইল এড্রেস)</label>
+              <input type="email" placeholder="example@email.com" required>
+            </div>
+            <div class="auth-input-group">
+              <label>Iqama Number (আকামা নম্বর)</label>
+              <input type="text" placeholder="10-digit Iqama Number" required>
+            </div>
+            <div class="auth-input-group">
+              <label>Date of Birth (জন্ম তারিখ)</label>
+              <input type="date" required>
+            </div>
+            <div class="auth-input-group">
+              <label>Gender (লিঙ্গ)</label>
+              <select required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male (পুরুষ)</option>
+                <option value="Female">Female (মহিলা)</option>
+                <option value="Other">Other (অন্যান্য)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-auth-submit" style="background: var(--primary-gold); color: #000;">Create Account</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <!-- DYNAMIC POLICY MODAL POPUP -->
   <div id="policyModal" class="policy-modal" onclick="closePolicyModalOnOutside(event)">
     <div class="policy-modal-content">
@@ -757,6 +875,70 @@
           btnElement.classList.add('active');
         }
         window.scrollTo(0,0);
+      };
+
+      // AUTH MODAL FUNCTIONS
+      window.openAuthModal = function(type) {
+        const modal = document.getElementById("authModal");
+        const loginBox = document.getElementById("login-form-box");
+        const signupBox = document.getElementById("signup-form-box");
+
+        modal.style.display = "flex";
+        if (type === 'login') {
+          loginBox.style.display = "block";
+          signupBox.style.display = "none";
+        } else {
+          loginBox.style.display = "none";
+          signupBox.style.display = "block";
+          // Reset signup steps
+          document.getElementById("signup-step-1").style.display = "block";
+          document.getElementById("signup-step-2").style.display = "none";
+          document.getElementById("otp-section").style.display = "none";
+        }
+      };
+
+      window.closeAuthModal = function() {
+        document.getElementById("authModal").style.display = "none";
+      };
+
+      window.closeAuthModalOnOutside = function(event) {
+        const modal = document.getElementById("authModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      window.sendSignupOTP = function() {
+        const mobile = document.getElementById("signup-mobile-num").value;
+        if(!mobile) {
+          alert("দয়া করে মোবাইল নম্বর লিখুন।");
+          return;
+        }
+        document.getElementById("otp-section").style.display = "block";
+        showToast("OTP code sent to " + mobile);
+      };
+
+      window.verifySignupOTP = function() {
+        const otp = document.getElementById("signup-otp-code").value;
+        if(!otp) {
+          alert("দয়া করে ওটিপি কোডটি লিখুন।");
+          return;
+        }
+        showToast("OTP Verified Successfully!");
+        document.getElementById("signup-step-1").style.display = "none";
+        document.getElementById("signup-step-2").style.display = "block";
+      };
+
+      window.handleLoginSubmit = function(e) {
+        e.preventDefault();
+        showToast("Login Successful!");
+        closeAuthModal();
+      };
+
+      window.handleSignupSubmit = function(e) {
+        e.preventDefault();
+        showToast("Account Created Successfully!");
+        closeAuthModal();
       };
 
       // Handle Policy Modals Data and Behavior
