@@ -477,7 +477,7 @@
 
           <div class="category-card" onclick="switchDashboard('categories-view')">
             <i class="fa-solid fa-pump-soap"></i>
-            <h3>Personal Care</h3>
+            <h3>Beauty &amp; Personal Care</h3>
           </div>
 
           <div class="category-card" onclick="switchDashboard('categories-view')">
@@ -490,7 +490,7 @@
         <h2 class="section-title">Featured Products & Catalog</h2>
         <div class="products-grid">
 
-          <!-- MM KIT PRODUCT CARD WITH TWO IMAGES -->
+          <!-- 1. MM KIT PRODUCT CARD (MEDICINE) -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('mmkit')">
               <img id="home-main-img-1" src="image_3.png" alt="MM Kit Ziska Pharma">
@@ -502,7 +502,7 @@
 
             <div class="product-info">
               <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol) - Ziska Pharma</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">100% Original &amp; Genuine (Origin: Bangladesh)</p>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Category: Medicines (Origin: Bangladesh)</p>
               <div class="product-price">475.00 SAR</div>
 
               <button class="btn-add-cart" type="button" data-name="MM Kit (Ziska Pharma)" data-price="475.00">Add to Cart</button>
@@ -518,16 +518,29 @@
             </div>
           </article>
 
-          <!-- Digital Blood Pressure Monitor -->
+          <!-- 2. SANITARY NAPKIN PRODUCT CARD (BEAUTY & PERSONAL CARE) -->
           <article class="product-card">
-            <div class="product-img-box"><i class="fa-solid fa-heart-pulse fa-3x" style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;"></i></div>
+            <div class="product-img-box" onclick="openProductModal('napkin')">
+              <img id="home-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
+            </div>
+            <div class="thumbnail-row">
+              <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('home-main-img-2').src=this.src">
+              <img src="image_3.png" class="thumb-img" onclick="document.getElementById('home-main-img-2').src=this.src">
+            </div>
+
             <div class="product-info">
-              <h3 class="product-title">Digital Blood Pressure Monitor</h3>
-              <div class="product-price">120.00 SAR</div>
-              <button class="btn-add-cart" type="button" data-name="Digital Blood Pressure Monitor" data-price="120.00">Add to Cart</button>
+              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin (Personal Care)</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Category: Beauty &amp; Personal Care</p>
+              <div class="product-price">475.00 SAR</div>
+
+              <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="475.00">Add to Cart</button>
+
               <div class="order-action-container">
-                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Digital Blood Pressure Monitor', '120.00 SAR')">
-                  <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Sanitary Napkin', '475.00 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '475.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
             </div>
@@ -543,23 +556,23 @@
         <h2 class="section-title">All Categories &amp; Products</h2>
         
         <div class="categories-grid">
-          <div class="category-card" onclick="showToast('Medicines Selected')">
+          <div class="category-card" onclick="showToast('Medicines Category')">
             <i class="fa-solid fa-pills"></i>
             <h3>Medicines</h3>
           </div>
 
-          <div class="category-card" onclick="showToast('Personal Care Selected')">
+          <div class="category-card" onclick="showToast('Beauty & Personal Care Category')">
             <i class="fa-solid fa-pump-soap"></i>
-            <h3>Personal Care</h3>
+            <h3>Beauty &amp; Personal Care</h3>
           </div>
 
-          <div class="category-card" onclick="showToast('Medical Accessories Selected')">
+          <div class="category-card" onclick="showToast('Medical Accessories Category')">
             <i class="fa-solid fa-kit-medical"></i>
             <h3>Medical Accessories</h3>
           </div>
         </div>
 
-        <h2 class="section-title" style="margin-top: 40px;">Medical &amp; Healthcare Catalog</h2>
+        <h2 class="section-title" style="margin-top: 40px;">Products Catalog</h2>
         <div class="products-grid">
           
           <!-- MM KIT IN CATEGORIES -->
@@ -573,7 +586,7 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol)</h3>
+              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol) - Medicines</h3>
               <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Ziska Pharmaceuticals (Origin: Bangladesh)</p>
               <div class="product-price">475.00 SAR</div>
 
@@ -584,6 +597,34 @@
                   <i class="fa-solid fa-envelope"></i> Order via Email
                 </button>
                 <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- SANITARY NAPKIN IN CATEGORIES -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('napkin')">
+              <img id="cat-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
+            </div>
+            <div class="thumbnail-row">
+              <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('cat-main-img-2').src=this.src">
+              <img src="image_3.png" class="thumb-img" onclick="document.getElementById('cat-main-img-2').src=this.src">
+            </div>
+
+            <div class="product-info">
+              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin - Beauty &amp; Personal Care</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">High Quality Personal Care Product</p>
+              <div class="product-price">475.00 SAR</div>
+
+              <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="475.00">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Sanitary Napkin', '475.00 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '475.00 SAR')">
                   <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
@@ -601,11 +642,11 @@
         <div class="products-grid">
           <div class="product-card" style="padding: 20px; text-align: center;">
             <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
-            <h3>Flash Sale - MM Kit Bundle</h3>
+            <h3>Flash Sale - Bundle Offer</h3>
             <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">475.00 SAR</p>
-            <button class="btn-add-cart" data-name="MM Kit (Deal)" data-price="475.00">Grab Deal</button>
+            <button class="btn-add-cart" data-name="Hot Deal Bundle" data-price="475.00">Grab Deal</button>
             <div class="order-action-container">
-              <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('MM Kit (Deal)', '475.00 SAR')">
+              <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Hot Deal Bundle', '475.00 SAR')">
                 <i class="fa-brands fa-whatsapp"></i> Order Deal via WhatsApp
               </button>
             </div>
@@ -733,34 +774,8 @@
     <div class="policy-modal-content" style="max-width: 600px;">
       <span class="close-modal" onclick="closeProductModal()">&times;</span>
       
-      <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
-        <img id="modal-display-img" src="image_3.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="MM Kit">
-        <div>
-          <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">MM Kit (Mifepristone &amp; Misoprostol)</h2>
-          <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: Ziska Pharmaceuticals Ltd.</p>
-          <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Origin: Bangladesh (100% Original &amp; Genuine)</p>
-          <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
-        </div>
-      </div>
-
-      <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
-
-      <div style="font-size: 14px; line-height: 1.6; color: #333;">
-        <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">বিস্তারিত বিবরণ (Detailed Specifications):</h4>
-        <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-          <li><strong>প্যাক সাইজ:</strong> ১ বক্সে মোট ৫টি ট্যাবলেট।</li>
-          <li><strong>১ নম্বর ট্যাবলেট:</strong> Mifton (Mifepristone USP 200 mg) — ১ পিস।</li>
-          <li><strong>৪ নম্বর ট্যাবলেট:</strong> Misotol (Misoprostol USP 200 mcg) — ৪ পিস।</li>
-          <li><strong>কোয়ালিটি গ্যারান্টি:</strong> ১০০% আসল ও ফ্যাক্টরি সিলড প্রোডাক্ট।</li>
-          <li><strong>গোপনীয়তা ও ডেলিভারি:</strong> অত্যন্ত গোপনীয় ও নিরাপদ প্যাকেজিংয়ে সৌদি আরবের যেকোনো স্থানে দ্রুত ডেলিভারি করা হয়।</li>
-        </ul>
-      </div>
-
-      <div style="display: flex; gap: 10px; margin-top: 20px;">
-        <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('MM Kit (Ziska Pharma)', '475.00')">Add to Cart</button>
-        <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
-        </button>
+      <div id="modal-content-body">
+        <!-- Dynamic Content Injected via JS -->
       </div>
 
     </div>
@@ -906,9 +921,67 @@
       }
 
       // PRODUCT POPUP DETAILS MODAL
-      window.openProductModal = function(productId) {
+      window.openProductModal = function(productKey) {
+        const modalBody = document.getElementById("modal-content-body");
+        if(productKey === 'mmkit') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_3.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="MM Kit">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">MM Kit (Mifepristone &amp; Misoprostol)</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Category: Medicines (Ziska Pharma)</p>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Origin: Bangladesh (100% Original)</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">মেডিসিনের বিবরণ (Detailed Specifications):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>প্যাক সাইজ:</strong> ১ বক্সে মোট ৫টি ট্যাবলেট।</li>
+                <li><strong>১ নম্বর ট্যাবলেট:</strong> Mifton (Mifepristone USP 200 mg) — ১ পিস।</li>
+                <li><strong>৪ নম্বর ট্যাবলেট:</strong> Misotol (Misoprostol USP 200 mcg) — ৪ পিস।</li>
+                <li><strong>কোয়ালিটি:</strong> ১০০% আসল ও ফ্যাক্টরি সিলড প্রোডাক্ট।</li>
+                <li><strong>গোপনীয়তা ও ডেলিভারি:</strong> অত্যন্ত গোপনীয় ও নিরাপদ প্যাকেজিংয়ে সৌদি আরবের যেকোনো স্থানে দ্রুত ডেলিভারি।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('MM Kit (Ziska Pharma)', '475.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey === 'napkin') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="IMG_2869.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Sanitary Napkin">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">Premium Sanitary Napkin</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Category: Beauty &amp; Personal Care</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Details):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>ক্যাটাগরি:</strong> বিউটি অ্যান্ড পার্সোনাল কেয়ার (Beauty &amp; Personal Care)</li>
+                <li><strong>হাই-কোয়ালিটি:</strong> অত্যন্ত আরামদায়ক ও নিরাপদ ম্যাটেরিয়ালে তৈরি।</li>
+                <li><strong>গোপনীয়তা:</strong> সুরক্ষিত ও গোপনীয় প্যাকেজিংয়ে ডেলিভারি।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Sanitary Napkin', '475.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Sanitary Napkin', '475.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        }
         document.getElementById("productModal").style.display = "flex";
       };
+
       window.closeProductModal = function() {
         document.getElementById("productModal").style.display = "none";
       };
