@@ -183,8 +183,57 @@
     footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
     .footer-column h3{color:var(--primary-gold);margin-bottom:10px}
-    .footer-column a{color:#ccc;text-decoration:none}
+    .footer-column a{color:#ccc;text-decoration:none;cursor:pointer}
+    .footer-column a:hover{color:var(--primary-gold);text-decoration:underline}
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
+
+    /* Modal Policy Popup Design */
+    .policy-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .policy-modal-content {
+      background: #fff;
+      color: #333;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      overflow-y: auto;
+      padding: 25px;
+      position: relative;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+      animation: modalFadeIn 0.3s ease;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #777;
+      cursor: pointer;
+    }
+    .close-modal:hover { color: #000; }
+    .policy-title {
+      color: var(--secondary-blue);
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
 
     .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
     .toast.show{opacity:1;transform:none}
@@ -478,19 +527,31 @@
         </ul>
       </div>
 
+      <!-- Customer Policy Links Connected to Modal Popups -->
       <div class="footer-column">
         <h3>Customer Policy</h3>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Shipping &amp; Delivery</a></li>
-          <li><a href="#">Return Policy</a></li>
+        <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+          <li><a onclick="openPolicyModal('privacy')">Privacy Policy</a></li>
+          <li><a onclick="openPolicyModal('terms')">Terms &amp; Conditions</a></li>
+          <li><a onclick="openPolicyModal('shipping')">Shipping &amp; Delivery</a></li>
+          <li><a onclick="openPolicyModal('return')">Return Policy</a></li>
         </ul>
       </div>
     </div>
 
     <div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
   </footer>
+
+  <!-- DYNAMIC POLICY MODAL POPUP -->
+  <div id="policyModal" class="policy-modal" onclick="closePolicyModalOnOutside(event)">
+    <div class="policy-modal-content">
+      <span class="close-modal" onclick="closePolicyModal()">&times;</span>
+      <h2 id="modalTitle" class="policy-title">Policy Details</h2>
+      <div id="modalBody" style="line-height:1.6; font-size:14px; margin-top:15px;">
+        <!-- Policy content will be dynamically injected here -->
+      </div>
+    </div>
+  </div>
 
   <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
@@ -545,6 +606,66 @@
           btnElement.classList.add('active');
         }
         window.scrollTo(0,0);
+      };
+
+      // Handle Policy Modals Data and Behavior
+      const policies = {
+        privacy: {
+          title: "Privacy Policy (গোপনীয়তা নীতি)",
+          content: `
+            <p><strong>১. তথ্য সংগ্রহ (Information Collection):</strong> Bigest Mall-এ অর্ডার করার সময় কাস্টমারদের নাম, মোবাইল নম্বর, ইমেইল এড্রেস, ডেলিভারি ঠিকানা এবং আকামা নম্বর সংগ্রহ করা হয়।</p>
+            <p><strong>২. ব্যবহারের উদ্দেশ্য (How We Use Data):</strong> আপনার দেওয়া তথ্যগুলো শুধুমাত্র আপনার অর্ডার প্রসেস করা, শিপিং নিশ্চিত করা এবং কাস্টমার সেবা দেওয়ার জন্য ব্যবহৃত হয়।</p>
+            <p><strong>৩. তথ্য সুরক্ষা (Data Security):</strong> কাস্টমারের কোনো ব্যক্তিগত তথ্য অন্য কোনো থার্ড পার্টি বা বিজ্ঞাপনদাতার কাছে শেয়ার বা বিক্রি করা হয় না।</p>
+          `
+        },
+        terms: {
+          title: "Terms & Conditions (শর্তাবলী)",
+          content: `
+            <p><strong>১. অর্ডার কনফার্মেশন:</strong> ওয়েবসাইটে অর্ডার করার পর আমরা ফোনের মাধ্যমে কাস্টমারের সাথে যোগাযোগ করে অর্ডার কনফার্ম করার অধিকার রাখি।</p>
+            <p><strong>২. মূল্য নির্ধারণ:</strong> পণ্যের মূল্য সৌদির রিয়ালে (SAR) প্রদর্শন করা হয়। কোনো টেকনিক্যাল ভুলের কারণে ভুল দাম উঠলে অর্ডার সংশোধনের অধিকার আমাদের থাকবে।</p>
+            <p><strong>৩. সঠিক তথ্য প্রদান:</strong> কাস্টমারকে সঠিক নাম, ঠিকানা ও আকামা নম্বর প্রদান করতে হবে। ভুয়া অর্ডার করা সম্পূর্ণ নিষিদ্ধ।</p>
+          `
+        },
+        shipping: {
+          title: "Shipping & Delivery Policy (শিপিং ও ডেলিভারি)",
+          content: `
+            <p><strong>১. ডেলিভারি এলাকা:</strong> আমরা সৌদি আরবের সমস্ত অঞ্চল ও প্রধান শহরগুলোতে দ্রুত ডেলিভারি প্রদান করে থাকি।</p>
+            <p><strong>২. ডেলিভারির সময়সীমা:</strong> অর্ডার কনফার্ম হওয়ার পর ২ থেকে ৪ কার্যদিবসের (Business Days) মধ্যে আপনার ঠিকানায় পণ্য পৌঁছে দেওয়া হয়।</p>
+            <p><strong>৩. ট্র্যাকিং:</strong> পণ্য ডেলিভারির জন্য বের হলে আপনাকে মেসেজ বা কলের মাধ্যমে আপডেট জানানো হবে।</p>
+          `
+        },
+        return: {
+          title: "Return & Refund Policy (ফেরত ও রিফান্ড নীতি)",
+          content: `
+            <p><strong>১. রিফান্ড / রিটার্নের সময়সীমা:</strong> পণ্য বুঝে পাওয়ার ৭ দিনের মধ্যে যেকোনো ত্রুটি বা সমস্যার জন্য আমাদের জানাতে হবে।</p>
+            <p><strong>২. ফেরতের শর্তাবলী:</strong> পণ্যটি অব্যবহৃত এবং এর মূল প্যাকেজিং ও ট্যাগসহ থাকতে হবে।</p>
+            <p><strong>৩. হাইজিন প্রডাক্টের নিয়ম:</strong> পার্সোনাল কেয়ার বা মেডিসিন জাতীয় পণ্য স্বাস্থ্য সুরক্ষার খাতিরে একবার বক্স খোলা হলে ফেরতযোগ্য নয় (যদি না ভুল পণ্য পাঠানো হয়ে থাকে)।</p>
+            <p><strong>৪. যোগাযোগ:</strong> রিটার্নের জন্য আমাদের কাস্টমার সাপোর্ট নম্বর +966 54 342 8325-এ কথা বলুন।</p>
+          `
+        }
+      };
+
+      window.openPolicyModal = function(policyKey) {
+        const modal = document.getElementById("policyModal");
+        const titleEl = document.getElementById("modalTitle");
+        const bodyEl = document.getElementById("modalBody");
+
+        if(policies[policyKey]) {
+          titleEl.textContent = policies[policyKey].title;
+          bodyEl.innerHTML = policies[policyKey].content;
+          modal.style.display = "flex";
+        }
+      };
+
+      window.closePolicyModal = function() {
+        document.getElementById("policyModal").style.display = "none";
+      };
+
+      window.closePolicyModalOnOutside = function(event) {
+        const modal = document.getElementById("policyModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
       };
 
       // Handle WhatsApp Order Direct Link Generation
