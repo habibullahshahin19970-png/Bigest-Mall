@@ -483,12 +483,10 @@
           <!-- 1. MAX POWER MASSAGE SPRAY PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
-              <img id="home-main-img-max" src="IMG_3084.JPEG"
- alt="Max Power Massage Spray">
+              <img id="home-main-img-max" src="IMG_3084.JPEG" alt="Max Power Massage Spray">
             </div>
             <div class="thumbnail-row">
-              <img src="IMG_3084.JPEG"
- class="thumb-img" onclick="document.getElementById('home-main-img-max').src=this.src" alt="Max Power Spray">
+              <img src="IMG_3084.JPEG" class="thumb-img" onclick="document.getElementById('home-main-img-max').src=this.src" alt="Max Power Spray">
             </div>
 
             <div class="product-info">
@@ -531,6 +529,33 @@
                   <i class="fa-solid fa-envelope"></i> Order via Email
                 </button>
                 <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. MIELLE ROSEMARY MINT HAIR OIL PRODUCT CARD -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('mielleoil')">
+              <img id="home-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
+            </div>
+            <div class="thumbnail-row">
+              <img src="IMG_3099.png" class="thumb-img" onclick="document.getElementById('home-main-img-mielle').src=this.src" alt="Mielle Oil">
+            </div>
+
+            <div class="product-info">
+              <h3 class="product-title" onclick="openProductModal('mielleoil')">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: MIELLE | Size: 59 ml</p>
+              <div class="product-price">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">70% OFF</span></div>
+
+              <button class="btn-add-cart" type="button" data-name="Mielle Rosemary Mint Hair Oil 59ml" data-price="16.40">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
                   <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
@@ -607,6 +632,33 @@
                   <i class="fa-solid fa-envelope"></i> Order via Email
                 </button>
                 <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- MIELLE HAIR OIL IN CATALOG -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('mielleoil')">
+              <img id="cat-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
+            </div>
+            <div class="thumbnail-row">
+              <img src="IMG_3099.png" class="thumb-img" onclick="document.getElementById('cat-main-img-mielle').src=this.src">
+            </div>
+
+            <div class="product-info">
+              <h3 class="product-title" onclick="openProductModal('mielleoil')">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: MIELLE | Size: 59 ml</p>
+              <div class="product-price">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">70% OFF</span></div>
+
+              <button class="btn-add-cart" type="button" data-name="Mielle Rosemary Mint Hair Oil 59ml" data-price="16.40">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
                   <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
@@ -961,6 +1013,34 @@
             <div style="display: flex; gap: 10px; margin-top: 20px;">
               <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Sanitary Napkin', '20.00')">Add to Cart</button>
               <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey === 'mielleoil') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="IMG_3099.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Mielle Hair Oil">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: MIELLE | Size: 59 ml (Unisex)</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745;">(70% OFF)</span></p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">Highlights & Benefits:</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>NOURISH & STRENGTHEN:</strong> Nutrient-rich, biotin-infused treatment for everyday hair care or intensive deep treatment.</li>
+                <li><strong>SCALP CARE:</strong> Rosemary and mint extracts provide a refreshing sensation, soothe and invigorate the scalp, promoting healthy hair growth.</li>
+                <li><strong>MOISTURIZING:</strong> Encourages hair growth while moisturizing and conditioning, leaving hair soft, shiny, and manageable. Can be used as daily scalp treatment or pre-poo oil before shampooing.</li>
+                <li><strong>BIOTIN BENEFIT:</strong> Strengthens the hair shaft and encourages healthier, thicker, and longer hair growth over time.</li>
+                <li><strong>FOR:</strong> Daily Use | Scalp Treatment | Split End Care</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Mielle Rosemary Mint Hair Oil 59ml', '16.40')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
               </button>
             </div>
