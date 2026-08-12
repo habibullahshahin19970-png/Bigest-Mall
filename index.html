@@ -507,35 +507,7 @@
             </div>
           </article>
 
-          <!-- 2. MM KIT PRODUCT CARD -->
-          <article class="product-card">
-            <div class="product-img-box" onclick="openProductModal('mmkit')">
-              <img id="home-main-img-1" src="image_3.png" alt="MM Kit Ziska Pharma">
-            </div>
-            <div class="thumbnail-row">
-              <img src="image_3.png" class="thumb-img" onclick="document.getElementById('home-main-img-1').src=this.src">
-              <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('home-main-img-1').src=this.src" alt="Alternative view">
-            </div>
-
-            <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol) - Ziska Pharma</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Catalog: Health &amp; Personal Care</p>
-              <div class="product-price">475.00 SAR</div>
-
-              <button class="btn-add-cart" type="button" data-name="MM Kit (Ziska Pharma)" data-price="475.00">Add to Cart</button>
-
-              <div class="order-action-container">
-                <button type="button" class="btn-order-email" onclick="sendEmailOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
-                  <i class="fa-solid fa-envelope"></i> Order via Email
-                </button>
-                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
-                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- 3. SANITARY NAPKIN PRODUCT CARD -->
+          <!-- 2. SANITARY NAPKIN PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="home-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
@@ -605,34 +577,6 @@
                   <i class="fa-solid fa-envelope"></i> Order via Email
                 </button>
                 <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')">
-                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- MM KIT IN CATALOG -->
-          <article class="product-card">
-            <div class="product-img-box" onclick="openProductModal('mmkit')">
-              <img id="cat-main-img-1" src="image_3.png" alt="MM Kit">
-            </div>
-            <div class="thumbnail-row">
-              <img src="image_3.png" class="thumb-img" onclick="document.getElementById('cat-main-img-1').src=this.src">
-              <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('cat-main-img-1').src=this.src">
-            </div>
-
-            <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('mmkit')">MM Kit (Mifepristone &amp; Misoprostol)</h3>
-              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Ziska Pharmaceuticals (Origin: Bangladesh)</p>
-              <div class="product-price">475.00 SAR</div>
-
-              <button class="btn-add-cart" type="button" data-name="MM Kit (Ziska Pharma)" data-price="475.00">Add to Cart</button>
-
-              <div class="order-action-container">
-                <button type="button" class="btn-order-email" onclick="sendEmailOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
-                  <i class="fa-solid fa-envelope"></i> Order via Email
-                </button>
-                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
                   <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
@@ -989,35 +933,6 @@
             <div style="display: flex; gap: 10px; margin-top: 20px;">
               <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Max Power Massage Spray', '80.50')">Add to Cart</button>
               <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
-              </button>
-            </div>
-          `;
-        } else if(productKey === 'mmkit') {
-          modalBody.innerHTML = `
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
-              <img src="image_3.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="MM Kit">
-              <div>
-                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">MM Kit (Mifepristone &amp; Misoprostol)</h2>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Catalog: Health &amp; Personal Care (Ziska Pharma)</p>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Origin: Bangladesh (100% Original)</p>
-                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">475.00 SAR</p>
-              </div>
-            </div>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
-            <div style="font-size: 14px; line-height: 1.6; color: #333;">
-              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Detailed Specifications):</h4>
-              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li><strong>প্যাক সাইজ:</strong> ১ বক্সে মোট ৫টি ট্যাবলেট।</li>
-                <li><strong>১ নম্বর ট্যাবলেট:</strong> Mifton (Mifepristone USP 200 mg) — ১ পিস।</li>
-                <li><strong>৪ নম্বর ট্যাবলেট:</strong> Misotol (Misoprostol USP 200 mcg) — ৪ পিস।</li>
-                <li><strong>কোয়ালিটি:</strong> ১০০% আসল ও ফ্যাক্টরি সিলড প্রোডাক্ট।</li>
-                <li><strong>গোপনীয়তা ও ডেলিভারি:</strong> অত্যন্ত গোপনীয় ও নিরাপদ প্যাকেজিংয়ে সৌদি আরবের যেকোনো স্থানে দ্রুত ডেলিভারি।</li>
-              </ul>
-            </div>
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('MM Kit (Ziska Pharma)', '475.00')">Add to Cart</button>
-              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('MM Kit (Ziska Pharma)', '475.00 SAR')">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
               </button>
             </div>
