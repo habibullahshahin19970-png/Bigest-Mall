@@ -150,7 +150,7 @@
     .product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;padding:15px;}
     
     .product-img-box{height:200px;background:#eee;border-radius:8px;overflow:hidden;margin-bottom:10px;cursor:pointer;}
-    .product-img-box img{width:100%;height:100%;object-fit:cover;}
+    .product-img-box img{width:100%;height:100%;object-fit:contain;}
     .thumbnail-row{display:flex;gap:6px;margin-bottom:10px;}
     .thumb-img{width:45px;height:45px;object-fit:cover;border-radius:4px;cursor:pointer;border:1px solid #ddd;}
 
@@ -562,6 +562,34 @@
             </div>
           </article>
 
+          <!-- 4. ERECTA 100 MG TABLET PRODUCT CARD (WITH NEW IMAGE_12.PNG) -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('erecta')">
+              <img id="home-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
+            </div>
+            <div class="thumbnail-row">
+              <img src="image_12.png" class="thumb-img" onclick="document.getElementById('home-main-img-erecta').src=this.src" alt="Erecta Tablet">
+            </div>
+
+            <div class="product-info">
+              <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+              <h3 class="product-title" onclick="openProductModal('erecta')">Erecta 100 mg Tablet 4pcs</h3>
+              <div class="product-price">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">21% OFF</span></div>
+              <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Men's Health Supplements</div>
+
+              <button class="btn-add-cart" type="button" data-name="Erecta 100 mg Tablet 4pcs" data-price="34.35">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
@@ -659,6 +687,34 @@
                   <i class="fa-solid fa-envelope"></i> Order via Email
                 </button>
                 <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ERECTA TABLET IN CATALOG -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('erecta')">
+              <img id="cat-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
+            </div>
+            <div class="thumbnail-row">
+              <img src="image_12.png" class="thumb-img" onclick="document.getElementById('cat-main-img-erecta').src=this.src" alt="Erecta Tablet">
+            </div>
+
+            <div class="product-info">
+              <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+              <h3 class="product-title" onclick="openProductModal('erecta')">Erecta 100 mg Tablet 4pcs</h3>
+              <div class="product-price">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">21% OFF</span></div>
+              <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Men's Health Supplements</div>
+
+              <button class="btn-add-cart" type="button" data-name="Erecta 100 mg Tablet 4pcs" data-price="34.35">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
                   <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
                 </button>
               </div>
@@ -1041,6 +1097,33 @@
             <div style="display: flex; gap: 10px; margin-top: 20px;">
               <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Mielle Rosemary Mint Hair Oil 59ml', '16.40')">Add to Cart</button>
               <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey === 'erecta') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_12.png" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;" alt="Erecta 100 mg Tablet 4pcs">
+              <div>
+                <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Erecta 100 mg Tablet 4pcs</h2>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745;">(21% OFF)</span></p>
+                <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block;">Men's Health Supplements</div>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Information):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>ব্র্যান্ড:</strong> জামজুম ফার্মা (Jamjoon Pharma)</li>
+                <li><strong>ডোজ:</strong> ১০০ মিগ্রা (100 mg Sildenafil)</li>
+                <li><strong>প্যাকেজ:</strong> ৪ পিস ট্যাবলেট (4 pcs)</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Erecta 100 mg Tablet 4pcs', '34.35')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
               </button>
             </div>
