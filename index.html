@@ -480,6 +480,33 @@
         <h2 class="section-title">All Products &amp; Essentials</h2>
         <div class="products-grid">
 
+          <!-- 0. EELHOE HERBAL HEMORRHOIDS SPRAY PRODUCT CARD (NEW) -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
+              <img id="home-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
+            </div>
+            <div class="thumbnail-row">
+              <img src="image_4.png" class="thumb-img" onclick="document.getElementById('home-main-img-hem').src=this.src" alt="Hemorrhoids Spray">
+            </div>
+
+            <div class="product-info">
+              <h3 class="product-title" onclick="openProductModal('hemorrhoids')">EELHOE Herbal Hemorrhoids Spray 30ml</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: EELHOE | Size: 30ml</p>
+              <div class="product-price">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.90 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">56% OFF</span></div>
+
+              <button class="btn-add-cart" type="button" data-name="EELHOE Herbal Hemorrhoids Spray 30ml" data-price="25.00">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
           <!-- 1. MAX POWER MASSAGE SPRAY PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
@@ -562,7 +589,7 @@
             </div>
           </article>
 
-          <!-- 4. ERECTA 100 MG TABLET PRODUCT CARD (WITH NEW IMAGE_12.PNG) -->
+          <!-- 4. ERECTA 100 MG TABLET PRODUCT CARD -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('erecta')">
               <img id="home-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
@@ -611,6 +638,33 @@
         <h2 class="section-title" style="margin-top: 30px;">Products in Health &amp; Personal Care</h2>
         <div class="products-grid">
           
+          <!-- EELHOE HEMORRHOIDS SPRAY IN CATALOG -->
+          <article class="product-card">
+            <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
+              <img id="cat-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
+            </div>
+            <div class="thumbnail-row">
+              <img src="image_4.png" class="thumb-img" onclick="document.getElementById('cat-main-img-hem').src=this.src">
+            </div>
+
+            <div class="product-info">
+              <h3 class="product-title" onclick="openProductModal('hemorrhoids')">EELHOE Herbal Hemorrhoids Spray 30ml</h3>
+              <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: EELHOE | Size: 30ml</p>
+              <div class="product-price">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.90 SAR</span></div>
+
+              <button class="btn-add-cart" type="button" data-name="EELHOE Herbal Hemorrhoids Spray 30ml" data-price="25.00">Add to Cart</button>
+
+              <div class="order-action-container">
+                <button type="button" class="btn-order-email" onclick="sendEmailOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                  <i class="fa-solid fa-envelope"></i> Order via Email
+                </button>
+                <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                  <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
           <!-- MAX POWER SPRAY IN CATALOG -->
           <article class="product-card">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
@@ -1013,7 +1067,41 @@
       // PRODUCT POPUP DETAILS MODAL
       window.openProductModal = function(productKey) {
         const modalBody = document.getElementById("modal-content-body");
-        if(productKey === 'maxpower') {
+        if(productKey === 'hemorrhoids') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_4.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="EELHOE Herbal Hemorrhoids Spray">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">EELHOE Natural Herbal Hemorrhoids Spray (30ml)</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: EELHOE | Size: 30ml</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.90 SAR</span></p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Description):</h4>
+              <p style="margin: 0 0 10px 0;">পাইলস, ফিশার এবং মলদ্বারের অস্বস্তি থেকে দ্রুত ও স্থায়ী স্বস্তির জন্য ১০০% প্রাকৃতিক উপাদান দিয়ে তৈরি একটি কার্যকর হার্বাল স্প্রে।</p>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">মূল বৈশিষ্ট্যসমূহ (Key Features):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>দ্রুত স্বস্তি:</strong> প্রথম ব্যবহার থেকেই ব্যথা, জ্বালাপোড়া ও ফোলাভাব কমাতে অত্যন্ত কার্যকরী।</li>
+                <li><strong>১০০% ন্যাচারাল:</strong> কোনো পার্শ্বপ্রতিক্রিয়া ছাড়াই প্রাকৃতিক উপাদানে তৈরি।</li>
+                <li><strong>সহজ ব্যবহার:</strong> ইন্টারনাল (অভ্যন্তরীণ) এবং এক্সটার্নাল (বাহ্যিক) উভয় সমস্যার জন্যই সমানভাবে কার্যকর।</li>
+                <li><strong>সহজ প্রয়োগ:</strong> স্প্রে ফর্মুলা হওয়ায় ব্যবহার করা অত্যন্ত সহজ ও ঝামেলামুক্ত।</li>
+              </ul>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">ব্যবহারের নিয়ম:</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li>ব্যবহারের আগে ভালো করে ঝাঁকিয়ে নিন।</li>
+                <li>আক্রান্ত স্থানে দিনে ২-৩ বার স্প্রে করুন।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey === 'maxpower') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="image_2.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Max Power Massage Spray">
