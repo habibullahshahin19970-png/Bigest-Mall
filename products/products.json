@@ -1,0 +1,47 @@
+[
+  {
+    "id": "p001",
+    "name": "Classic Leather Wallet",
+    "price": 19.99,
+    "currency": "USD",
+    "category": "Accessories",
+    "image": "/assets/images/wallet.svg",
+    "description": "Premium genuine leather wallet with multiple card slots."
+  },
+  {
+    "id": "p002",
+    "name": "Sporty Running Shoes",
+    "price": 49.99,
+    "currency": "USD",
+    "category": "Footwear",
+    "image": "/assets/images/shoes.svg",
+    "description": "Lightweight running shoes with breathable mesh upper."
+  },
+  {
+    "id": "p003",
+    "name": "Wireless Headphones",
+    "price": 29.99,
+    "currency": "USD",
+    "category": "Electronics",
+    "image": "/assets/images/headphones.svg",
+    "description": "Noise-isolating on-ear headphones with long battery life."
+  },
+  {
+    "id": "p004",
+    "name": "Stainless Water Bottle",
+    "price": 14.5,
+    "currency": "USD",
+    "category": "Home",
+    "image": "/assets/images/bottle.svg",
+    "description": "Insulated stainless steel bottle keeps drinks cold for hours."
+  },
+  {
+    "id": "p005",
+    "name": "Slim Sunglasses",
+    "price": 12.0,
+    "currency": "USD",
+    "category": "Accessories",
+    "image": "/assets/images/sunglasses.svg",
+    "description": "UV-protective polarized sunglasses with slim frame."
+  }
+]

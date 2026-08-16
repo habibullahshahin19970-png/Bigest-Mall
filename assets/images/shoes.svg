@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <rect width="100%" height="100%" fill="#fff7ed" />
+  <g fill="#0f766e">
+    <circle cx="200" cy="120" r="80" />
+  </g>
+  <text x="200" y="170" font-size="20" fill="#044">Shoes</text>
+</svg>
