@@ -5,7 +5,7 @@
     "price": 19.99,
     "currency": "USD",
     "category": "Accessories",
-    "image": "/assets/images/wallet.svg",
+    "image": "assets/images/wallet.svg",
     "description": "Premium genuine leather wallet with multiple card slots."
   },
   {
@@ -14,7 +14,7 @@
     "price": 49.99,
     "currency": "USD",
     "category": "Footwear",
-    "image": "/assets/images/shoes.svg",
+    "image": "assets/images/shoes.svg",
     "description": "Lightweight running shoes with breathable mesh upper."
   },
   {
@@ -23,7 +23,7 @@
     "price": 29.99,
     "currency": "USD",
     "category": "Electronics",
-    "image": "/assets/images/headphones.svg",
+    "image": "assets/images/headphones.svg",
     "description": "Noise-isolating on-ear headphones with long battery life."
   },
   {
@@ -32,7 +32,7 @@
     "price": 14.5,
     "currency": "USD",
     "category": "Home",
-    "image": "/assets/images/bottle.svg",
+    "image": "assets/images/bottle.svg",
     "description": "Insulated stainless steel bottle keeps drinks cold for hours."
   },
   {
@@ -41,7 +41,7 @@
     "price": 12.0,
     "currency": "USD",
     "category": "Accessories",
-    "image": "/assets/images/sunglasses.svg",
+    "image": "assets/images/sunglasses.svg",
     "description": "UV-protective polarized sunglasses with slim frame."
   }
 ]

@@ -1,11 +1,10 @@
 const CACHE_NAME = 'bigest-mall-v1';
-const OFFLINE_URL = '/index.html';
+const OFFLINE_URL = 'index.html';
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/app.js',
-  '/products/products.json'
+  'index.html',
+  'css/styles.css',
+  'js/app.js',
+  'products/products.json'
 ];
 
 self.addEventListener('install', event => {

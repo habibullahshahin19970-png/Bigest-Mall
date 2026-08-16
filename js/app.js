@@ -7,7 +7,7 @@ let products = [];
 
 async function loadProducts(){
   try{
-    const res = await fetch('/products/products.json');
+    const res = await fetch('products/products.json');
     products = await res.json();
     render(products);
   }catch(e){
@@ -49,7 +49,7 @@ function openProduct(id){
 
 el('#closeDialog').addEventListener('click', ()=> dialog.close());
 
-function escapeHtml(str){ return String(str).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;" }[c])); }
+function escapeHtml(str){ return String(str).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":"&#39;" }[c])); }
 
 function debounce(fn, wait=250){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), wait); }; }
 
@@ -66,7 +66,7 @@ searchInput.addEventListener('input', doSearch);
 
 // Service worker register
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/service-worker.js').then(()=>console.log('SW registered'))
+  navigator.serviceWorker.register('service-worker.js').then(()=>console.log('SW registered'))
   .catch(err=>console.log('SW register failed', err));
 }
 
