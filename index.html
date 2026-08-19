@@ -120,9 +120,22 @@
     .header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
     .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
     .logo i{font-size:1.35rem}
-    .search-form{flex:1;min-width:220px;display:flex;max-width:640px}
+    
+    /* সার্চ বক্স এবং লাইভ সাজেশনের জন্য নতুন স্টাইল */
+    .search-form{flex:1;min-width:220px;display:flex;max-width:640px; position: relative;}
     .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
     .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
+    
+    #suggestions-list { 
+      list-style: none; padding: 0; margin: 0; 
+      border: 1px solid #ccc; position: absolute; 
+      top: 100%; left: 0; right: 48px; background: white; z-index: 1000; 
+      border-radius: 0 0 6px 6px; max-height: 200px; overflow-y: auto; text-align: left;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    #suggestions-list li { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; color: #333; font-size: 14px; }
+    #suggestions-list li:hover { background-color: #f7f7f7; }
+
     .header-actions{display:flex;align-items:center;gap:12px}
     .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
     .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
@@ -436,9 +449,11 @@
         <span>BIGEST MALL</span>
       </a>
 
+      <!-- লাইভ সার্চ ইনপুট এবং সাজেশন লিস্ট -->
       <form class="search-form" onsubmit="return false;">
-        <input type="search" placeholder="Search medicines, personal care, equipment..." />
+        <input type="search" id="search-input" placeholder="Search medicines, personal care, equipment..." oninput="handleSearch()" />
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <ul id="suggestions-list" style="display: none;"></ul>
       </form>
 
       <div class="header-actions">
@@ -481,7 +496,7 @@
         <div class="products-grid">
 
           <!-- 0. EELHOE HERBAL HEMORRHOIDS SPRAY PRODUCT CARD (NEW) -->
-          <article class="product-card">
+          <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
             <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
               <img id="home-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
             </div>
@@ -508,7 +523,7 @@
           </article>
 
           <!-- 1. MAX POWER MASSAGE SPRAY PRODUCT CARD -->
-          <article class="product-card">
+          <article class="product-card" data-name="max power massage spray">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
               <img id="home-main-img-max" src="IMG_3084.JPEG" alt="Max Power Massage Spray">
             </div>
@@ -535,7 +550,7 @@
           </article>
 
           <!-- 2. SANITARY NAPKIN PRODUCT CARD -->
-          <article class="product-card">
+          <article class="product-card" data-name="premium sanitary napkin">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="home-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
             </div>
@@ -563,7 +578,7 @@
           </article>
 
           <!-- 3. MIELLE ROSEMARY MINT HAIR OIL PRODUCT CARD -->
-          <article class="product-card">
+          <article class="product-card" data-name="rosemary mint scalp hair strengthening oil 59ml">
             <div class="product-img-box" onclick="openProductModal('mielleoil')">
               <img id="home-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
             </div>
@@ -590,7 +605,7 @@
           </article>
 
           <!-- 4. ERECTA 100 MG TABLET PRODUCT CARD -->
-          <article class="product-card">
+          <article class="product-card" data-name="erecta 100 mg tablet 4pcs">
             <div class="product-img-box" onclick="openProductModal('erecta')">
               <img id="home-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
             </div>
@@ -639,7 +654,7 @@
         <div class="products-grid">
           
           <!-- EELHOE HEMORRHOIDS SPRAY IN CATALOG -->
-          <article class="product-card">
+          <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
             <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
               <img id="cat-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
             </div>
@@ -666,7 +681,7 @@
           </article>
 
           <!-- MAX POWER SPRAY IN CATALOG -->
-          <article class="product-card">
+          <article class="product-card" data-name="max power massage spray">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
               <img id="cat-main-img-max" src="image_2.png" alt="Max Power Spray">
             </div>
@@ -693,7 +708,7 @@
           </article>
 
           <!-- SANITARY NAPKIN IN CATALOG -->
-          <article class="product-card">
+          <article class="product-card" data-name="premium sanitary napkin">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="cat-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
             </div>
@@ -721,7 +736,7 @@
           </article>
 
           <!-- MIELLE HAIR OIL IN CATALOG -->
-          <article class="product-card">
+          <article class="product-card" data-name="rosemary mint scalp hair strengthening oil 59ml">
             <div class="product-img-box" onclick="openProductModal('mielleoil')">
               <img id="cat-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
             </div>
@@ -748,7 +763,7 @@
           </article>
 
           <!-- ERECTA TABLET IN CATALOG -->
-          <article class="product-card">
+          <article class="product-card" data-name="erecta 100 mg tablet 4pcs">
             <div class="product-img-box" onclick="openProductModal('erecta')">
               <img id="cat-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
             </div>
@@ -784,7 +799,7 @@
       <div class="container" style="padding-top: 20px;">
         <h2 class="section-title">🔥 Exclusive Hot Deals</h2>
         <div class="products-grid">
-          <div class="product-card" style="padding: 20px; text-align: center;">
+          <div class="product-card" data-name="hot deal bundle" style="padding: 20px; text-align: center;">
             <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
             <h3>Flash Sale - Bundle Offer</h3>
             <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">475.00 SAR</p>
@@ -1063,6 +1078,64 @@
           if(authBtns) authBtns.style.display = "none";
         }
       }
+
+      // লাইভ সার্চ এবং অটো-সাজেশন লজিক
+      window.handleSearch = function() {
+        const searchInput = document.getElementById('search-input');
+        const suggestionsList = document.getElementById('suggestions-list');
+        const query = searchInput.value.toLowerCase().trim();
+        
+        suggestionsList.innerHTML = "";
+        
+        if (query.length === 0) {
+          suggestionsList.style.display = "none";
+          // সব প্রোডাক্ট কার্ড আবার দৃশ্যমান করা
+          document.querySelectorAll('.product-card').forEach(card => card.style.display = "flex");
+          return;
+        }
+
+        const productCards = document.querySelectorAll('.product-card');
+        let matchCount = 0;
+
+        productCards.forEach(card => {
+          const productName = (card.dataset.name || card.querySelector('.product-title').textContent).toLowerCase();
+          
+          if (productName.includes(query)) {
+            card.style.display = "flex";
+            matchCount++;
+
+            // সাজেশন লিস্টে যুক্ত করা
+            const li = document.createElement('li');
+            li.textContent = card.querySelector('.product-title').textContent;
+            li.onclick = () => {
+              searchInput.value = li.textContent;
+              suggestionsList.style.display = "none";
+              // হোম বা ক্যাটাগরিতে স্ক্রোল করা
+              switchDashboard('home-view');
+            };
+            suggestionsList.appendChild(li);
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        if (suggestionsList.children.length > 0) {
+          suggestionsList.style.display = "block";
+        } else {
+          suggestionsList.style.display = "none";
+          // যদি কোনো প্রোডাক্ট না মিলে, তবে সব প্রোডাক্ট দেখাবে যাতে কাস্টমার হতাশ না হয়
+          productCards.forEach(card => card.style.display = "flex");
+          showToast("দুঃখিত, এই নামের কোনো প্রোডাক্ট নেই। অন্যান্য পণ্যগুলো দেখানো হচ্ছে।");
+        }
+      };
+
+      // পেজে কোথাও ক্লিক করলে সাজেশন বক্স বন্ধ হয়ে যাওয়া
+      document.addEventListener('click', function(e) {
+        const searchForm = document.querySelector('.search-form');
+        if (searchForm && !searchForm.contains(e.target)) {
+          document.getElementById('suggestions-list').style.display = "none";
+        }
+      });
 
       // PRODUCT POPUP DETAILS MODAL
       window.openProductModal = function(productKey) {
