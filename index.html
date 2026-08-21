@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>⁠<!-- Google tag (gtag.js) -->
+<head>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-91ZV0RV5X6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -8,7 +9,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-91ZV0RV5X6');
-</script></head>
+</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bigest Mall - More than shopping, it's your biggest world.</title>
@@ -129,7 +130,6 @@
     .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
     .logo i{font-size:1.35rem}
     
-    /* সার্চ বক্স এবং লাইভ সাজেশনের জন্য নতুন স্টাইল */
     .search-form{flex:1;min-width:220px;display:flex;max-width:640px; position: relative;}
     .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
     .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
@@ -183,7 +183,6 @@
     .btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700;margin-bottom:8px;}
     .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
 
-    /* Order Button Section Inside Cards */
     .order-action-container {
       margin-top: 10px;
       padding-top: 10px;
@@ -215,7 +214,6 @@
       cursor: pointer;
     }
 
-    /* CUSTOM ACCOUNT MENU STYLING */
     .acc-header-card {
       background: #ffffff;
       padding: 20px;
@@ -295,7 +293,6 @@
       color: #aaaaaa;
     }
 
-    /* AUTH MODAL FORM STYLING */
     .auth-input-group {
       margin-bottom: 14px;
       text-align: left;
@@ -357,7 +354,6 @@
     .footer-column a:hover{color:var(--primary-gold);text-decoration:underline}
     .copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
 
-    /* Modal Popup Design (Shared) */
     .policy-modal {
       display: none;
       position: fixed;
@@ -419,8 +415,8 @@
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-      pageLanguage: 'bn',
-      includedLanguages: 'bn,en,ar',
+      pageLanguage: 'en',
+      includedLanguages: 'en,ar,bn',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
@@ -661,7 +657,6 @@
         <h2 class="section-title" style="margin-top: 30px;">Products in Health &amp; Personal Care</h2>
         <div class="products-grid">
           
-          <!-- EELHOE HEMORRHOIDS SPRAY IN CATALOG -->
           <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
             <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
               <img id="cat-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
@@ -688,7 +683,6 @@
             </div>
           </article>
 
-          <!-- MAX POWER SPRAY IN CATALOG -->
           <article class="product-card" data-name="max power massage spray">
             <div class="product-img-box" onclick="openProductModal('maxpower')">
               <img id="cat-main-img-max" src="image_2.png" alt="Max Power Spray">
@@ -715,7 +709,6 @@
             </div>
           </article>
 
-          <!-- SANITARY NAPKIN IN CATALOG -->
           <article class="product-card" data-name="premium sanitary napkin">
             <div class="product-img-box" onclick="openProductModal('napkin')">
               <img id="cat-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
@@ -743,7 +736,6 @@
             </div>
           </article>
 
-          <!-- MIELLE HAIR OIL IN CATALOG -->
           <article class="product-card" data-name="rosemary mint scalp hair strengthening oil 59ml">
             <div class="product-img-box" onclick="openProductModal('mielleoil')">
               <img id="cat-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
@@ -770,7 +762,6 @@
             </div>
           </article>
 
-          <!-- ERECTA TABLET IN CATALOG -->
           <article class="product-card" data-name="erecta 100 mg tablet 4pcs">
             <div class="product-img-box" onclick="openProductModal('erecta')">
               <img id="cat-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
@@ -826,7 +817,6 @@
     <div id="account-view" class="app-view">
       <div class="container" style="padding-top: 20px;">
         
-        <!-- Welcome Section -->
         <div class="acc-header-card" id="acc-header-box">
           <h3 id="user-greeting">Welcome Guest</h3>
           <div class="acc-auth-btns" id="auth-buttons-group">
@@ -835,7 +825,6 @@
           </div>
         </div>
 
-        <!-- Account Options List -->
         <div class="acc-menu-card">
           <div class="acc-menu-item" onclick="showToast('Bigest Mall Credits: 0.00 SAR')">
             <div class="acc-menu-left">
@@ -856,7 +845,7 @@
           <div class="acc-menu-item" onclick="openLangModal()">
             <div class="acc-menu-left">
               <i class="fa-solid fa-language"></i>
-              <span>Language <small style="color: #777; font-weight: normal;">(English / العربية / বাংলা)</small></span>
+              <span>Language <small style="color: #777; font-weight: normal;" id="current-lang-label">(English / العربية / বাংলা)</small></span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </div>
@@ -953,7 +942,7 @@
     <div class="policy-modal-content" style="max-width: 400px; text-align: center;">
       <span class="close-modal" onclick="closeLangModal()">&times;</span>
       <h2 class="policy-title"><i class="fa-solid fa-language"></i> Select Language</h2>
-      <p style="font-size: 13px; color: #666; margin-bottom: 20px;">আপনার পছন্দের ভাষাটি নির্বাচন করুন</p>
+      <p style="font-size: 13px; color: #666; margin-bottom: 20px;">আপনার পছন্দের ভাষাটি নির্বাচন করুন / Choose your language</p>
       <button class="lang-option-btn" onclick="changeAppLanguage('en')"><span>English</span> 🇺🇸</button>
       <button class="lang-option-btn" onclick="changeAppLanguage('ar')"><span>العربية (Arabic)</span> 🇸🇦</button>
       <button class="lang-option-btn" onclick="changeAppLanguage('bn')"><span>বাংলা (Bengali)</span> 🇧🇩</button>
@@ -965,7 +954,6 @@
     <div class="policy-modal-content">
       <span class="close-modal" onclick="closeAuthModal()">&times;</span>
       
-      <!-- LOGIN FORM -->
       <div id="login-form-box" style="display: none;">
         <h2 class="policy-title"><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
         <form onsubmit="handleLoginSubmit(event)">
@@ -981,7 +969,6 @@
         </form>
       </div>
 
-      <!-- CREATE ACCOUNT FORM -->
       <div id="signup-form-box" style="display: none;">
         <h2 class="policy-title"><i class="fa-solid fa-user-plus"></i> Create an Account</h2>
         <div id="signup-step-1">
@@ -1053,12 +1040,21 @@
 
       const CART_KEY = "bigestmall_cart_count";
       const USER_KEY = "bigestmall_user_data";
+      const LANG_KEY = "bigestmall_selected_lang";
       const cartCountEl = document.getElementById("cart-count");
       const toastEl = document.getElementById("toast");
 
       let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
       updateCartUI();
       checkLoggedInUser();
+      
+      // Page load-এ সেভ করা ভাষা অ্যাপ্লাই করা
+      window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem(LANG_KEY);
+        if(savedLang) {
+          applyLanguage(savedLang, false);
+        }
+      });
 
       window.switchDashboard = function(viewId, btnElement) {
         document.querySelectorAll('.app-view').forEach(view => {
@@ -1087,7 +1083,6 @@
         }
       }
 
-      // লাইভ সার্চ এবং অটো-সাজেশন লজিক
       window.handleSearch = function() {
         const searchInput = document.getElementById('search-input');
         const suggestionsList = document.getElementById('suggestions-list');
@@ -1097,7 +1092,6 @@
         
         if (query.length === 0) {
           suggestionsList.style.display = "none";
-          // সব প্রোডাক্ট কার্ড আবার দৃশ্যমান করা
           document.querySelectorAll('.product-card').forEach(card => card.style.display = "flex");
           return;
         }
@@ -1112,13 +1106,11 @@
             card.style.display = "flex";
             matchCount++;
 
-            // সাজেশন লিস্টে যুক্ত করা
             const li = document.createElement('li');
             li.textContent = card.querySelector('.product-title').textContent;
             li.onclick = () => {
               searchInput.value = li.textContent;
               suggestionsList.style.display = "none";
-              // হোম বা ক্যাটাগরিতে স্ক্রোল করা
               switchDashboard('home-view');
             };
             suggestionsList.appendChild(li);
@@ -1131,13 +1123,11 @@
           suggestionsList.style.display = "block";
         } else {
           suggestionsList.style.display = "none";
-          // যদি কোনো প্রোডাক্ট না মিলে, তবে সব প্রোডাক্ট দেখাবে যাতে কাস্টমার হতাশ না হয়
           productCards.forEach(card => card.style.display = "flex");
           showToast("দুঃখিত, এই নামের কোনো প্রোডাক্ট নেই। অন্যান্য পণ্যগুলো দেখানো হচ্ছে।");
         }
       };
 
-      // পেজে কোথাও ক্লিক করলে সাজেশন বক্স বন্ধ হয়ে যাওয়া
       document.addEventListener('click', function(e) {
         const searchForm = document.querySelector('.search-form');
         if (searchForm && !searchForm.contains(e.target)) {
@@ -1145,7 +1135,6 @@
         }
       });
 
-      // PRODUCT POPUP DETAILS MODAL
       window.openProductModal = function(productKey) {
         const modalBody = document.getElementById("modal-content-body");
         if(productKey === 'hemorrhoids') {
@@ -1345,17 +1334,34 @@
         if (event.target === document.getElementById("langModal")) { closeLangModal(); }
       };
 
+      // নিখুঁত ভাষা পরিবর্তনের লজিক
       window.changeAppLanguage = function(langCode) {
-        const translateSelect = document.querySelector('.goog-te-combo');
-        if (translateSelect) {
-          translateSelect.value = langCode;
-          translateSelect.dispatchEvent(new Event('change'));
-          showToast("Language updated!");
-        } else {
-          showToast("Translator initializing, please try again.");
-        }
+        localStorage.setItem(LANG_KEY, langCode);
+        applyLanguage(langCode, true);
         closeLangModal();
       };
+
+      function applyLanguage(langCode, showNotification = true) {
+        const tryTranslate = () => {
+          const selectEl = document.querySelector('.goog-te-combo');
+          if (selectEl) {
+            selectEl.value = langCode;
+            selectEl.dispatchEvent(new Event('change'));
+            
+            const langNames = { 'en': 'English', 'ar': 'العربية', 'bn': 'বাংলা' };
+            const langLabel = document.getElementById("current-lang-label");
+            if(langLabel) langLabel.textContent = `(${langNames[langCode] || 'English'})`;
+            
+            if(showNotification) {
+              showToast("Language updated successfully!");
+            }
+          } else {
+            // যদি উইজেট লোড হতে একটু দেরি হয়, তবে ১ সেকেন্ড পর আবার চেষ্টা করবে
+            setTimeout(tryTranslate, 500);
+          }
+        };
+        tryTranslate();
+      }
 
       window.openAuthModal = function(type) {
         const modal = document.getElementById("authModal");
