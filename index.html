@@ -456,7 +456,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
 
   <!-- লাইভ সার্চ ইনপুট এবং সাজেশন লিস্ট -->
   <form class="search-form" onsubmit="return false;">
-    <input type="search" id="search-input" placeholder="Search medicines, personal care, equipment..." oninput="handleSearch()" />
+    <input type="search" id="search-input" placeholder="Search products, personal care, equipment..." oninput="handleSearch()" />
     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     <ul id="suggestions-list" style="display: none;"></ul>
   </form>
@@ -495,10 +495,42 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         <h3>Health &amp; Personal Care</h3>
       </div>
 
+      <div class="category-card" onclick="switchDashboard('electronics-view')">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Electronics</h3>
+      </div>
+
     </div>
 
     <h2 class="section-title">All Products &amp; Essentials</h2>
     <div class="products-grid">
+
+      <!-- STARGOLD MINI HAIR DRYER PRODUCT CARD -->
+      <article class="product-card" data-name="stargold mini hair dryer sg-3343">
+        <div class="product-img-box" onclick="openProductModal('hairdryer')">
+          <img id="home-main-img-hair" src="watermarked_img_2591632558471190136.jpg" alt="STARGOLD Mini Hair Dryer SG-3343">
+        </div>
+        <div class="thumbnail-row">
+          <img src="watermarked_img_2591632558471190136.jpg" class="thumb-img" onclick="document.getElementById('home-main-img-hair').src=this.src" alt="Hair Dryer">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('hairdryer')">STARGOLD Mini Hair Dryer (SG-3343)</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: STARGOLD | 1600 Watt</p>
+          <div class="product-price">51.00 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="STARGOLD Mini Hair Dryer (SG-3343)" data-price="51.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('STARGOLD Mini Hair Dryer (SG-3343)', '51.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('STARGOLD Mini Hair Dryer (SG-3343)', '51.00 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
 
       <!-- 0. EELHOE HERBAL HEMORRHOIDS SPRAY PRODUCT CARD (NEW) -->
       <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
@@ -651,9 +683,13 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         <i class="fa-solid fa-suitcase-medical"></i>
         <h3>Health &amp; Personal Care</h3>
       </div>
+      <div class="category-card" onclick="switchDashboard('electronics-view')">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Electronics</h3>
+      </div>
     </div>
 
-    <p style="font-size: 13px; color: #666; margin-top: 15px;">এই একটিমাত্র ক্যাটালগের মধ্যে ওষুধ, মেডিকেল ডিভাইস, স্যানিটারি ন্যাপকিন, স্কিন কেয়ার এবং সকল ফার্মাসিউটিক্যাল পণ্য অন্তর্ভুক্ত রয়েছে।</p>
+    <p style="font-size: 13px; color: #666; margin-top: 15px;">এই ক্যাটালগের মধ্যে ওষুধ, মেডিকেল ডিভাইস, স্যানিটারি ন্যাপকিন, স্কিন কেয়ার এবং সকল ফার্মাসিউটিক্যাল পণ্য অন্তর্ভুক্ত রয়েছে।</p>
 
     <h2 class="section-title" style="margin-top: 30px;">Products in Health &amp; Personal Care</h2>
     <div class="products-grid">
@@ -784,6 +820,53 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               <i class="fa-solid fa-envelope"></i> Order via Email
             </button>
             <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- ELECTRONICS CATALOG VIEW -->
+<div id="electronics-view" class="app-view">
+  <div class="container" style="padding-top: 20px;">
+    <h2 class="section-title">Electronics Catalog</h2>
+    
+    <div class="categories-grid">
+      <div class="category-card" onclick="showToast('Electronics Catalog Active')">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Electronics &amp; Appliances</h3>
+      </div>
+    </div>
+
+    <p style="font-size: 13px; color: #666; margin-top: 15px;">এই ক্যাটালগের মধ্যে হোম অ্যাপ্লায়েন্সেস, পার্সোনাল কেয়ার ইলেকট্রনিক্স এবং বিভিন্ন ইলেকট্রনিক ডিভাইস অন্তর্ভুক্ত রয়েছে।</p>
+
+    <h2 class="section-title" style="margin-top: 30px;">Products in Electronics</h2>
+    <div class="products-grid">
+      
+      <article class="product-card" data-name="stargold mini hair dryer sg-3343">
+        <div class="product-img-box" onclick="openProductModal('hairdryer')">
+          <img id="elec-main-img-hair" src="watermarked_img_2591632558471190136.jpg" alt="STARGOLD Mini Hair Dryer SG-3343">
+        </div>
+        <div class="thumbnail-row">
+          <img src="watermarked_img_2591632558471190136.jpg" class="thumb-img" onclick="document.getElementById('elec-main-img-hair').src=this.src" alt="Hair Dryer">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('hairdryer')">STARGOLD Mini Hair Dryer (SG-3343)</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: STARGOLD | 1600 Watt</p>
+          <div class="product-price">51.00 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="STARGOLD Mini Hair Dryer (SG-3343)" data-price="51.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('STARGOLD Mini Hair Dryer (SG-3343)', '51.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('STARGOLD Mini Hair Dryer (SG-3343)', '51.00 SAR')">
               <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
             </button>
           </div>
@@ -1048,7 +1131,6 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
       updateCartUI();
       checkLoggedInUser();
       
-      // Page load-এ সেভ করা ভাষা অ্যাপ্লাই করা
       window.addEventListener('DOMContentLoaded', () => {
         const savedLang = localStorage.getItem(LANG_KEY);
         if(savedLang) {
@@ -1090,21 +1172,19 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         
         suggestionsList.innerHTML = "";
         
-        if (query.length = 0) {
+        if (query.length === 0) {
           suggestionsList.style.display = "none";
           document.querySelectorAll('.product-card').forEach(card => card.style.display = "flex");
           return;
         }
 
         const productCards = document.querySelectorAll('.product-card');
-        let matchCount = 0;
 
         productCards.forEach(card => {
           const productName = (card.dataset.name || card.querySelector('.product-title').textContent).toLowerCase();
           
           if (productName.includes(query)) {
             card.style.display = "flex";
-            matchCount;
 
             const li = document.createElement('li');
             li.textContent = card.querySelector('.product-title').textContent;
@@ -1137,7 +1217,37 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
 
       window.openProductModal = function(productKey) {
         const modalBody = document.getElementById("modal-content-body");
-        if(productKey = 'hemorrhoids') {
+        if(productKey === 'hairdryer') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="watermarked_img_2591632558471190136.jpg" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;" alt="STARGOLD Mini Hair Dryer SG-3343">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">STARGOLD Mini Hair Dryer (SG-3343)</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: STARGOLD | 1600 Watt</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">51.00 SAR</p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Description):</h4>
+              <p style="margin: 0 0 10px 0;">আপনার চুলের যত্নে এবং দ্রুত স্টাইলিংয়ের জন্য নিয়ে এলাম স্টাইলিশ এবং কমপ্যাক্ট STARGOLD Mini Hair Dryer!</p>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">মূল বৈশিষ্ট্যসমূহ (Key Features):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>ফোল্ডেবল ডিজাইন:</strong> এটি ফোল্ড করা যায়, তাই ব্যাগে করে ট্রাভেলের সময় অনায়াসেই বহন করা যায়।</li>
+                <li><strong>৩টি হিট সেটিংস:</strong> আপনার চুলের ধরন অনুযায়ী বাতাসের তাপমাত্রা নিয়ন্ত্রণ করতে পারবেন।</li>
+                <li><strong>সেফটি কাট-অফ:</strong> অতিরিক্ত গরম হওয়া থেকে রক্ষা পেতে এতে রয়েছে সেফটি কাট-অফ সিস্টেম।</li>
+                <li><strong>পাওয়ারফুল:</strong> ১৬০০ ওয়াটের শক্তিশালী মোটর, যা চুল দ্রুত শুকাতে সাহায্য করে।</li>
+                <li><strong>ওয়ারেন্টি:</strong> ২ বছরের সার্ভিস ওয়ারেন্টি।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('STARGOLD Mini Hair Dryer (SG-3343)', '51.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('STARGOLD Mini Hair Dryer (SG-3343)', '51.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey === 'hemorrhoids') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="image_4.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="EELHOE Herbal Hemorrhoids Spray">
@@ -1158,11 +1268,6 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
                 <li><strong>সহজ ব্যবহার:</strong> ইন্টারনাল (অভ্যন্তরীণ) এবং এক্সটার্নাল (বাহ্যিক) উভয় সমস্যার জন্যই সমানভাবে কার্যকর।</li>
                 <li><strong>সহজ প্রয়োগ:</strong> স্প্রে ফর্মুলা হওয়ায় ব্যবহার করা অত্যন্ত সহজ ও ঝামেলামুক্ত।</li>
               </ul>
-              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">ব্যবহারের নিয়ম:</h4>
-              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li>ব্যবহারের আগে ভালো করে ঝাঁকিয়ে নিন।</li>
-                <li>আক্রান্ত স্থানে দিনে ২-৩ বার স্প্রে করুন।</li>
-              </ul>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px;">
               <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00')">Add to Cart</button>
@@ -1171,32 +1276,20 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               </button>
             </div>
           `;
-        } else if(productKey = 'maxpower') {
+        } else if(productKey === 'maxpower') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="image_2.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Max Power Massage Spray">
               <div>
                 <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">Max Power Massage Spray (20 ml)</h2>
                 <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">SKU: 1027292 | Category: Sexual Health</p>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Brand: Max Power</p>
                 <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">80.50 SAR</p>
               </div>
             </div>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
               <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Description):</h4>
-              <p style="margin: 0 0 10px 0;">Max Power Spray 20Ml is a topical spray product marketed for male sexual enhancement, designed to help delay ejaculation and prolong sexual intercourse by temporarily reducing sensitivity.</p>
-              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">ব্যবহারবিধি (Directions for use):</h4>
-              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li>সাধারণত সহবাসের কয়েক মিনিট আগে লিঙ্গের অগ্রভাগে ও শ্যাফটে স্প্রে করা হয়।</li>
-                <li>প্রথমে অল্প পরিমাণ দিয়ে শুরু করা এবং প্যাকেজিংয়ের নির্দিষ্ট নির্দেশাবলী মেনে চলা উচিত।</li>
-              </ul>
-              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">সতর্কতা (Important Information):</h4>
-              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li>শুধুমাত্র বাহ্যিক ব্যবহারের জন্য (For external use only)।</li>
-                <li>চোখে বা কাটা/প্রদাহযুক্ত ত্বকে ব্যবহার করা যাবে না।</li>
-                <li>জ্বালাপোড়া বা ফুসকুড়ি দেখা দিলে ব্যবহার বন্ধ করে ধুয়ে ফেলুন এবং চিকিৎসকের পরামর্শ নিন।</li>
-              </ul>
+              <p style="margin: 0 0 10px 0;">Max Power Spray 20Ml is a topical spray product marketed for male sexual enhancement, designed to help delay ejaculation and prolong sexual intercourse.</p>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px;">
               <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Max Power Massage Spray', '80.50')">Add to Cart</button>
@@ -1205,7 +1298,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               </button>
             </div>
           `;
-        } else if(productKey = 'napkin') {
+        } else if(productKey === 'napkin') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="IMG_2869.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Sanitary Napkin">
@@ -1219,9 +1312,8 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
               <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Details):</h4>
               <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li><strong>ক্যাটাগরি:</strong> হেলথ অ্যান্ড পার্সোনাল কেয়ার (Health &amp; Personal Care)</li>
+                <li><strong>ক্যাটাগরি:</strong> হেলথ অ্যান্ড পার্সোনাল কেয়ার</li>
                 <li><strong>হাই-কোয়ালিটি:</strong> অত্যন্ত আরামদায়ক ও নিরাপদ ম্যাটেরিয়ালে তৈরি।</li>
-                <li><strong>গোপনীয়তা:</strong> সুরক্ষিত ও গোপনীয় প্যাকেজিংয়ে ডেলিভারি।</li>
               </ul>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -1231,25 +1323,21 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               </button>
             </div>
           `;
-        } else if(productKey = 'mielleoil') {
+        } else if(productKey === 'mielleoil') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="IMG_3099.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Mielle Hair Oil">
               <div>
                 <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h2>
-                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: MIELLE | Size: 59 ml (Unisex)</p>
-                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745;">(70% OFF)</span></p>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: MIELLE | Size: 59 ml</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.00 SAR</span></p>
               </div>
             </div>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
               <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">Highlights & Benefits:</h4>
               <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li><strong>NOURISH & STRENGTHEN:</strong> Nutrient-rich, biotin-infused treatment for everyday hair care or intensive deep treatment.</li>
-                <li><strong>SCALP CARE:</strong> Rosemary and mint extracts provide a refreshing sensation, soothe and invigorate the scalp, promoting healthy hair growth.</li>
-                <li><strong>MOISTURIZING:</strong> Encourages hair growth while moisturizing and conditioning, leaving hair soft, shiny, and manageable. Can be used as daily scalp treatment or pre-poo oil before shampooing.</li>
-                <li><strong>BIOTIN BENEFIT:</strong> Strengthens the hair shaft and encourages healthier, thicker, and longer hair growth over time.</li>
-                <li><strong>FOR:</strong> Daily Use | Scalp Treatment | Split End Care</li>
+                <li>Nourish & Strengthen your hair with biotin-infused treatment.</li>
               </ul>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -1259,24 +1347,22 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               </button>
             </div>
           `;
-        } else if(productKey = 'erecta') {
+        } else if(productKey === 'erecta') {
           modalBody.innerHTML = `
             <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
               <img src="image_12.png" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;" alt="Erecta 100 mg Tablet 4pcs">
               <div>
                 <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
                 <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Erecta 100 mg Tablet 4pcs</h2>
-                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745;">(21% OFF)</span></p>
-                <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block;">Men's Health Supplements</div>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">43.50 SAR</span></p>
               </div>
             </div>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
             <div style="font-size: 14px; line-height: 1.6; color: #333;">
-              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Information):</h4>
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ:</h4>
               <ul style="padding-left: 20px; margin: 0 0 15px 0;">
-                <li><strong>ব্র্যান্ড:</strong> জামজুম ফার্মা (Jamjoon Pharma)</li>
-                <li><strong>ডোজ:</strong> ১০০ মিগ্রা (100 mg Sildenafil)</li>
-                <li><strong>প্যাকেজ:</strong> ৪ পিস ট্যাবলেট (4 pcs)</li>
+                <li>ব্র্যান্ড: জামজুম ফার্মা (Jamjoon Pharma)</li>
+                <li>ডোজ: ১০০ মিগ্রা (100 mg)</li>
               </ul>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -1294,7 +1380,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         document.getElementById("productModal").style.display = "none";
       };
       window.closeProductModalOnOutside = function(event) {
-        if (event.target = document.getElementById("productModal")) {
+        if (event.target === document.getElementById("productModal")) {
           closeProductModal();
         }
       };
@@ -1331,10 +1417,9 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         document.getElementById("langModal").style.display = "none";
       };
       window.closeLangModalOnOutside = function(event) {
-        if (event.target = document.getElementById("langModal")) { closeLangModal(); }
+        if (event.target === document.getElementById("langModal")) { closeLangModal(); }
       };
 
-      // নিখুঁত ভাষা পরিবর্তনের লজিক
       window.changeAppLanguage = function(langCode) {
         localStorage.setItem(LANG_KEY, langCode);
         applyLanguage(langCode, true);
@@ -1356,7 +1441,6 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
               showToast("Language updated successfully!");
             }
           } else {
-            // যদি উইজেট লোড হতে একটু দেরি হয়, তবে ১ সেকেন্ড পর আবার চেষ্টা করবে
             setTimeout(tryTranslate, 500);
           }
         };
@@ -1369,7 +1453,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
         const signupBox = document.getElementById("signup-form-box");
 
         modal.style.display = "flex";
-        if (type = 'login') {
+        if (type === 'login') {
           loginBox.style.display = "block";
           signupBox.style.display = "none";
         } else {
@@ -1382,7 +1466,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
       };
       window.closeAuthModal = function() { document.getElementById("authModal").style.display = "none"; };
       window.closeAuthModalOnOutside = function(event) {
-        if (event.target = document.getElementById("authModal")) { closeAuthModal(); }
+        if (event.target === document.getElementById("authModal")) { closeAuthModal(); }
       };
 
       window.sendSignupOTP = function() {
@@ -1493,7 +1577,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
       });
 
       window.addToCart = function(name, price) {
-        count;
+        count++;
         localStorage.setItem(CART_KEY, String(count));
         updateCartUI();
         showToast(`Added "${name}"${price ? " — " + price + " SAR" : ""} to cart`);
