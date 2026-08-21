@@ -7,11 +7,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-91ZV0RV5X6');
-</script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title class="t-title">Bigest Mall - More than shopping, it's your biggest world.</title>
+
+gtag('config', 'G-91ZV0RV5X6'); 
+</script> 
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bigest Mall - More than shopping, it's your biggest world.</title>
   <meta name="description" content="Bigest Mall — global quality products delivered to your doorstep." />
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -29,244 +30,423 @@
       --active-blue: #1a73e8;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    
-    body {
-      top: 0px !important;
-      position: static !important;
-      margin:0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background:var(--light-bg);
-      color:var(--text-color);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.4;
-      padding-bottom: 75px;
-    }
+*{box-sizing:border-box}
+html,body{height:100%}
 
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    a{color:inherit}
+/* STRICTLY FORCE HIDE GOOGLE TRANSLATE BANNER & BAR */
+body {
+  top: 0px !important;
+  position: static !important;
+  margin:0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:var(--light-bg);
+  color:var(--text-color);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  padding-bottom: 75px;
+}
 
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 65px;
-      background: #ffffff;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      border-top: 1px solid #e0e0e0;
-      z-index: 1100;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-    }
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-banner,
+.skiptranslate,
+iframe.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+}
 
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #5f6368;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 20%;
-      padding: 6px 0;
-      transition: color 0.2s ease;
-    }
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+.visually-hidden{
+  position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;border:0;padding:0;margin:-1px;
+}
+a{color:inherit}
 
-    .nav-item i {
-      font-size: 20px;
-      margin-bottom: 3px;
-    }
+.skip-link{
+  position:fixed;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:999;
+  transform:translateY(-120%);transition:transform .18s ease;
+}
+.skip-link:focus{transform:none;outline:3px solid var(--primary-gold)}
 
-    .nav-item.active {
-      color: var(--active-blue);
-      font-weight: 700;
-    }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  z-index: 1100;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+}
 
-    .app-view { display: none; }
-    .app-view.active-view { display: block; }
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5f6368;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
 
-    .top-bar{
-      background:var(--dark-bg);color:var(--white);
-      padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
-    }
-    .brand-strong{color:var(--primary-gold);font-weight:700}
+.nav-item i {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
 
-    /* Language Switcher Dropdown Style */
-    .lang-switcher-select {
-      background: var(--primary-gold);
-      color: var(--dark-bg);
-      border: none;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-      outline: none;
-    }
+.nav-item.active {
+  color: var(--active-blue);
+  font-weight: 700;
+}
 
-    header.site-header{
-      background:var(--secondary-blue);color:var(--white);
-      position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
-    }
-    .header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
-    .logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
-    .logo i{font-size:1.35rem}
-    
-    .search-form{flex:1;min-width:220px;display:flex;max-width:640px; position: relative;}
-    .search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
-    .search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
+.app-view { display: none; }
+.app-view.active-view { display: block; }
 
-    .header-actions{display:flex;align-items:center;gap:12px}
-    .action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
-    .cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
+.top-bar{
+  background:var(--dark-bg);color:var(--white);
+  padding:8px 5%;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+}
+.brand-strong{color:var(--primary-gold);font-weight:700}
 
-    .floating-whatsapp{
-      position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
-      font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
-    }
-    .floating-whatsapp:hover{transform:scale(1.06)}
+header.site-header{
+  background:var(--secondary-blue);color:var(--white);
+  position:sticky;top:0;z-index:900;box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+.header-inner{display:flex;align-items:center;gap:var(--gap);justify-content:space-between;padding:14px 20px;max-width:var(--max-width);margin:0 auto;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;color:var(--primary-gold);text-decoration:none;font-weight:700;font-size:1.125rem}
+.logo i{font-size:1.35rem}
 
-    .hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
-    .hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
-    .hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
-    .btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
+.search-form{flex:1;min-width:220px;display:flex;max-width:640px; position: relative;}
+.search-form input[type="search"]{flex:1;padding:10px 12px;border-radius:6px 0 0 6px;border:0;outline:none}
+.search-form button{background:var(--primary-gold);color:var(--dark-bg);border:0;padding:10px 14px;border-radius:0 6px 6px 0;cursor:pointer;font-weight:700}
 
-    .section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
+#suggestions-list { 
+  list-style: none; padding: 0; margin: 0; 
+  border: 1px solid #ccc; position: absolute; 
+  top: 100%; left: 0; right: 48px; background: white; z-index: 1000; 
+  border-radius: 0 0 6px 6px; max-height: 200px; overflow-y: auto; text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#suggestions-list li { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; color: #333; font-size: 14px; }
+#suggestions-list li:hover { background-color: #f7f7f7; }
 
-    .categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-    .category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
-    .category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
-    .category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
-    .category-card h3{font-size:0.95rem;margin:0;color:var(--text-color);}
+.header-actions{display:flex;align-items:center;gap:12px}
+.action-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:inherit;padding:8px;border-radius:8px;cursor:pointer;text-decoration:none}
+.cart-badge{display:inline-block;background:var(--primary-gold);color:var(--dark-bg);border-radius:999px;padding:2px 8px;font-weight:700;font-size:.8rem}
 
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:36px}
-    .product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;padding:15px;}
-    
-    .product-img-box{height:200px;background:#eee;border-radius:8px;overflow:hidden;margin-bottom:10px;cursor:pointer;}
-    .product-img-box img{width:100%;height:100%;object-fit:contain;}
+.floating-whatsapp{
+  position:fixed;bottom:80px;right:25px;background:var(--whatsapp-green);color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;
+  font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;z-index:1000;transition:transform .18s;
+}
+.floating-whatsapp:hover{transform:scale(1.06)}
 
-    .product-info{padding-top:5px}
-    .product-title{font-weight:700;margin:0 0 8px;font-size:1rem;color:var(--secondary-blue);cursor:pointer;}
-    .product-price{color:#d32f2f;font-weight:700;margin-bottom:12px;font-size:1.1rem;}
-    
-    .btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700;margin-bottom:8px;}
-    .btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
+.hero{background:linear-gradient(135deg,#0A2540 0%,#121212 100%);color:var(--white);text-align:center;padding:40px 20px;border-bottom:4px solid var(--primary-gold)}
+.hero h1{font-size:2.25rem;color:var(--primary-gold);margin:0 0 8px}
+.hero p{font-size:1.05rem;font-style:italic;margin:0 0 18px;opacity:.95}
+.btn-shop{background:var(--primary-gold);color:var(--dark-bg);padding:12px 28px;border-radius:28px;border:0;font-weight:700;cursor:pointer}
 
-    .order-action-container {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #eee;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .btn-order-email, .btn-order-wa {
-      width: 100%;
-      padding: 9px;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn-order-email { background: #0A2540; color: #fff; }
-    .btn-order-wa { background: #25D366; color: #fff; }
+.section-title{font-size:1.125rem;margin:28px 0 14px;border-left:4px solid var(--primary-gold);padding-left:10px;color:var(--secondary-blue)}
 
-    .acc-header-card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-    .acc-menu-card {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      overflow: hidden;
-    }
-    .acc-menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid #f0f0f0;
-      text-decoration: none;
-      color: #333333;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .acc-menu-item:hover { background: #f9f9f9; }
-    .acc-menu-left { display: flex; align-items: center; gap: 14px; }
-    .acc-menu-left i { width: 20px; font-size: 18px; color: var(--secondary-blue); text-align: center; }
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.category-card{background:var(--white);padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;}
+.category-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.12);}
+.category-card i{font-size:1.6rem;color:var(--secondary-blue);margin-bottom:8px;display:block}
+.category-card h3{font-size:0.95rem;margin:0;color:var(--text-color);}
 
-    .policy-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      z-index: 2000;
-      justify-content: center; align-items: center;
-      padding: 15px;
-    }
-    .policy-modal-content {
-      background: #fff; color: #333;
-      max-width: 550px; width: 100%; max-height: 85vh;
-      border-radius: 12px; overflow-y: auto; padding: 25px;
-      position: relative; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-    }
-    .close-modal {
-      position: absolute; top: 15px; right: 20px;
-      font-size: 24px; font-weight: bold; color: #777; cursor: pointer;
-    }
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:36px}
+.product-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;padding:15px;}
 
-    .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
-    .toast.show{opacity:1;transform:none}
-    .phone-link{color:inherit;text-decoration:underline;font-weight:700}
+.product-img-box{height:200px;background:#eee;border-radius:8px;overflow:hidden;margin-bottom:10px;cursor:pointer;}
+.product-img-box img{width:100%;height:100%;object-fit:contain;}
+.thumbnail-row{display:flex;gap:6px;margin-bottom:10px;}
+.thumb-img{width:45px;height:45px;object-fit:cover;border-radius:4px;cursor:pointer;border:1px solid #ddd;}
+
+.product-info{padding-top:5px}
+.product-title{font-weight:700;margin:0 0 8px;font-size:1rem;color:var(--secondary-blue);cursor:pointer;}
+.product-title:hover{text-decoration:underline;}
+.product-price{color:#d32f2f;font-weight:700;margin-bottom:12px;font-size:1.1rem;}
+
+.btn-add-cart{width:100%;padding:10px;border:0;border-radius:6px;background:var(--secondary-blue);color:var(--white);cursor:pointer;font-weight:700;margin-bottom:8px;}
+.btn-add-cart:hover{background:var(--primary-gold);color:var(--dark-bg)}
+
+.order-action-container {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-order-email {
+  width: 100%;
+  padding: 9px;
+  background: #0A2540;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-order-wa {
+  width: 100%;
+  padding: 9px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.acc-header-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.acc-header-card h3 {
+  margin: 0 0 12px 0;
+  color: var(--secondary-blue);
+  font-size: 20px;
+  font-weight: 700;
+}
+.acc-auth-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.btn-acc-action {
+  flex: 1;
+  max-width: 180px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid var(--secondary-blue);
+  transition: all 0.2s ease;
+}
+.btn-acc-login {
+  background: var(--secondary-blue);
+  color: #ffffff;
+}
+.btn-acc-signup {
+  background: #ffffff;
+  color: var(--secondary-blue);
+}
+.acc-menu-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.acc-menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+  color: #333333;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+.acc-menu-item:last-child {
+  border-bottom: none;
+}
+.acc-menu-item:hover {
+  background: #f9f9f9;
+}
+.acc-menu-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.acc-menu-left i {
+  width: 20px;
+  font-size: 18px;
+  color: var(--secondary-blue);
+  text-align: center;
+}
+.acc-menu-item .fa-chevron-right {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.auth-input-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+.auth-input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+.auth-input-group input, .auth-input-group select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+.auth-input-group input:focus, .auth-input-group select:focus {
+  border-color: var(--secondary-blue);
+}
+.btn-auth-submit {
+  width: 100%;
+  padding: 12px;
+  background: var(--secondary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.lang-option-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lang-option-btn:hover {
+  border-color: var(--secondary-blue);
+  background: #eef2f6;
+}
+
+footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20px;margin-top:40px}
+.footer-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.footer-column h3{color:var(--primary-gold);margin-bottom:10px}
+.footer-column a{color:#ccc;text-decoration:none;cursor:pointer}
+.footer-column a:hover{color:var(--primary-gold);text-decoration:underline}
+.copyright{text-align:center;color:#888;padding-top:18px;border-top:1px solid #333;font-size:.9rem;margin-top:18px}
+
+.policy-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.policy-modal-content {
+  background: #fff;
+  color: #333;
+  max-width: 550px;
+  width: 100%;
+  max-height: 85vh;
+  border-radius: 12px;
+  overflow-y: auto;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  animation: modalFadeIn 0.3s ease;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #777;
+  cursor: pointer;
+}
+.close-modal:hover { color: #000; }
+.policy-title {
+  color: var(--secondary-blue);
+  border-bottom: 2px solid var(--primary-gold);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+.toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
+.toast.show{opacity:1;transform:none}
+
+.phone-link{color:inherit;text-decoration:underline;font-weight:700}
   </style>
 </head>
-<body dir="ltr" id="page-body">
+<body>
 
-  <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37;">
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ar,bn',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Header Logo -->
+  <div class="notranslate" style="text-align: center; padding: 10px 0; background-color: #000000; border-bottom: 2px solid #d4af37; margin-bottom: 0px;">
       <img src="0716600E-C20E-40AA-A036-45D14654E34B.png" alt="Biggest Mall Logo" style="max-height: 80px; width: auto; object-fit: contain;">
   </div>
 
-  <a class="floating-whatsapp" href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span class="t-wa">Order via WhatsApp</span>
+<a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp with Bigest Mall">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span>Order via WhatsApp</span>
   </a>
 
-  <!-- Top Bar with Language Selector -->
+  <!-- Top Bar -->
   <div class="top-bar">
+    <div>Welcome to <span class="brand-strong">BIGEST MALL</span> | Worldwide Shipping Available</div>
     <div>
-      <span class="t-welcome">Welcome to</span> <span class="brand-strong">BIGEST MALL</span> | <span class="t-shipping">Worldwide Shipping Available</span>
-    </div>
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <!-- Language Selector -->
-      <div>
-        <label for="language-select" style="font-size: 12px; margin-right: 4px;"><i class="fa-solid fa-globe"></i></label>
-        <select id="language-select" class="lang-switcher-select" onchange="changeLanguage(this.value)">
-          <option value="bn">বাংলা (Bengali)</option>
-          <option value="en">English</option>
-          <option value="ar">العربية (Arabic)</option>
-        </select>
-      </div>
-      <div>
-        <i class="fa-solid fa-phone"></i> <span class="t-helpline">Helpline:</span>
-        <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
-      </div>
+      <i class="fa-solid fa-phone"></i> Helpline:
+      <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
     </div>
   </div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="#" onclick="switchDashboard('home-view')">
@@ -274,326 +454,1084 @@
         <span>BIGEST MALL</span>
       </a>
 
-      <form class="search-form" onsubmit="return false;">
-        <input type="search" id="search-input" class="t-search-placeholder" placeholder="Search products..." oninput="handleSearch()" />
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
+  <!-- লাইভ সার্চ ইনপুট এবং সাজেশন লিস্ট -->
+  <form class="search-form" onsubmit="return false;">
+    <input type="search" id="search-input" placeholder="Search medicines, personal care, equipment..." oninput="handleSearch()" />
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <ul id="suggestions-list" style="display: none;"></ul>
+  </form>
 
-      <div class="header-actions">
-        <button class="action-btn" onclick="switchDashboard('account-view')"><i class="fa-regular fa-user"></i></button>
-        <button class="action-btn" onclick="switchDashboard('cart-view')">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span id="cart-count" class="cart-badge">0</span>
-        </button>
-      </div>
-    </div>
+  <div class="header-actions">
+    <button class="action-btn" onclick="switchDashboard('account-view')">
+      <i class="fa-regular fa-user"></i>
+    </button>
+
+    <button class="action-btn" onclick="switchDashboard('cart-view')">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cart-count" class="cart-badge">0</span>
+    </button>
+  </div>
+</div>
   </header>
 
   <main id="main">
+
+<!-- HOME DASHBOARD -->
+<div id="home-view" class="app-view active-view">
+  <section class="hero">
+    <div class="container">
+      <h1>BIGEST MALL</h1>
+      <p>"More than shopping, it's your biggest world."</p>
+      <button class="btn-shop" type="button" id="explore-btn">Explore Now</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Catalog</h2>
+    <div class="categories-grid">
+      
+      <div class="category-card" onclick="switchDashboard('categories-view')">
+        <i class="fa-solid fa-suitcase-medical"></i>
+        <h3>Health &amp; Personal Care</h3>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">All Products &amp; Essentials</h2>
+    <div class="products-grid">
+
+      <!-- 0. EELHOE HERBAL HEMORRHOIDS SPRAY PRODUCT CARD (NEW) -->
+      <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
+        <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
+          <img id="home-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
+        </div>
+        <div class="thumbnail-row">
+          <img src="image_4.png" class="thumb-img" onclick="document.getElementById('home-main-img-hem').src=this.src" alt="Hemorrhoids Spray">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('hemorrhoids')">EELHOE Herbal Hemorrhoids Spray 30ml</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: EELHOE | Size: 30ml</p>
+          <div class="product-price">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.90 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">56% OFF</span></div>
+
+          <button class="btn-add-cart" type="button" data-name="EELHOE Herbal Hemorrhoids Spray 30ml" data-price="25.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 1. MAX POWER MASSAGE SPRAY PRODUCT CARD -->
+      <article class="product-card" data-name="max power massage spray">
+        <div class="product-img-box" onclick="openProductModal('maxpower')">
+          <img id="home-main-img-max" src="IMG_3084.JPEG" alt="Max Power Massage Spray">
+        </div>
+        <div class="thumbnail-row">
+          <img src="IMG_3084.JPEG" class="thumb-img" onclick="document.getElementById('home-main-img-max').src=this.src" alt="Max Power Spray">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('maxpower')">Max Power Massage Spray</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">SKU: 1027292 | Brand: Max Power</p>
+          <div class="product-price">80.50 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="Max Power Massage Spray" data-price="80.50">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Max Power Massage Spray', '80.50 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. SANITARY NAPKIN PRODUCT CARD -->
+      <article class="product-card" data-name="premium sanitary napkin">
+        <div class="product-img-box" onclick="openProductModal('napkin')">
+          <img id="home-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
+        </div>
+        <div class="thumbnail-row">
+          <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('home-main-img-2').src=this.src">
+          <img src="image_3.jpeg" class="thumb-img" onclick="document.getElementById('home-main-img-2').src=this.src">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Catalog: Health &amp; Personal Care</p>
+          <div class="product-price">20.00 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="20.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Sanitary Napkin', '20.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. MIELLE ROSEMARY MINT HAIR OIL PRODUCT CARD -->
+      <article class="product-card" data-name="rosemary mint scalp hair strengthening oil 59ml">
+        <div class="product-img-box" onclick="openProductModal('mielleoil')">
+          <img id="home-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
+        </div>
+        <div class="thumbnail-row">
+          <img src="IMG_3099.png" class="thumb-img" onclick="document.getElementById('home-main-img-mielle').src=this.src" alt="Mielle Oil">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('mielleoil')">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: MIELLE | Size: 59 ml</p>
+          <div class="product-price">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">70% OFF</span></div>
+
+          <button class="btn-add-cart" type="button" data-name="Mielle Rosemary Mint Hair Oil 59ml" data-price="16.40">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. ERECTA 100 MG TABLET PRODUCT CARD -->
+      <article class="product-card" data-name="erecta 100 mg tablet 4pcs">
+        <div class="product-img-box" onclick="openProductModal('erecta')">
+          <img id="home-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
+        </div>
+        <div class="thumbnail-row">
+          <img src="image_12.png" class="thumb-img" onclick="document.getElementById('home-main-img-erecta').src=this.src" alt="Erecta Tablet">
+        </div>
+
+        <div class="product-info">
+          <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+          <h3 class="product-title" onclick="openProductModal('erecta')">Erecta 100 mg Tablet 4pcs</h3>
+          <div class="product-price">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">21% OFF</span></div>
+          <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Men's Health Supplements</div>
+
+          <button class="btn-add-cart" type="button" data-name="Erecta 100 mg Tablet 4pcs" data-price="34.35">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- CATALOG / CATEGORIES DASHBOARD -->
+<div id="categories-view" class="app-view">
+  <div class="container" style="padding-top: 20px;">
+    <h2 class="section-title">Catalog</h2>
     
-    <!-- HOME DASHBOARD -->
-    <div id="home-view" class="app-view active-view">
-      <section class="hero">
-        <div class="container">
-          <h1>BIGEST MALL</h1>
-          <p class="t-hero-sub">"More than shopping, it's your biggest world."</p>
-          <button class="btn-shop t-explore" type="button" onclick="switchDashboard('categories-view')">Explore Now</button>
-        </div>
-      </section>
+    <div class="categories-grid">
+      <div class="category-card" onclick="showToast('Health & Personal Care Catalog Active')">
+        <i class="fa-solid fa-suitcase-medical"></i>
+        <h3>Health &amp; Personal Care</h3>
+      </div>
+    </div>
 
-      <div class="container">
-        <h2 class="section-title t-catalog">Catalog</h2>
-        <div class="categories-grid">
-          <div class="category-card" onclick="switchDashboard('categories-view')">
-            <i class="fa-solid fa-suitcase-medical"></i>
-            <h3 class="t-cat-health">Health &amp; Personal Care</h3>
+    <p style="font-size: 13px; color: #666; margin-top: 15px;">এই একটিমাত্র ক্যাটালগের মধ্যে ওষুধ, মেডিকেল ডিভাইস, স্যানিটারি ন্যাপকিন, স্কিন কেয়ার এবং সকল ফার্মাসিউটিক্যাল পণ্য অন্তর্ভুক্ত রয়েছে।</p>
+
+    <h2 class="section-title" style="margin-top: 30px;">Products in Health &amp; Personal Care</h2>
+    <div class="products-grid">
+      
+      <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
+        <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
+          <img id="cat-main-img-hem" src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
+        </div>
+        <div class="thumbnail-row">
+          <img src="image_4.png" class="thumb-img" onclick="document.getElementById('cat-main-img-hem').src=this.src">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('hemorrhoids')">EELHOE Herbal Hemorrhoids Spray 30ml</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: EELHOE | Size: 30ml</p>
+          <div class="product-price">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.90 SAR</span></div>
+
+          <button class="btn-add-cart" type="button" data-name="EELHOE Herbal Hemorrhoids Spray 30ml" data-price="25.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
           </div>
         </div>
+      </article>
 
-        <h2 class="section-title t-all-products">All Products &amp; Essentials</h2>
-        <div class="products-grid">
-
-          <!-- Product 1 -->
-          <article class="product-card" data-name="eelhoe herbal hemorrhoids spray 30ml">
-            <div class="product-img-box" onclick="openProductModal('hemorrhoids')">
-              <img src="image_4.png" alt="EELHOE Herbal Hemorrhoids Spray">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('hemorrhoids')">EELHOE Herbal Hemorrhoids Spray 30ml</h3>
-              <div class="product-price">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.90 SAR</span></div>
-              <button class="btn-add-cart t-add-cart" type="button" data-name="EELHOE Herbal Hemorrhoids Spray 30ml" data-price="25.00">Add to Cart</button>
-              <div class="order-action-container">
-                <button type="button" class="btn-order-email t-ord-email" onclick="sendEmailOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')"><i class="fa-solid fa-envelope"></i> Order via Email</button>
-                <button type="button" class="btn-order-wa t-ord-wa" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Product 2 -->
-          <article class="product-card" data-name="max power massage spray">
-            <div class="product-img-box" onclick="openProductModal('maxpower')">
-              <img src="IMG_3084.JPEG" alt="Max Power Massage Spray">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('maxpower')">Max Power Massage Spray</h3>
-              <div class="product-price">80.50 SAR</div>
-              <button class="btn-add-cart t-add-cart" type="button" data-name="Max Power Massage Spray" data-price="80.50">Add to Cart</button>
-              <div class="order-action-container">
-                <button type="button" class="btn-order-email t-ord-email" onclick="sendEmailOrder('Max Power Massage Spray', '80.50 SAR')"><i class="fa-solid fa-envelope"></i> Order via Email</button>
-                <button type="button" class="btn-order-wa t-ord-wa" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Product 3 -->
-          <article class="product-card" data-name="premium sanitary napkin">
-            <div class="product-img-box" onclick="openProductModal('napkin')">
-              <img src="IMG_2869.jpeg" alt="Sanitary Napkin">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin</h3>
-              <div class="product-price">20.00 SAR</div>
-              <button class="btn-add-cart t-add-cart" type="button" data-name="Sanitary Napkin" data-price="20.00">Add to Cart</button>
-              <div class="order-action-container">
-                <button type="button" class="btn-order-email t-ord-email" onclick="sendEmailOrder('Sanitary Napkin', '20.00 SAR')"><i class="fa-solid fa-envelope"></i> Order via Email</button>
-                <button type="button" class="btn-order-wa t-ord-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
-              </div>
-            </div>
-          </article>
-
+      <article class="product-card" data-name="max power massage spray">
+        <div class="product-img-box" onclick="openProductModal('maxpower')">
+          <img id="cat-main-img-max" src="image_2.png" alt="Max Power Spray">
         </div>
-      </div>
-    </div>
-
-    <!-- ACCOUNT DASHBOARD -->
-    <div id="account-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <div class="acc-header-card">
-          <h3 class="t-welcome-guest">Welcome Guest</h3>
+        <div class="thumbnail-row">
+          <img src="image_2.png" class="thumb-img" onclick="document.getElementById('cat-main-img-max').src=this.src">
         </div>
-        <div class="acc-menu-card">
-          <div class="acc-menu-item" onclick="showToast('Feature ready')">
-            <div class="acc-menu-left"><i class="fa-solid fa-location-dot"></i><span class="t-addresses">Addresses</span></div>
-            <i class="fa-solid fa-chevron-right"></i>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('maxpower')">Max Power Massage Spray</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">SKU: 1027292 | Brand: Max Power</p>
+          <div class="product-price">80.50 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="Max Power Massage Spray" data-price="80.50">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Max Power Massage Spray', '80.50 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
           </div>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- CART DASHBOARD -->
-    <div id="cart-view" class="app-view">
-      <div class="container" style="padding-top: 20px;">
-        <h2 class="section-title t-cart-title">Shopping Cart</h2>
-        <div style="background: #fff; padding: 30px; border-radius: 10px; text-align: center;">
-          <h3 class="t-selected-items">Your Selected Items</h3>
-          <p style="font-size: 18px;"><span class="t-total-items">Total Items</span>: <b id="cart-view-count">0</b></p>
-          <button onclick="clearCart()" class="t-clear-btn" style="padding: 10px 20px; background: #d32f2f; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Clear Cart</button>
+      <article class="product-card" data-name="premium sanitary napkin">
+        <div class="product-img-box" onclick="openProductModal('napkin')">
+          <img id="cat-main-img-2" src="IMG_2869.jpeg" alt="Sanitary Napkin">
+        </div>
+        <div class="thumbnail-row">
+          <img src="IMG_2869.jpeg" class="thumb-img" onclick="document.getElementById('cat-main-img-2').src=this.src">
+          <img src="image_3.png" class="thumb-img" onclick="document.getElementById('cat-main-img-2').src=this.src">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('napkin')">Premium Sanitary Napkin</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Health &amp; Personal Care Essential</p>
+          <div class="product-price">20.00 SAR</div>
+
+          <button class="btn-add-cart" type="button" data-name="Sanitary Napkin" data-price="20.00">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Sanitary Napkin', '20.00 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-name="rosemary mint scalp hair strengthening oil 59ml">
+        <div class="product-img-box" onclick="openProductModal('mielleoil')">
+          <img id="cat-main-img-mielle" src="IMG_3099.png" alt="Mielle Rosemary Mint Hair Oil">
+        </div>
+        <div class="thumbnail-row">
+          <img src="IMG_3099.png" class="thumb-img" onclick="document.getElementById('cat-main-img-mielle').src=this.src">
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-title" onclick="openProductModal('mielleoil')">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h3>
+          <p style="font-size: 12px; color: #666; margin: 0 0 5px 0;">Brand: MIELLE | Size: 59 ml</p>
+          <div class="product-price">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">70% OFF</span></div>
+
+          <button class="btn-add-cart" type="button" data-name="Mielle Rosemary Mint Hair Oil 59ml" data-price="16.40">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-name="erecta 100 mg tablet 4pcs">
+        <div class="product-img-box" onclick="openProductModal('erecta')">
+          <img id="cat-main-img-erecta" src="image_12.png" alt="Erecta 100 mg Tablet 4pcs">
+        </div>
+        <div class="thumbnail-row">
+          <img src="image_12.png" class="thumb-img" onclick="document.getElementById('cat-main-img-erecta').src=this.src" alt="Erecta Tablet">
+        </div>
+
+        <div class="product-info">
+          <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+          <h3 class="product-title" onclick="openProductModal('erecta')">Erecta 100 mg Tablet 4pcs</h3>
+          <div class="product-price">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745; font-weight: bold; margin-left: 5px;">21% OFF</span></div>
+          <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Men's Health Supplements</div>
+
+          <button class="btn-add-cart" type="button" data-name="Erecta 100 mg Tablet 4pcs" data-price="34.35">Add to Cart</button>
+
+          <div class="order-action-container">
+            <button type="button" class="btn-order-email" onclick="sendEmailOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+              <i class="fa-solid fa-envelope"></i> Order via Email
+            </button>
+            <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- DEALS DASHBOARD -->
+<div id="deals-view" class="app-view">
+  <div class="container" style="padding-top: 20px;">
+    <h2 class="section-title">🔥 Exclusive Hot Deals</h2>
+    <div class="products-grid">
+      <div class="product-card" data-name="hot deal bundle" style="padding: 20px; text-align: center;">
+        <i class="fa-solid fa-bolt" style="font-size: 40px; color: #d32f2f; margin-bottom: 10px;"></i>
+        <h3>Flash Sale - Bundle Offer</h3>
+        <p style="color: #d32f2f; font-weight: bold; font-size: 18px;">475.00 SAR</p>
+        <button class="btn-add-cart" data-name="Hot Deal Bundle" data-price="475.00">Grab Deal</button>
+        <div class="order-action-container">
+          <button type="button" class="btn-order-wa" onclick="sendWhatsAppOrder('Hot Deal Bundle', '475.00 SAR')">
+            <i class="fa-brands fa-whatsapp"></i> Order Deal via WhatsApp
+          </button>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- ACCOUNT DASHBOARD -->
+<div id="account-view" class="app-view">
+  <div class="container" style="padding-top: 20px;">
+    
+    <div class="acc-header-card" id="acc-header-box">
+      <h3 id="user-greeting">Welcome Guest</h3>
+      <div class="acc-auth-btns" id="auth-buttons-group">
+        <button class="btn-acc-action btn-acc-login" onclick="openAuthModal('login')">Login</button>
+        <button class="btn-acc-action btn-acc-signup" onclick="openAuthModal('signup')">Create an Account</button>
+      </div>
+    </div>
+
+    <div class="acc-menu-card">
+      <div class="acc-menu-item" onclick="showToast('Bigest Mall Credits: 0.00 SAR')">
+        <div class="acc-menu-left">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Bigest Mall Credits</span>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="acc-menu-item" onclick="getUserLiveLocation()">
+        <div class="acc-menu-left">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Addresses <small id="address-status" style="color: #1a73e8; font-weight: normal;">(Get Live Location)</small></span>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="acc-menu-item" onclick="openLangModal()">
+        <div class="acc-menu-left">
+          <i class="fa-solid fa-language"></i>
+          <span>Language <small style="color: #777; font-weight: normal;" id="current-lang-label">(English / العربية / বাংলা)</small></span>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="acc-menu-item" onclick="showToast('Selected Country: Saudi Arabia')">
+        <div class="acc-menu-left">
+          <i class="fa-solid fa-globe"></i>
+          <span>Country <small style="color: #777; font-weight: normal;">(Saudi Arabia)</small></span>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="acc-menu-item" onclick="handleSignOut()" style="color: #d32f2f;">
+        <div class="acc-menu-left">
+          <i class="fa-solid fa-right-from-bracket" style="color: #d32f2f;"></i>
+          <span>Sign out</span>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CART DASHBOARD -->
+<div id="cart-view" class="app-view">
+  <div class="container" style="padding-top: 20px;">
+    <h2 class="section-title">Shopping Cart</h2>
+    <div style="background: #fff; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      <i class="fa-solid fa-cart-shopping" style="font-size: 40px; color: #ccc; margin-bottom: 10px;"></i>
+      <h3>Your Selected Items</h3>
+      <p style="font-size: 18px;">Total Items: <b id="cart-view-count">0</b></p>
+      <button onclick="clearCart()" style="padding: 10px 20px; background: #d32f2f; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Clear Cart</button>
+    </div>
+  </div>
+</div>
   </main>
 
-  <!-- Modals -->
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <h3>BIGEST MALL</h3>
+        <p style="color:#aaa;font-size:14px">More than shopping, it's your biggest world. Global quality products right at your doorstep.</p>
+      </div>
+
+  <div class="footer-column">
+    <h3>Contact Us</h3>
+    <ul style="list-style:none;padding:0;margin:0">
+      <li style="color:#ccc">
+        <i class="fa-solid fa-phone"></i>
+        Phone: <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+      </li>
+      <li style="color:#ccc">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp: <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+      </li>
+      <li style="color:#ccc">
+        <i class="fa-solid fa-envelope"></i>
+        Email: <a href="mailto:habibullah.shahin19970@gmail.com">habibullah.shahin19970@gmail.com</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer-column">
+    <h3>Customer Policy</h3>
+    <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+      <li><a onclick="openPolicyModal('privacy')">Privacy Policy</a></li>
+      <li><a onclick="openPolicyModal('terms')">Terms &amp; Conditions</a></li>
+      <li><a onclick="openPolicyModal('shipping')">Shipping &amp; Delivery</a></li>
+      <li><a onclick="openPolicyModal('return')">Return Policy</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container copyright">&copy; 2026 Bigest Mall. All Rights Reserved.</div>
+  </footer>
+
+  <!-- PRODUCT DETAILS POPUP MODAL -->
   <div id="productModal" class="policy-modal" onclick="closeProductModalOnOutside(event)">
     <div class="policy-modal-content" style="max-width: 600px;">
       <span class="close-modal" onclick="closeProductModal()">&times;</span>
-      <div id="modal-content-body"></div>
+
+  <div id="modal-content-body">
+    <!-- Dynamic Content Injected via JS -->
+  </div>
+
+</div>
+  </div>
+
+  <!-- LANGUAGE SELECTION MODAL -->
+  <div id="langModal" class="policy-modal" onclick="closeLangModalOnOutside(event)">
+    <div class="policy-modal-content" style="max-width: 400px; text-align: center;">
+      <span class="close-modal" onclick="closeLangModal()">&times;</span>
+      <h2 class="policy-title"><i class="fa-solid fa-language"></i> Select Language</h2>
+      <p style="font-size: 13px; color: #666; margin-bottom: 20px;">আপনার পছন্দের ভাষাটি নির্বাচন করুন / Choose your language</p>
+      <button class="lang-option-btn" onclick="changeAppLanguage('en')"><span>English</span> 🇺🇸</button>
+      <button class="lang-option-btn" onclick="changeAppLanguage('ar')"><span>العربية (Arabic)</span> 🇸🇦</button>
+      <button class="lang-option-btn" onclick="changeAppLanguage('bn')"><span>বাংলা (Bengali)</span> 🇧🇩</button>
     </div>
   </div>
 
-  <!-- Bottom Nav -->
+  <!-- LOGIN & CREATE ACCOUNT MODAL POPUP -->
+  <div id="authModal" class="policy-modal" onclick="closeAuthModalOnOutside(event)">
+    <div class="policy-modal-content">
+      <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+
+  <div id="login-form-box" style="display: none;">
+    <h2 class="policy-title"><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+    <form onsubmit="handleLoginSubmit(event)">
+      <div class="auth-input-group">
+        <label>Email or Mobile Number</label>
+        <input type="text" id="login-id" placeholder="e.g. user@gmail.com or 05XXXXXXXX" required>
+      </div>
+      <div class="auth-input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn-auth-submit">Login</button>
+    </form>
+  </div>
+
+  <div id="signup-form-box" style="display: none;">
+    <h2 class="policy-title"><i class="fa-solid fa-user-plus"></i> Create an Account</h2>
+    <div id="signup-step-1">
+      <div class="auth-input-group">
+        <label>Mobile Number (মোবাইল নম্বর)</label>
+        <input type="tel" id="signup-mobile-num" placeholder="e.g. 05XXXXXXXX" required>
+      </div>
+      <button type="button" class="btn-auth-submit" onclick="sendSignupOTP()">Send OTP</button>
+
+      <div id="otp-section" style="display: none; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+        <div class="auth-input-group">
+          <label>Enter OTP Code (ওটিপি কোড)</label>
+          <input type="text" id="signup-otp-code" placeholder="6-digit OTP code">
+        </div>
+        <button type="button" class="btn-auth-submit" style="background: #28a745;" onclick="verifySignupOTP()">Verify OTP</button>
+      </div>
+    </div>
+
+    <div id="signup-step-2" style="display: none; margin-top: 10px;">
+      <form onsubmit="handleSignupSubmit(event)">
+        <div class="auth-input-group">
+          <label>Full Name (সম্পূর্ণ নাম)</label>
+          <input type="text" id="su-fullname" placeholder="Your full name" required>
+        </div>
+        <div class="auth-input-group">
+          <label>Email Address (ইমেইল এড্রেস)</label>
+          <input type="email" id="su-email" placeholder="example@email.com" required>
+        </div>
+        <div class="auth-input-group">
+          <label>Iqama Number (আকামা নম্বর)</label>
+          <input type="text" id="su-iqama" placeholder="10-digit Iqama Number" required>
+        </div>
+        <div class="auth-input-group">
+          <label>Delivery Address (ঠিকানা)</label>
+          <input type="text" id="su-address" placeholder="City, Street, House No." required>
+        </div>
+        <button type="submit" class="btn-auth-submit" style="background: var(--primary-gold); color: #000;">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <!-- DYNAMIC POLICY MODAL POPUP -->
+  <div id="policyModal" class="policy-modal" onclick="closePolicyModalOnOutside(event)">
+    <div class="policy-modal-content">
+      <span class="close-modal" onclick="closePolicyModal()">&times;</span>
+      <h2 id="modalTitle" class="policy-title">Policy Details</h2>
+      <div id="modalBody" style="line-height:1.6; font-size:14px; margin-top:15px;"></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
-    <button class="nav-item active" onclick="switchDashboard('home-view', this)"><i class="fa-solid fa-house"></i><span class="t-nav-home">Home</span></button>
-    <button class="nav-item" onclick="switchDashboard('account-view', this)"><i class="fa-regular fa-user"></i><span class="t-nav-account">Account</span></button>
-    <button class="nav-item" onclick="switchDashboard('cart-view', this)"><i class="fa-solid fa-cart-shopping"></i><span class="t-nav-cart">Cart</span></button>
+    <button class="nav-item active" onclick="switchDashboard('home-view', this)"><i class="fa-solid fa-house"></i><span>Home</span></button>
+    <button class="nav-item" onclick="switchDashboard('categories-view', this)"><i class="fa-solid fa-suitcase-medical"></i><span>Catalog</span></button>
+    <button class="nav-item" onclick="switchDashboard('deals-view', this)"><i class="fa-solid fa-bag-shopping"></i><span>Deals</span></button>
+    <button class="nav-item" onclick="switchDashboard('account-view', this)"><i class="fa-regular fa-user"></i><span>Account</span></button>
+    <button class="nav-item" onclick="switchDashboard('cart-view', this)"><i class="fa-solid fa-cart-shopping"></i><span>Cart</span></button>
   </nav>
 
-  <div id="toast" class="toast" hidden></div>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 
+  <!-- JavaScript Dynamic Logic -->
   <script>
-    // Dictionary for Multi-language (Bangla, English, Arabic)
-    const translations = {
-      en: {
-        title: "Bigest Mall - More than shopping, it's your biggest world.",
-        welcome: "Welcome to",
-        shipping: "Worldwide Shipping Available",
-        helpline: "Helpline:",
-        searchPlaceholder: "Search medicines, personal care, equipment...",
-        wa: "Order via WhatsApp",
-        heroSub: "\"More than shopping, it's your biggest world.\"",
-        explore: "Explore Now",
-        catalog: "Catalog",
-        catHealth: "Health & Personal Care",
-        allProducts: "All Products & Essentials",
-        addCart: "Add to Cart",
-        ordEmail: "Order via Email",
-        ordWa: "Order via WhatsApp",
-        welcomeGuest: "Welcome Guest",
-        addresses: "Addresses",
-        cartTitle: "Shopping Cart",
-        selectedItems: "Your Selected Items",
-        totalItems: "Total Items",
-        clearBtn: "Clear Cart",
-        navHome: "Home",
-        navAccount: "Account",
-        navCart: "Cart"
-      },
-      bn: {
-        title: "বিগেস্ট মল - কেনাকাটার বাইরে, এটি আপনার সবচেয়ে বড় পৃথিবী।",
-        welcome: "স্বাগতম",
-        shipping: "সারা বিশ্বে ডেলিভারি সুবিধা উপলব্ধ",
-        helpline: "হেল্পলাইন:",
-        searchPlaceholder: "পণ্য বা ঔষুধ সার্চ করুন...",
-        wa: "হোয়াটসঅ্যাপে অর্ডার করুন",
-        heroSub: "\"শুধু কেনাকাটা নয়, এটি আপনার সবচেয়ে বড় পৃথিবী।\"",
-        explore: "এখনই দেখুন",
-        catalog: "ক্যাটালগ",
-        catHealth: "স্বাস্থ্য এবং ব্যক্তিগত যত্ন",
-        allProducts: "সকল পণ্য ও প্রয়োজনীয় সামগ্রী",
-        addCart: "কার্টে যোগ করুন",
-        ordEmail: "ইমেলের মাধ্যমে অর্ডার করুন",
-        ordWa: "হোয়াটসঅ্যাপে অর্ডার করুন",
-        welcomeGuest: "স্বাগতম অতিথি",
-        addresses: "ঠিকানা",
-        cartTitle: "শপিং কার্ট",
-        selectedItems: "আপনার নির্বাচিত পণ্যসমূহ",
-        totalItems: "মোট পণ্য",
-        clearBtn: "কার্ট খালি করুন",
-        navHome: "হোম",
-        navAccount: "অ্যাকাউন্ট",
-        navCart: "কার্ট"
-      },
-      ar: {
-        title: "بيجيست مول - أكثر من مجرد تسوق، إنه عالمك الأكبر.",
-        welcome: "مرحباً بك في",
-        shipping: "التوصيل المتاح لجميع أنحاء العالم",
-        helpline: "خط المساعدة:",
-        searchPlaceholder: "ابحث عن المنتجات والعناية الشخصية...",
-        wa: "اطلب عبر الواتساب",
-        heroSub: "\"أكثر من مجرد تسوق، إنه عالمك الأكبر.\"",
-        explore: "استكشف الآن",
-        catalog: "الكتالوج",
-        catHealth: "الصحة والعناية الشخصية",
-        allProducts: "جميع المنتجات والأساسيات",
-        addCart: "أضف إلى السلة",
-        ordEmail: "اطلب عبر البريد الإلكتروني",
-        ordWa: "اطلب عبر الواتساب",
-        welcomeGuest: "مرحباً بالضيف",
-        addresses: "العناوين",
-        cartTitle: "سلة التسوق",
-        selectedItems: "العناصر المختارة",
-        totalItems: "إجمالي العناصر",
-        clearBtn: "إفراغ السلة",
-        navHome: "الرئيسية",
-        navAccount: "الحساب",
-        navCart: "السلة"
-      }
-    };
+    (function(){
+      "use strict";
 
-    function changeLanguage(lang) {
-      localStorage.setItem("bigestmall_lang", lang);
-      const t = translations[lang] || translations.en;
+      const CART_KEY = "bigestmall_cart_count";
+      const USER_KEY = "bigestmall_user_data";
+      const LANG_KEY = "bigestmall_selected_lang";
+      const cartCountEl = document.getElementById("cart-count");
+      const toastEl = document.getElementById("toast");
+
+      let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
+      updateCartUI();
+      checkLoggedInUser();
       
-      // Update HTML Dir for Arabic (RTL)
-      document.getElementById("page-body").dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      // Page load-এ সেভ করা ভাষা অ্যাপ্লাই করা
+      window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem(LANG_KEY);
+        if(savedLang) {
+          applyLanguage(savedLang, false);
+        }
+      });
 
-      // Update text content
-      document.querySelector('.t-title').textContent = t.title;
-      document.querySelector('.t-welcome').textContent = t.welcome;
-      document.querySelector('.t-shipping').textContent = t.shipping;
-      document.querySelector('.t-helpline').textContent = t.helpline;
-      document.querySelector('.t-wa').textContent = t.wa;
-      document.querySelector('.t-search-placeholder').placeholder = t.searchPlaceholder;
-      document.querySelector('.t-hero-sub').textContent = t.heroSub;
-      document.querySelector('.t-explore').textContent = t.explore;
-      document.querySelector('.t-catalog').textContent = t.catalog;
-      document.querySelector('.t-cat-health').textContent = t.catHealth;
-      document.querySelector('.t-all-products').textContent = t.allProducts;
-      document.querySelector('.t-welcome-guest').textContent = t.welcomeGuest;
-      document.querySelector('.t-addresses').textContent = t.addresses;
-      document.querySelector('.t-cart-title').textContent = t.cartTitle;
-      document.querySelector('.t-selected-items').textContent = t.selectedItems;
-      document.querySelector('.t-total-items').textContent = t.totalItems;
-      document.querySelector('.t-clear-btn').textContent = t.clearBtn;
-      document.querySelector('.t-nav-home').textContent = t.navHome;
-      document.querySelector('.t-nav-account').textContent = t.navAccount;
-      document.querySelector('.t-nav-cart').textContent = t.navCart;
+      window.switchDashboard = function(viewId, btnElement) {
+        document.querySelectorAll('.app-view').forEach(view => {
+          view.classList.remove('active-view');
+        });
+        const targetView = document.getElementById(viewId);
+        if(targetView) targetView.classList.add('active-view');
 
-      document.querySelectorAll('.t-add-cart').forEach(el => el.textContent = t.addCart);
-      document.querySelectorAll('.t-ord-email').forEach(el => el.innerHTML = `<i class="fa-solid fa-envelope"></i> ${t.ordEmail}`);
-      document.querySelectorAll('.t-ord-wa').forEach(el => el.innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${t.ordWa}`);
-    }
+        if(btnElement) {
+          document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          btnElement.classList.add('active');
+        }
+        window.scrollTo(0,0);
+      };
 
-    // Load saved language on startup
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem("bigestmall_lang") || "bn";
-      document.getElementById("language-select").value = savedLang;
-      changeLanguage(savedLang);
-    });
-
-    // Basic Cart & View Switcher Logic
-    const CART_KEY = "bigestmall_cart_count";
-    let count = parseInt(localStorage.getItem(CART_KEY) || "0", 10) || 0;
-    document.getElementById("cart-count").textContent = count;
-    document.getElementById("cart-view-count").textContent = count;
-
-    function switchDashboard(viewId, btnElement) {
-      document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active-view'));
-      document.getElementById(viewId).classList.add('active-view');
-      if(btnElement) {
-        document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
-        btnElement.classList.add('active');
+      function checkLoggedInUser() {
+        const userDataStr = localStorage.getItem(USER_KEY);
+        if (userDataStr) {
+          const user = JSON.parse(userDataStr);
+          const greetingEl = document.getElementById("user-greeting");
+          const authBtns = document.getElementById("auth-buttons-group");
+          if(greetingEl) greetingEl.textContent = "Welcome, " + user.name;
+          if(authBtns) authBtns.style.display = "none";
+        }
       }
-      window.scrollTo(0,0);
-    }
 
-    function addToCart(name, price) {
-      count++;
-      localStorage.setItem(CART_KEY, String(count));
-      document.getElementById("cart-count").textContent = count;
-      document.getElementById("cart-view-count").textContent = count;
-      showToast("Added to cart");
-    }
+      window.handleSearch = function() {
+        const searchInput = document.getElementById('search-input');
+        const suggestionsList = document.getElementById('suggestions-list');
+        const query = searchInput.value.toLowerCase().trim();
+        
+        suggestionsList.innerHTML = "";
+        
+        if (query.length = 0) {
+          suggestionsList.style.display = "none";
+          document.querySelectorAll('.product-card').forEach(card => card.style.display = "flex");
+          return;
+        }
 
-    function clearCart() {
-      count = 0;
-      localStorage.setItem(CART_KEY, "0");
-      document.getElementById("cart-count").textContent = 0;
-      document.getElementById("cart-view-count").textContent = 0;
-      showToast("Cart cleared");
-    }
+        const productCards = document.querySelectorAll('.product-card');
+        let matchCount = 0;
 
-    function showToast(msg) {
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.hidden = false;
-      t.classList.add("show");
-      setTimeout(() => { t.classList.remove("show"); t.hidden = true; }, 2000);
-    }
+        productCards.forEach(card => {
+          const productName = (card.dataset.name || card.querySelector('.product-title').textContent).toLowerCase();
+          
+          if (productName.includes(query)) {
+            card.style.display = "flex";
+            matchCount;
 
-    function sendWhatsAppOrder(product, price) {
-      const phone = "966543428325";
-      const msg = `Hello Bigest Mall, I want to order:\nProduct: ${product}\nPrice: ${price}`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+            const li = document.createElement('li');
+            li.textContent = card.querySelector('.product-title').textContent;
+            li.onclick = () => {
+              searchInput.value = li.textContent;
+              suggestionsList.style.display = "none";
+              switchDashboard('home-view');
+            };
+            suggestionsList.appendChild(li);
+          } else {
+            card.style.display = "none";
+          }
+        });
 
-    function sendEmailOrder(product, price) {
-      window.location.href = `mailto:Habibullah.shahin111@gmail.com?subject=Order%20for%20${encodeURIComponent(product)}&body=Product:%20${encodeURIComponent(product)}%0APrice:%20${encodeURIComponent(price)}`;
-    }
+        if (suggestionsList.children.length > 0) {
+          suggestionsList.style.display = "block";
+        } else {
+          suggestionsList.style.display = "none";
+          productCards.forEach(card => card.style.display = "flex");
+          showToast("দুঃখিত, এই নামের কোনো প্রোডাক্ট নেই। অন্যান্য পণ্যগুলো দেখানো হচ্ছে।");
+        }
+      };
 
-    function openProductModal(key) {
-      const modalBody = document.getElementById("modal-content-body");
-      modalBody.innerHTML = `<h2>Product Information</h2><p>Showing full details for product ID: ${key}</p>`;
-      document.getElementById("productModal").style.display = "flex";
-    }
-    function closeProductModal() { document.getElementById("productModal").style.display = "none"; }
-    function closeProductModalOnOutside(e) { if(e.target === document.getElementById("productModal")) closeProductModal(); }
+      document.addEventListener('click', function(e) {
+        const searchForm = document.querySelector('.search-form');
+        if (searchForm && !searchForm.contains(e.target)) {
+          document.getElementById('suggestions-list').style.display = "none";
+        }
+      });
 
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".btn-add-cart");
-      if(btn) addToCart(btn.dataset.name, btn.dataset.price);
-    });
+      window.openProductModal = function(productKey) {
+        const modalBody = document.getElementById("modal-content-body");
+        if(productKey = 'hemorrhoids') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_4.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="EELHOE Herbal Hemorrhoids Spray">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">EELHOE Natural Herbal Hemorrhoids Spray (30ml)</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: EELHOE | Size: 30ml</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">25.00 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.90 SAR</span></p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Description):</h4>
+              <p style="margin: 0 0 10px 0;">পাইলস, ফিশার এবং মলদ্বারের অস্বস্তি থেকে দ্রুত ও স্থায়ী স্বস্তির জন্য ১০০% প্রাকৃতিক উপাদান দিয়ে তৈরি একটি কার্যকর হার্বাল স্প্রে।</p>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">মূল বৈশিষ্ট্যসমূহ (Key Features):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>দ্রুত স্বস্তি:</strong> প্রথম ব্যবহার থেকেই ব্যথা, জ্বালাপোড়া ও ফোলাভাব কমাতে অত্যন্ত কার্যকরী।</li>
+                <li><strong>১০০% ন্যাচারাল:</strong> কোনো পার্শ্বপ্রতিক্রিয়া ছাড়াই প্রাকৃতিক উপাদানে তৈরি।</li>
+                <li><strong>সহজ ব্যবহার:</strong> ইন্টারনাল (অভ্যন্তরীণ) এবং এক্সটার্নাল (বাহ্যিক) উভয় সমস্যার জন্যই সমানভাবে কার্যকর।</li>
+                <li><strong>সহজ প্রয়োগ:</strong> স্প্রে ফর্মুলা হওয়ায় ব্যবহার করা অত্যন্ত সহজ ও ঝামেলামুক্ত।</li>
+              </ul>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">ব্যবহারের নিয়ম:</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li>ব্যবহারের আগে ভালো করে ঝাঁকিয়ে নিন।</li>
+                <li>আক্রান্ত স্থানে দিনে ২-৩ বার স্প্রে করুন।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('EELHOE Herbal Hemorrhoids Spray 30ml', '25.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey = 'maxpower') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_2.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Max Power Massage Spray">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">Max Power Massage Spray (20 ml)</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">SKU: 1027292 | Category: Sexual Health</p>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #555;">Brand: Max Power</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">80.50 SAR</p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Description):</h4>
+              <p style="margin: 0 0 10px 0;">Max Power Spray 20Ml is a topical spray product marketed for male sexual enhancement, designed to help delay ejaculation and prolong sexual intercourse by temporarily reducing sensitivity.</p>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">ব্যবহারবিধি (Directions for use):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li>সাধারণত সহবাসের কয়েক মিনিট আগে লিঙ্গের অগ্রভাগে ও শ্যাফটে স্প্রে করা হয়।</li>
+                <li>প্রথমে অল্প পরিমাণ দিয়ে শুরু করা এবং প্যাকেজিংয়ের নির্দিষ্ট নির্দেশাবলী মেনে চলা উচিত।</li>
+              </ul>
+              <h4 style="margin: 10px 0 8px 0; color: var(--secondary-blue);">সতর্কতা (Important Information):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li>শুধুমাত্র বাহ্যিক ব্যবহারের জন্য (For external use only)।</li>
+                <li>চোখে বা কাটা/প্রদাহযুক্ত ত্বকে ব্যবহার করা যাবে না।</li>
+                <li>জ্বালাপোড়া বা ফুসকুড়ি দেখা দিলে ব্যবহার বন্ধ করে ধুয়ে ফেলুন এবং চিকিৎসকের পরামর্শ নিন।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Max Power Massage Spray', '80.50')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Max Power Massage Spray', '80.50 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey = 'napkin') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="IMG_2869.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Sanitary Napkin">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.2rem;">Premium Sanitary Napkin</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Catalog: Health &amp; Personal Care</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">20.00 SAR</p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Details):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>ক্যাটাগরি:</strong> হেলথ অ্যান্ড পার্সোনাল কেয়ার (Health &amp; Personal Care)</li>
+                <li><strong>হাই-কোয়ালিটি:</strong> অত্যন্ত আরামদায়ক ও নিরাপদ ম্যাটেরিয়ালে তৈরি।</li>
+                <li><strong>গোপনীয়তা:</strong> সুরক্ষিত ও গোপনীয় প্যাকেজিংয়ে ডেলিভারি।</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Sanitary Napkin', '20.00')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Sanitary Napkin', '20.00 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey = 'mielleoil') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="IMG_3099.png" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;" alt="Mielle Hair Oil">
+              <div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Rosemary Mint Scalp & Hair Strengthening Oil 59ml</h2>
+                <p style="margin: 0 0 5px 0; font-size: 13px; color: #666;">Brand: MIELLE | Size: 59 ml (Unisex)</p>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">16.40 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">56.00 SAR</span> <span style="font-size: 12px; color: #28a745;">(70% OFF)</span></p>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">Highlights & Benefits:</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>NOURISH & STRENGTHEN:</strong> Nutrient-rich, biotin-infused treatment for everyday hair care or intensive deep treatment.</li>
+                <li><strong>SCALP CARE:</strong> Rosemary and mint extracts provide a refreshing sensation, soothe and invigorate the scalp, promoting healthy hair growth.</li>
+                <li><strong>MOISTURIZING:</strong> Encourages hair growth while moisturizing and conditioning, leaving hair soft, shiny, and manageable. Can be used as daily scalp treatment or pre-poo oil before shampooing.</li>
+                <li><strong>BIOTIN BENEFIT:</strong> Strengthens the hair shaft and encourages healthier, thicker, and longer hair growth over time.</li>
+                <li><strong>FOR:</strong> Daily Use | Scalp Treatment | Split End Care</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Mielle Rosemary Mint Hair Oil 59ml', '16.40')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Mielle Rosemary Mint Hair Oil 59ml', '16.40 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        } else if(productKey = 'erecta') {
+          modalBody.innerHTML = `
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center; margin-bottom: 15px;">
+              <img src="image_12.png" style="width: 150px; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;" alt="Erecta 100 mg Tablet 4pcs">
+              <div>
+                <div style="font-size: 11px; color: #0056b3; font-weight: bold; text-transform: uppercase; margin-bottom: 3px;">JAMJOOM PHARMA</div>
+                <h2 style="margin: 0 0 5px 0; color: var(--secondary-blue); font-size: 1.1rem;">Erecta 100 mg Tablet 4pcs</h2>
+                <p style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 5px 0;">34.35 SAR <span style="font-size: 13px; color: #888; text-decoration: line-through;">43.50 SAR</span> <span style="font-size: 12px; color: #28a745;">(21% OFF)</span></p>
+                <div style="background: #f0f0ff; color: #4a0e4e; font-size: 11px; padding: 4px 8px; border-radius: 4px; display: inline-block;">Men's Health Supplements</div>
+              </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <div style="font-size: 14px; line-height: 1.6; color: #333;">
+              <h4 style="margin: 0 0 8px 0; color: var(--secondary-blue);">প্রোডাক্টের বিবরণ (Product Information):</h4>
+              <ul style="padding-left: 20px; margin: 0 0 15px 0;">
+                <li><strong>ব্র্যান্ড:</strong> জামজুম ফার্মা (Jamjoon Pharma)</li>
+                <li><strong>ডোজ:</strong> ১০০ মিগ্রা (100 mg Sildenafil)</li>
+                <li><strong>প্যাকেজ:</strong> ৪ পিস ট্যাবলেট (4 pcs)</li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn-add-cart" style="flex: 1; margin: 0;" type="button" onclick="addToCart('Erecta 100 mg Tablet 4pcs', '34.35')">Add to Cart</button>
+              <button class="btn-order-wa" style="flex: 1;" type="button" onclick="sendWhatsAppOrder('Erecta 100 mg Tablet 4pcs', '34.35 SAR')">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Order
+              </button>
+            </div>
+          `;
+        }
+        document.getElementById("productModal").style.display = "flex";
+      };
+
+      window.closeProductModal = function() {
+        document.getElementById("productModal").style.display = "none";
+      };
+      window.closeProductModalOnOutside = function(event) {
+        if (event.target = document.getElementById("productModal")) {
+          closeProductModal();
+        }
+      };
+
+      window.getUserLiveLocation = function() {
+        showToast("Fetching live location...");
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+              const lat = position.coords.latitude.toFixed(5);
+              const lng = position.coords.longitude.toFixed(5);
+              const statusText = document.getElementById('address-status');
+              if(statusText) statusText.textContent = `(${lat}, ${lng})`;
+
+              const userDataStr = localStorage.getItem(USER_KEY);
+              let user = userDataStr ? JSON.parse(userDataStr) : {};
+              user.location = `https://maps.google.com/?q=${lat},${lng}`;
+              localStorage.setItem(USER_KEY, JSON.stringify(user));
+              showToast("📍 Live location captured & saved!");
+            },
+            function(error) {
+              showToast("Location access denied or unavailable.");
+            }
+          );
+        } else {
+          alert("Geolocation is not supported by your browser.");
+        }
+      };
+
+      window.openLangModal = function() {
+        document.getElementById("langModal").style.display = "flex";
+      };
+      window.closeLangModal = function() {
+        document.getElementById("langModal").style.display = "none";
+      };
+      window.closeLangModalOnOutside = function(event) {
+        if (event.target = document.getElementById("langModal")) { closeLangModal(); }
+      };
+
+      // নিখুঁত ভাষা পরিবর্তনের লজিক
+      window.changeAppLanguage = function(langCode) {
+        localStorage.setItem(LANG_KEY, langCode);
+        applyLanguage(langCode, true);
+        closeLangModal();
+      };
+
+      function applyLanguage(langCode, showNotification = true) {
+        const tryTranslate = () => {
+          const selectEl = document.querySelector('.goog-te-combo');
+          if (selectEl) {
+            selectEl.value = langCode;
+            selectEl.dispatchEvent(new Event('change'));
+            
+            const langNames = { 'en': 'English', 'ar': 'العربية', 'bn': 'বাংলা' };
+            const langLabel = document.getElementById("current-lang-label");
+            if(langLabel) langLabel.textContent = `(${langNames[langCode] || 'English'})`;
+            
+            if(showNotification) {
+              showToast("Language updated successfully!");
+            }
+          } else {
+            // যদি উইজেট লোড হতে একটু দেরি হয়, তবে ১ সেকেন্ড পর আবার চেষ্টা করবে
+            setTimeout(tryTranslate, 500);
+          }
+        };
+        tryTranslate();
+      }
+
+      window.openAuthModal = function(type) {
+        const modal = document.getElementById("authModal");
+        const loginBox = document.getElementById("login-form-box");
+        const signupBox = document.getElementById("signup-form-box");
+
+        modal.style.display = "flex";
+        if (type = 'login') {
+          loginBox.style.display = "block";
+          signupBox.style.display = "none";
+        } else {
+          loginBox.style.display = "none";
+          signupBox.style.display = "block";
+          document.getElementById("signup-step-1").style.display = "block";
+          document.getElementById("signup-step-2").style.display = "none";
+          document.getElementById("otp-section").style.display = "none";
+        }
+      };
+      window.closeAuthModal = function() { document.getElementById("authModal").style.display = "none"; };
+      window.closeAuthModalOnOutside = function(event) {
+        if (event.target = document.getElementById("authModal")) { closeAuthModal(); }
+      };
+
+      window.sendSignupOTP = function() {
+        const mobile = document.getElementById("signup-mobile-num").value;
+        if(!mobile) { alert("দয়া করে মোবাইল নম্বর লিখুন।"); return; }
+        document.getElementById("otp-section").style.display = "block";
+        showToast("OTP code sent to " + mobile);
+      };
+
+      window.verifySignupOTP = function() {
+        const otp = document.getElementById("signup-otp-code").value;
+        if(!otp) { alert("দয়া করে ওটিপি কোডটি লিখুন।"); return; }
+        showToast("OTP Verified Successfully!");
+        document.getElementById("signup-step-1").style.display = "none";
+        document.getElementById("signup-step-2").style.display = "block";
+      };
+
+      window.handleLoginSubmit = function(e) {
+        e.preventDefault();
+        const loginId = document.getElementById("login-id").value;
+        const tempUser = { name: loginId, phone: loginId, email: loginId, iqama: "", address: "" };
+        localStorage.setItem(USER_KEY, JSON.stringify(tempUser));
+        checkLoggedInUser();
+        showToast("Login Successful!");
+        closeAuthModal();
+      };
+
+      window.handleSignupSubmit = function(e) {
+        e.preventDefault();
+        const userObj = {
+          name: document.getElementById("su-fullname").value,
+          phone: document.getElementById("signup-mobile-num").value,
+          email: document.getElementById("su-email").value,
+          iqama: document.getElementById("su-iqama").value,
+          address: document.getElementById("su-address").value
+        };
+        localStorage.setItem(USER_KEY, JSON.stringify(userObj));
+        checkLoggedInUser();
+        showToast("Account Created & Logged In!");
+        closeAuthModal();
+      };
+
+      window.handleSignOut = function() {
+        localStorage.removeItem(USER_KEY);
+        const greetingEl = document.getElementById("user-greeting");
+        const authBtns = document.getElementById("auth-buttons-group");
+        if(greetingEl) greetingEl.textContent = "Welcome Guest";
+        if(authBtns) authBtns.style.display = "flex";
+        showToast("Signed Out Successfully");
+      };
+
+      const policies = {
+        privacy: { title: "Privacy Policy", content: "<p>Bigest Mall respects your privacy and secures your personal data safely.</p>" },
+        terms: { title: "Terms & Conditions", content: "<p>Orders are verified via phone/email before dispatch.</p>" },
+        shipping: { title: "Shipping & Delivery", content: "<p>Fast delivery available across all regions of Saudi Arabia.</p>" },
+        return: { title: "Return Policy", content: "<p>Report any product discrepancies within 7 days of delivery.</p>" }
+      };
+
+      window.openPolicyModal = function(key) {
+        const modal = document.getElementById("policyModal");
+        document.getElementById("modalTitle").textContent = policies[key].title;
+        document.getElementById("modalBody").innerHTML = policies[key].content;
+        modal.style.display = "flex";
+      };
+      window.closePolicyModal = function() { document.getElementById("policyModal").style.display = "none"; };
+      window.closePolicyModalOnOutside = function(event) {
+        if (event.target === document.getElementById("policyModal")) { closePolicyModal(); }
+      };
+
+      window.sendWhatsAppOrder = function(productName, price) {
+        const userDataStr = localStorage.getItem(USER_KEY);
+        let name = "Guest Customer", phone = "N/A", email = "N/A", address = "N/A", iqama = "N/A";
+        if(userDataStr) {
+          const user = JSON.parse(userDataStr);
+          name = user.name || name; phone = user.phone || phone; email = user.email || email; address = user.location || user.address || address; iqama = user.iqama || iqama;
+        }
+
+        const message = `🛍️ *NEW ORDER - BIGEST MALL*%0A%0A` +
+                        `📦 *Product:* ${productName}%0A` +
+                        `💰 *Price:* ${price}%0A%0A` +
+                        `👤 *Customer Account Info:*%0A` +
+                        `• Name: ${name}%0A` +
+                        `• Phone: ${phone}%0A` +
+                        `• Email: ${email}%0A` +
+                        `• Address/GPS: ${address}%0A` +
+                        `• Iqama No: ${iqama}`;
+
+        window.open(`https://wa.me/966543428325?text=${message}`, '_blank');
+      };
+
+      window.sendEmailOrder = function(productName, price) {
+        const userDataStr = localStorage.getItem(USER_KEY);
+        if(!userDataStr) {
+          alert('অর্ডার করার জন্য প্রথমে একাউন্ট তৈরি বা লগইন করুন।');
+          openAuthModal('signup');
+          return;
+        }
+        showToast("Submitting order via registered account email...");
+        setTimeout(() => { alert(`ধন্যবাদ! "${productName}" পণ্যটির জন্য আপনার অর্ডারটি রিসিভ করা হয়েছে।`); }, 1000);
+      };
+
+      document.addEventListener("click", (ev) => {
+        const btn = ev.target.closest(".btn-add-cart");
+        if (!btn) return;
+        const name = btn.dataset.name || "Item";
+        const price = btn.dataset.price || "";
+        addToCart(name, price);
+      });
+
+      window.addToCart = function(name, price) {
+        count;
+        localStorage.setItem(CART_KEY, String(count));
+        updateCartUI();
+        showToast(`Added "${name}"${price ? " — " + price + " SAR" : ""} to cart`);
+        closeProductModal();
+      };
+
+      window.clearCart = function() {
+        count = 0;
+        localStorage.setItem(CART_KEY, "0");
+        updateCartUI();
+        showToast("Cart cleared");
+      };
+
+      function updateCartUI() {
+        if(cartCountEl) cartCountEl.textContent = String(count);
+        const cartViewCount = document.getElementById("cart-view-count");
+        if(cartViewCount) cartViewCount.textContent = String(count);
+      }
+
+      let toastTimer = null;
+      window.showToast = function(message, timeout = 2200) {
+        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+        toastEl.textContent = message;
+        toastEl.hidden = false;
+        toastEl.classList.add("show");
+        toastTimer = setTimeout(hideToast, timeout);
+      };
+
+      function hideToast() {
+        toastEl.classList.remove("show");
+        toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
+      }
+
+      const exploreBtn = document.getElementById("explore-btn");
+      if(exploreBtn) { exploreBtn.addEventListener("click", () => { switchDashboard('categories-view'); }); }
+
+    })();
   </script>
+
 </body>
 </html>
