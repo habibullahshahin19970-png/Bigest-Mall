@@ -404,7 +404,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
 .toast{position:fixed;right:20px;bottom:85px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
 .toast.show{opacity:1;transform:none}
 
-.phone-link{color:inherit;text-decoration:underline;font-weight:700}
+.phone-link{color:inherit;text-decoration:underline;font-weight:700;cursor:pointer;}
   </style>
 </head>
 <body>
@@ -442,7 +442,7 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
     <div>Welcome to <span class="brand-strong">BIGEST MALL</span> | Worldwide Shipping Available</div>
     <div>
       <i class="fa-solid fa-phone"></i> Helpline:
-      <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+      <span onclick="openContactModal('phone')" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</span>
     </div>
   </div>
 
@@ -979,17 +979,17 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
   <div class="footer-column">
     <h3>Contact Us</h3>
     <ul style="list-style:none;padding:0;margin:0">
-      <li style="color:#ccc">
+      <li style="color:#ccc; margin-bottom: 8px;">
         <i class="fa-solid fa-phone"></i>
-        Phone: <a href="tel:+966543428325" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+        Phone: <span onclick="openContactModal('phone')" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</span>
       </li>
-      <li style="color:#ccc">
+      <li style="color:#ccc; margin-bottom: 8px;">
         <i class="fa-brands fa-whatsapp"></i>
-        WhatsApp: <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer">+966&nbsp;54&nbsp;342&nbsp;8325</a>
+        WhatsApp: <span onclick="openContactModal('whatsapp')" class="phone-link">+966&nbsp;54&nbsp;342&nbsp;8325</span>
       </li>
-      <li style="color:#ccc">
+      <li style="color:#ccc; margin-bottom: 8px;">
         <i class="fa-solid fa-envelope"></i>
-        Email: <a href="mailto:habibullah.shahin19970@gmail.com">habibullah.shahin19970@gmail.com</a>
+        Email: <span onclick="openContactModal('email')" class="phone-link">habibullah.shahin19970@gmail.com</span>
       </li>
     </ul>
   </div>
@@ -1019,6 +1019,19 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
   </div>
 
 </div>
+  </div>
+
+  <!-- CONTACT POPUP MODAL -->
+  <div id="contactModal" class="policy-modal" onclick="closeContactModalOnOutside(event)">
+    <div class="policy-modal-content" style="max-width: 400px; text-align: center;">
+      <span class="close-modal" onclick="closeContactModal()">&times;</span>
+      <h2 class="policy-title"><i class="fa-solid fa-headset"></i> যোগাযোগ করুন / Contact Us</h2>
+      <p style="font-size: 14px; color: #666; margin-bottom: 20px;">নিচের মাধ্যমগুলোর যেকোনো একটি বেছে নিন:</p>
+      
+      <div id="contact-modal-body" style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Dynamic Options -->
+      </div>
+    </div>
   </div>
 
   <!-- LANGUAGE SELECTION MODAL -->
@@ -1215,6 +1228,37 @@ footer.site-footer{background:var(--dark-bg);color:var(--white);padding:40px 20p
           document.getElementById('suggestions-list').style.display = "none";
         }
       });
+
+      // Contact Popup Function
+      window.openContactModal = function(type) {
+        const modal = document.getElementById("contactModal");
+        const body = document.getElementById("contact-modal-body");
+        
+        let htmlContent = `
+          <a href="tel:+966543428325" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--secondary-blue); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+            <i class="fa-solid fa-phone"></i> Call: +966 54 342 8325
+          </a>
+          <a href="https://wa.me/966543428325" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--whatsapp-green); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+          </a>
+          <a href="mailto:habibullah.shahin19970@gmail.com" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #ea4335; color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+            <i class="fa-solid fa-envelope"></i> Send Email
+          </a>
+        `;
+        
+        body.innerHTML = htmlContent;
+        modal.style.display = "flex";
+      };
+
+      window.closeContactModal = function() {
+        document.getElementById("contactModal").style.display = "none";
+      };
+
+      window.closeContactModalOnOutside = function(event) {
+        if (event.target === document.getElementById("contactModal")) {
+          closeContactModal();
+        }
+      };
 
       window.openProductModal = function(productKey) {
         const modalBody = document.getElementById("modal-content-body");
