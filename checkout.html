@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biggest Mall - Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold">📦 Checkout</h1>
+        <a href="cart.html" class="bg-blue-700 px-4 py-1.5 rounded text-sm hover:bg-blue-800">Back to Cart</a>
+    </header>
+
+    <div class="container mx-auto p-6 max-w-lg">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Shipping Information</h2>
+            <form id="orderForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-600">Full Name</label>
+                    <input type="text" id="custName" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-600">Phone Number</label>
+                    <input type="text" id="custPhone" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-600">Delivery Address</label>
+                    <textarea id="custAddress" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300" rows="3"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2.5 rounded font-bold hover:bg-green-700 transition">Place Order (Cash on Delivery)</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let orderData = {
+                name: document.getElementById('custName').value,
+                phone: document.getElementById('custPhone').value,
+                address: document.getElementById('custAddress').value,
+                items: JSON.parse(localStorage.getItem('mall_cart')) || [],
+                date: new Date().toLocaleString()
+            };
+
+            let allOrders = JSON.parse(localStorage.getItem('mall_orders')) || [];
+            allOrders.push(orderData);
+            localStorage.setItem('mall_orders', JSON.stringify(allOrders));
+
+            localStorage.removeItem('mall_cart');
+
+            alert('Order placed successfully! Thank you for shopping with Biggest Mall.');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
