@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biggest Mall - Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold">🛒 Shopping Cart</h1>
+        <a href="index.html" class="bg-blue-700 px-4 py-1.5 rounded text-sm hover:bg-blue-800">Back to Store</a>
+    </header>
+
+    <div class="container mx-auto p-6 max-w-4xl">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Your Cart Items</h2>
+            <div id="cartItemsList"></div>
+            <div id="cartTotalSection" class="mt-6 border-t pt-4 flex justify-between items-center hidden">
+                <h3 class="text-xl font-bold text-gray-800">Total: <span id="totalPrice" class="text-green-600">0</span> SAR</h3>
+                <a href="checkout.html" class="bg-green-600 text-white px-6 py-2.5 rounded font-bold hover:bg-green-700">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('mall_cart')) || [];
+            let list = document.getElementById('cartItemsList');
+            let totalSection = document.getElementById('cartTotalSection');
+            let totalPriceEl = document.getElementById('totalPrice');
+
+            if(cart.length === 0) {
+                list.innerHTML = `<p class="text-gray-500 py-4 text-center">Your cart is empty!</p>`;
+                totalSection.classList.add('hidden');
+                return;
+            }
+
+            totalSection.classList.remove('hidden');
+            list.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                list.innerHTML += `
+                    <div class="flex items-center justify-between border-b py-4">
+                        <div class="flex items-center gap-4">
+                            <img src="${item.image}" class="w-16 h-16 object-cover rounded">
+                            <div>
+                                <h4 class="font-bold text-gray-800">${item.name}</h4>
+                                <p class="text-gray-500 text-sm">${item.price} SAR x ${item.qty}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold text-blue-600">${item.price * item.qty} SAR</span>
+                            <button onclick="removeItem(${index})" class="bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            totalPriceEl.innerText = total;
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('mall_cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('mall_cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        loadCart();
+    </script>
+</body>
+</html>
