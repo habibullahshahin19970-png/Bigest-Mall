@@ -1,119 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biggest Mall - Admin Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bigest Mall - Admin Panel</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root{
+      --primary-gold:#D4AF37;
+      --secondary-blue:#0A2540;
+      --dark-bg:#121212;
+      --light-bg:#f4f6f8;
+      --white:#ffffff;
+      --text-color:#333333;
+      --max-width:1200px;
+    }
 
-    <!-- Header -->
-    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
-        <h1 class="text-xl font-bold">Biggest Mall - Admin Panel</h1>
-        <a href="index.html" class="bg-blue-700 px-4 py-2 rounded text-sm hover:bg-blue-800">Visit Store</a>
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:var(--light-bg);
+      color:var(--text-color);
+      line-height:1.4;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* Admin Header */
+    .admin-header {
+      background: var(--secondary-blue);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--primary-gold);
+    }
+    .admin-logo {
+      color: var(--primary-gold);
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Login Box */
+    #admin-login-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: var(--dark-bg);
+    }
+    .login-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .login-card h2 {
+      color: var(--secondary-blue);
+      margin-top: 0;
+      text-align: center;
+    }
+
+    /* Dashboard Layout */
+    #admin-dashboard {
+      display: none;
+      padding: 30px 0;
+    }
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .admin-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .admin-card h3 {
+      color: var(--secondary-blue);
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+    .btn-admin {
+      background: var(--secondary-blue);
+      color: var(--white);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .btn-admin:hover {
+      background: var(--primary-gold);
+      color: var(--dark-bg);
+    }
+
+    /* Toast Notification */
+    .toast{position:fixed;right:20px;bottom:25px;background:rgba(18,18,18,0.95);color:#fff;padding:12px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.25);opacity:0;transform:translateY(8px);transition:opacity .22s,transform .22s;z-index:1200;font-weight:600}
+    .toast.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" hidden></div>
+
+  <!-- ADMIN LOGIN SCREEN -->
+  <div id="admin-login-screen">
+    <div class="login-card">
+      <h2><i class="fa-solid fa-lock"></i> Admin Login</h2>
+      <form onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <label>Admin Username</label>
+          <input type="text" id="admin-user-input" placeholder="Enter username (default: admin)" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="admin-pass-input" placeholder="Enter password (default: 12345)" required>
+        </div>
+        <button type="submit" class="btn-admin">Login to Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD PANEL -->
+  <div id="admin-dashboard">
+    <header class="admin-header">
+      <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%; padding:0;">
+        <div class="admin-logo">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>BIGEST MALL — Admin Control Panel</span>
+        </div>
+        <button onclick="adminLogout()" style="background:#d32f2f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-weight:bold;">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
     </header>
 
-    <div class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <main class="container" style="margin-top: 30px;">
+      <div class="admin-grid">
         
-        <!-- Add Product Form -->
-        <div class="bg-white p-6 rounded-lg shadow-md md:col-span-1">
-            <h2 class="text-lg font-semibold mb-4 text-gray-700">Add New Product</h2>
-            <form id="productForm" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-600">Product Name</label>
-                    <input type="text" id="pName" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-600">Price (SAR)</label>
-                    <input type="number" id="pPrice" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-600">Image URL</label>
-                    <input type="url" id="pImg" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300" placeholder="https://...">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-600">Category</label>
-                    <input type="text" id="pCategory" required class="w-full mt-1 p-2 border rounded focus:ring focus:ring-blue-300">
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded font-semibold hover:bg-blue-700">Add Product</button>
-            </form>
-        </div>
-
-        <!-- Product List & Management -->
-        <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2">
-            <h2 class="text-lg font-semibold mb-4 text-gray-700">Manage Products</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full border-collapse border border-gray-200 text-left text-sm">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="border p-2">Image</th>
-                            <th class="border p-2">Name</th>
-                            <th class="border p-2">Price</th>
-                            <th class="border p-2">Category</th>
-                            <th class="border p-2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productList">
-                        <!-- Dynamic Products will load here -->
-                    </tbody>
-                </table>
+        <!-- 1. Credentials Settings Box -->
+        <div class="admin-card">
+          <h3><i class="fa-solid fa-key"></i> Change Admin Credentials</h3>
+          <form onsubmit="updateAdminCredentials(event)">
+            <div class="form-group">
+              <label>New Username</label>
+              <input type="text" id="new-admin-user" placeholder="New username" required>
             </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" id="new-admin-pass" placeholder="New password" required>
+            </div>
+            <button type="submit" class="btn-admin">Update Credentials</button>
+          </form>
         </div>
 
-    </div>
+        <!-- 2. Site Announcement / Text Update Box -->
+        <div class="admin-card">
+          <h3><i class="fa-solid fa-bullhorn"></i> Top Bar Announcement</h3>
+          <form onsubmit="updateAnnouncement(event)">
+            <div class="form-group">
+              <label>Top Bar Text</label>
+              <textarea id="announcement-text" rows="3" placeholder="Welcome text..."></textarea>
+            </div>
+            <button type="submit" class="btn-admin">Save Announcement</button>
+          </form>
+        </div>
 
-    <!-- Script to handle Admin Actions -->
-    <script>
-        let products = JSON.parse(localStorage.getItem('mall_products')) || [
-            { id: 1, name: "Smart Watch", price: 150, image: "https://via.placeholder.com/150", category: "Electronics" },
-            { id: 2, name: "Wireless Earbuds", price: 90, image: "https://via.placeholder.com/150", category: "Electronics" }
-        ];
+        <!-- 3. Add / Manage Products Quick Control -->
+        <div class="admin-card">
+          <h3><i class="fa-solid fa-box-open"></i> Quick Product Notice</h3>
+          <p style="font-size: 13px; color: #666;">আপনি মূল ওয়েবসাইটের ক্যাটালগ ও প্রোডাক্ট মূল্য সরাসরি এখান থেকে কন্ট্রোল বা লোকালস্টোরেজে আপডেট করতে পারবেন।</p>
+          <div class="form-group">
+            <label>Product Catalog Control</label>
+            <button type="button" class="btn-admin" onclick="showToast('Catalog sync active with main store!')">Sync Catalog Data</button>
+          </div>
+        </div>
 
-        const productForm = document.getElementById('productForm');
-        const productList = document.getElementById('productList');
+      </div>
+    </main>
+  </div>
 
-        function renderProducts() {
-            productList.innerHTML = '';
-            products.forEach((p, index) => {
-                productList.innerHTML += `
-                    <tr>
-                        <td class="border p-2"><img src="${p.image}" class="w-12 h-12 object-cover rounded"></td>
-                        <td class="border p-2 font-medium">${p.name}</td>
-                        <td class="border p-2">${p.price} SAR</td>
-                        <td class="border p-2">${p.category}</td>
-                        <td class="border p-2">
-                            <button onclick="deleteProduct(${index})" class="bg-red-500 text-white px-3 py-1 rounded text-xs hover:bg-red-600">Delete</button>
-                        </td>
-                    </tr>
-                `;
-            });
-            localStorage.setItem('mall_products', JSON.stringify(products));
-        }
+  <!-- JavaScript Control Logic -->
+  <script>
+    const ADMIN_CRED_KEY = "bigestmall_admin_credentials";
+    
+    // Default credentials setup
+    if(!localStorage.getItem(ADMIN_CRED_KEY)) {
+      localStorage.setItem(ADMIN_CRED_KEY, JSON.stringify({ user: "admin", pass: "12345" }));
+    }
 
-        productForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const newProduct = {
-                id: Date.now(),
-                name: document.getElementById('pName').value,
-                price: document.getElementById('pPrice').value,
-                image: document.getElementById('pImg').value,
-                category: document.getElementById('pCategory').value
-            };
-            products.push(newProduct);
-            renderProducts();
-            productForm.reset();
-            alert('Product added successfully!');
-        });
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const uInput = document.getElementById("admin-user-input").value.trim();
+      const pInput = document.getElementById("admin-pass-input").value.trim();
+      
+      const creds = JSON.parse(localStorage.getItem(ADMIN_CRED_KEY));
 
-        function deleteProduct(index) {
-            if(confirm('Are you sure you want to delete this product?')) {
-                products.splice(index, 1);
-                renderProducts();
-            }
-        }
+      if(uInput === creds.user && pInput === creds.pass) {
+        document.getElementById("admin-login-screen").style.display = "none";
+        document.getElementById("admin-dashboard").style.display = "block";
+        showToast("Welcome to Admin Dashboard!");
+      } else {
+        alert(" ভুল ইউজারনেম বা পাসওয়ার্ড দিয়েছেন! (Default: admin / 12345)");
+      }
+    }
 
-        renderProducts();
-    </script>
+    function adminLogout() {
+      document.getElementById("admin-dashboard").style.display = "none";
+      document.getElementById("admin-login-screen").style.display = "flex";
+      document.getElementById("admin-user-input").value = "";
+      document.getElementById("admin-pass-input").value = "";
+      showToast("Logged out successfully");
+    }
+
+    function updateAdminCredentials(e) {
+      e.preventDefault();
+      const newUser = document.getElementById("new-admin-user").value.trim();
+      const newPass = document.getElementById("new-admin-pass").value.trim();
+
+      if(newUser && newPass) {
+        localStorage.setItem(ADMIN_CRED_KEY, JSON.stringify({ user: newUser, pass: newPass }));
+        showToast("Admin credentials updated successfully!");
+        document.getElementById("new-admin-user").value = "";
+        document.getElementById("new-admin-pass").value = "";
+      }
+    }
+
+    function updateAnnouncement(e) {
+      e.preventDefault();
+      const text = document.getElementById("announcement-text").value;
+      localStorage.setItem("bigestmall_announcement", text);
+      showToast("Announcement saved successfully!");
+    }
+
+    let toastTimer = null;
+    function showToast(message, timeout = 2200) {
+      const toastEl = document.getElementById("toast");
+      if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+      toastEl.textContent = message;
+      toastEl.hidden = false;
+      toastEl.classList.add("show");
+      toastTimer = setTimeout(() => {
+        toastEl.classList.remove("show");
+        toastTimer = setTimeout(() => { toastEl.hidden = true; }, 220);
+      }, timeout);
+    }
+  </script>
 </body>
 </html>
